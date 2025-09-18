@@ -1,0 +1,79 @@
+{
+    "name": "brevity-workflow-vite",
+    "version": "2.0.0",
+    "author": "WP-Strap",
+    "license": "MIT",
+    "homepage": "https://github.com/owler11/Brevity-Vite/upload",
+    "description": "Modern Vite workflow for WordPress front-end development and testing (plugins & themes) with handy tools included.",
+    "main": "vite.config.js",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wp-strap/wordpress-vite-workflow.git"
+    },
+    "bugs": {
+        "url": "https://github.com/wp-strap/wordpress-vite-workflow/issues"
+    },
+    "scripts": {
+        "dev": "vite",
+        "dev:open": "vite --open",
+        "build": "vite build",
+        "build:watch": "vite build --watch",
+        "preview": "vite preview",
+        "prod": "npm run build",
+        "prod:watch": "npm run build:watch",
+        "lint:js": "eslint assets/src/js/**/*.js",
+        "lint:js:fix": "eslint assets/src/js/**/*.js --fix",
+        "lint:css": "stylelint assets/src/**/*.{css,scss,sass,pcss}",
+        "lint:css:fix": "stylelint assets/src/**/*.{css,scss,sass,pcss} --fix",
+        "format": "prettier assets/src/js/**/*.js --write",
+        "format:check": "prettier assets/src/js/**/*.js --check",
+        "translate": "wp-pot --src '**/**/**/*.php' --dest-file 'languages/wordpress-vite.pot' --package 'Brevity Vite Workflow' --domain 'brevity-vite' --last-translator 'WP-Strap <hello@wp-strap.com>' --team 'WP-Strap <hello@wp-strap.com>' --bug-report 'https://github.com/wp-strap/wordpress-vite-workflow'",
+        "clean": "rimraf assets/public/*",
+        "analyze": "vite-bundle-analyzer"
+    },
+    "dependencies": {
+        "gsap": "^3.12.2",
+        "jquery": "^3.7.1",
+        "magnific-popup": "^1.1.0",
+        "slick-carousel": "^1.8.1"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-legacy": "^4.1.1",
+        "@wordpress/eslint-plugin": "^17.1.0",
+        "autoprefixer": "^10.4.15",
+        "eslint": "^8.49.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "prettier": "^3.0.3",
+        "rimraf": "^5.0.1",
+        "sass": "^1.67.0",
+        "stylelint": "^15.10.3",
+        "stylelint-config-standard": "^34.0.0",
+        "stylelint-config-standard-scss": "^11.0.0",
+        "stylelint-scss": "^5.1.0",
+        "vite": "^4.4.9",
+        "vite-plugin-static-copy": "^0.17.1",
+        "wp-pot-cli": "^1.5.0"
+    },
+    "browserslist": [
+        "defaults",
+        "not IE 11"
+    ],
+    "keywords": [
+        "wordpress",
+        "workflow",
+        "vite",
+        "theme",
+        "plugin",
+        "Vite",
+        "PostCSS",
+        "Autoprefixer",
+        "PurgeCSS",
+        "ESLint",
+        "Stylelint",
+        "SCSS",
+        "WP-Pot",
+        "HMR"
+    ]
+}

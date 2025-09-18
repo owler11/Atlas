@@ -1,0 +1,108 @@
+{
+    "key": "group_66d896a72d2de",
+    "title": "Block - Video",
+    "fields": [
+        {
+            "key": "field_66d896a7e6757",
+            "label": "Video Type",
+            "name": "video_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "mp4": "MP4",
+                "youtube": "YouTube",
+                "vimeo": "Vimeo"
+            },
+            "default_value": "youtube",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66d896ece6758",
+            "label": "Video",
+            "name": "video",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the video ID from Vimeo or Youtube",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66d896a7e6757",
+                        "operator": "!=",
+                        "value": "mp4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66d89709e6759",
+            "label": "Video MP4",
+            "name": "video_mp4",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66d896a7e6757",
+                        "operator": "==",
+                        "value": "mp4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "mp4",
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/video"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1756136371
+}

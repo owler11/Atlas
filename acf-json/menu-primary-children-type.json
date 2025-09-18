@@ -1,0 +1,56 @@
+{
+    "key": "group_66aaca6664650",
+    "title": "Menu Primary - Children Type",
+    "fields": [
+        {
+            "key": "field_66aaca66e3c35",
+            "label": "Children Type",
+            "name": "children_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "dropdown": "Dropdown",
+                "mega": "Mega"
+            },
+            "default_value": "dropdown",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "location\/primary"
+            },
+            {
+                "param": "menu_level",
+                "operator": "==",
+                "value": "0"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1744992162
+}
