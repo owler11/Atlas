@@ -1,0 +1,92 @@
+/*
+Frontend Sass Files 
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Reset  
+2.0 - Framework
+3.0 - Plugins
+4.0 - Globals
+5.0 - Post Types
+6.0 - Pages
+7.0 - Other
+8.0 - Hero
+9.0 - Blocks
+10.0 - Components
+11.0 - Animations
+12.0 - Plugin
+13.0 - Print
+-------------------------------------------------------------- */
+
+// 1.0 - Reset
+@import "framework/resets";
+
+// 2.0 - Framework
+// @import "fontawesome/fontawesome";
+// @import "fontawesome/brands";
+// @import "fontawesome/regular";
+// @import "fontawesome/solid";
+// @import "fontawesome/v4-shims";
+
+@import "theme/legacy";
+@import "theme/variables";
+@import "framework/functions";
+@import "theme/fonts";
+@import "theme/icomoon";
+@import "theme/utility";
+@import "theme/typography";
+@import "framework/grid";
+
+// 3.0 - Plugins
+
+// 4.0 - Globals
+@import "globals/header";
+@import "globals/menu-vertical";
+@import "globals/menu-drilldown";
+@import "globals/menu-horizontal";
+@import "globals/footer";
+@import "globals/footer-cta";
+
+// 5.0 - Post Types
+@import "posttypes/settings";
+@import "posttypes/events";
+@import "posttypes/people";
+@import "posttypes/post";
+@import "posttypes/search";
+
+// 6.0 - Pages
+@import "pages/error-404";
+
+// 7.0 - Other
+@import "components/blocks";
+@import "components/hero";
+
+// 8.0 - Hero
+// Add Heros (* do not remove this comment *)
+@import "blocks/hero-default";
+
+// 9.0 - Blocks
+// Add Blocks (* do not remove this comment *)
+@import "blocks/heading";
+@import "blocks/video";
+@import "blocks/wysiwyg";
+
+// 10.0 - Components
+@import "components/buttons";
+@import "components/cookie";
+@import "components/facets";
+@import "components/forms";
+@import "components/gutenberg";
+@import "components/popup";
+@import "components/slider";
+
+// 11.0 - Animations
+
+// 12.0 - Plugin
+// @import "plugin/plyr/plyr.scss";
+
+// 13.0 - Print
+@import "print/print";

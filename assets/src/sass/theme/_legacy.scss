@@ -1,0 +1,201 @@
+/*
+Legacy Sass Files
+
+@package mingo
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Color Utilities
+--------------------------------------------------------------*/
+
+//1.0 - Color Utilities
+@mixin bg-opacity($color, $opacity: 0.3) {
+	background: $color; /* The Fallback */
+	background: rgba($color, $opacity);
+}
+
+@mixin bg-full($color: $black) {
+	background-color: transparent;
+	position: relative;
+	&:before {
+		background-color: $color;
+		content: "";
+		height: 100%;
+		left: 50%;
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+		width: $viewportWidth;
+		z-index: 0;
+	}
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+@mixin opacity($value: 1) {
+	$IEValue: $value * 100;
+	opacity: $value;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $IEValue +
+		")";
+	filter: alpha(opacity=$IEValue);
+}
+
+@mixin overlay($color: $white, $opcity: 0.5, $position: relative) {
+	position: $position;
+	&:before {
+		content: "";
+		background: $color;
+		@include opacity($opcity);
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		pointer-events: none;
+		position: absolute;
+		z-index: 1;
+		@include transition(opacity);
+	}
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+@mixin gradient-overlay(
+	$side: left,
+	$color: $black,
+	$opacity: 0.65,
+	$position: relative
+) {
+	position: $position;
+	&:after {
+		@if $side == left {
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+75 */
+			background: -moz-linear-gradient(
+				left,
+				rgba($color, $opacity) 0%,
+				rgba($color, 0) 75%,
+				rgba($color, 0) 100%
+			); /* FF3.6-15 */
+			background: -webkit-linear-gradient(
+				left,
+				rgba($color, $opacity) 0%,
+				rgba($color, 0) 75%,
+				rgba($color, 0) 100%
+			); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(
+				to right,
+				rgba($color, $opacity) 0%,
+				rgba($color, 0) 75%,
+				rgba($color, 0) 100%
+			); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+		} @else if $side == right {
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+25,0.65+100 */
+			background: -moz-linear-gradient(
+				left,
+				rgba($color, 0) 0%,
+				rgba($color, 0) 25%,
+				rgba($color, $opacity) 100%
+			); /* FF3.6-15 */
+			background: -webkit-linear-gradient(
+				left,
+				rgba($color, 0) 0%,
+				rgba($color, 0) 25%,
+				rgba($color, $opacity) 100%
+			); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(
+				to right,
+				rgba($color, 0) 0%,
+				rgba($color, 0) 25%,
+				rgba($color, $opacity) 100%
+			); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 */
+		} @else if $side == top {
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+75 */
+			background: -moz-linear-gradient(
+				top,
+				rgba($color, $opacity) 0%,
+				rgba($color, 0) 75%,
+				rgba($color, 0) 100%
+			); /* FF3.6-15 */
+			background: -webkit-linear-gradient(
+				top,
+				rgba($color, $opacity) 0%,
+				rgba($color, 0) 75%,
+				rgba($color, 0) 100%
+			); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(
+				to bottom,
+				rgba($color, $opacity) 0%,
+				rgba($color, 0) 75%,
+				rgba($color, 0) 100%
+			); /* W3C, IE10+, FF16+, Chrome26+, Opera12+,  Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 */
+		} @else if $side == bottom {
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+25,0.65+100 */
+			background: -moz-linear-gradient(
+				top,
+				rgba($color, 0) 0%,
+				rgba($color, 0) 25%,
+				rgba($color, $opacity) 100%
+			); /* FF3.6-15 */
+			background: -webkit-linear-gradient(
+				top,
+				rgba($color, 0) 0%,
+				rgba($color, 0) 25%,
+				rgba($color, $opacity) 100%
+			); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(
+				to bottom,
+				rgba($color, 0) 0%,
+				rgba($color, 0) 25%,
+				rgba($color, $opacity) 100%
+			); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 */
+		}
+		bottom: 0;
+		content: "";
+		display: block;
+		left: 0;
+		position: absolute;
+		pointer-events: none;
+		right: 0;
+		top: 0;
+		z-index: 1;
+	}
+}
+
+@mixin gradient($startColor: $white, $endColor: #eee) {
+	background-color: $startColor;
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from($startColor),
+		to($endColor)
+	);
+	background: -webkit-linear-gradient(top, $startColor, $endColor);
+	background: -moz-linear-gradient(top, $startColor, $endColor);
+	background: -ms-linear-gradient(top, $startColor, $endColor);
+	background: -o-linear-gradient(top, $startColor, $endColor);
+}
+
+@mixin horizontal-gradient($startColor: #eee, $endColor: white) {
+	background-color: $startColor;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		from($startColor),
+		to($endColor)
+	);
+	background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+	background-image: -moz-linear-gradient(left, $startColor, $endColor);
+	background-image: -ms-linear-gradient(left, $startColor, $endColor);
+	background-image: -o-linear-gradient(left, $startColor, $endColor);
+}

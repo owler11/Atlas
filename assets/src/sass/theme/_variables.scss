@@ -1,0 +1,159 @@
+/*
+Global Variables
+
+@package mingo
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Viewport Width
+2.0 - Colors 
+	2.1 - Custom Colors 
+	2.2 - Social Colors 
+	2.3 - Background Colors
+3.0 - Fonts
+	3.1 - Font Sizes
+		3.1.1 - Letter Spacing
+	3.2 - Font Colors
+	3.3 - Font Weights
+4.0 - Container Styles
+	4.1 - Radius
+	4.2 - Shadows
+	4.3 - Spacing
+5.0 - Folder
+6.0 - Keyframes
+--------------------------------------------------------------*/
+
+//1.0 - Viewport Width
+$scrollbarWidth: var(--scrollbarWidth, 0px);
+$viewportWidth: calc(100vw - #{$scrollbarWidth});
+
+//2.0 - Colors
+$white: #ffffff;
+$black: #000000;
+$grey: #dedede;
+$grey-2: #f9f9f9;
+
+//2.1 - Custom Colors
+$black-1: $black;
+$black-2: $black;
+$black-3: #787878;
+$black-4: #f2f2f4;
+
+$red-1: #ff5869;
+$red-2: #b13c48;
+
+$teal-1: #45988a;
+
+$navy-1: #1f2041;
+$navy-2: #4b4c66;
+$navy-3: #78798d;
+$navy-4: #e8e8ec;
+
+//2.2 - Social Colors
+$facebook: #3a5885;
+$twitter: #44bae3;
+$instagram: #d4ad6e;
+$linkedIn: #2867b2;
+
+//2.3 - Background Colors
+$bg-grey: $grey;
+$bg-light: $navy-4;
+$bg-medium: $navy-2;
+$bg-dark: $navy-1;
+$bg-accent: $teal-1;
+
+$color-primary: $navy-1;
+$color-secondary: $teal-1;
+
+//3.0 - Fonts
+$body: "Source Sans 3", sans-serif;
+$headline: "Source Sans 3", sans-serif;
+$accent: "Source Sans 3", sans-serif;
+$icon: "Font Awesome 6 Free";
+$icomoon: "icomoon";
+
+//3.1 - Font Sizes
+$base-font-size: 16px;
+
+$size-xxs: em(12px);
+$size-xs: em(14px);
+$size-sm: em(16px);
+$size-base: em(18px);
+$size-md: em(21px);
+$size-lg: em(24px);
+$size-xl: em(28px);
+$size-xxl: em(32px);
+$size-xxxl: em(36px);
+$size-jumbo: em(48px);
+$size-super: em(64px);
+$size-epic: em(80px);
+
+//3.1.1 - Letter Spacing
+$letter-spacing: 0.05em;
+
+//3.2 - Font Colors
+$color-grey: $grey;
+$color-light: $navy-4;
+$color-medium: $navy-2;
+$color-dark: $navy-1;
+$color-accent: $teal-1;
+
+//3.3 - Font Weights
+$light: 100;
+$thin: 300;
+$regular: 400;
+$semi: 600;
+$bold: 700;
+$bolder: 900;
+
+//4.0 - Container Styles
+$container-lg: 96rem;
+$container-regular: 86rem; // 1376
+$container-md: $container-regular;
+$container-sm: 64.75rem;
+
+//4.1 - Radius
+$radius-sm: 0.1rem;
+$radius: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.1rem;
+$radius-max: 999rem;
+
+//4.2 - Shadows
+$shadow-sm: 0 0 5px 5px rgba(0, 0, 0, 0.15);
+$shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+$shadow-md: 0 0 20px 20px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 0 30px 30px rgba(0, 0, 0, 0.15);
+$shadow-max: 0 0 40px 40px rgba(0, 0, 0, 0.15);
+
+$spacing-xs: 8px;
+$spacing-s: 16px;
+$spacing-sm: 24px;
+$spacing-m: 32px;
+$spacing-ml: 40px;
+$spacing-l: 48px;
+$spacing-xl: 64px;
+$spacing-xxl: 128px;
+
+$spacing: (
+	none: 0px,
+	small: $spacing-m,
+	medium: $spacing-xl,
+	large: $spacing-xxl,
+);
+
+@each $size, $value in $spacing {
+	.padding-t-#{$size} {
+		padding-top: $value;
+	}
+
+	.padding-b-#{$size} {
+		padding-bottom: $value;
+	}
+
+	.padding-both-#{$size} {
+		padding: $value 0;
+	}
+}

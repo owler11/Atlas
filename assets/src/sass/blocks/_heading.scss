@@ -1,0 +1,63 @@
+/*
+Scss - Block - Heading
+
+Heading Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Heading
+--------------------------------------------------------------*/
+
+//1.0 - Heading
+.heading__heading {
+	max-width: rem(856px);
+	margin: 0 auto rem(70px);
+	text-align: center;
+
+	.title {
+		margin: 0 0 rem(14px);
+	}
+	.headline {
+		margin: 0 0 rem(16px);
+	}
+	.description {
+		margin: 0 0 rem(30px);
+
+		> * {
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		p {
+			font-size: rem(18px);
+		}
+	}
+	.btn-group {
+		justify-content: center;
+	}
+
+	&.heading-left {
+		margin: 0 auto rem(70px) 0;
+		text-align: left;
+
+		.btn-group {
+			justify-content: flex-start;
+		}
+	}
+
+	&.heading-center {
+	}
+
+	&.heading-right {
+		margin: 0 0 rem(70px) auto;
+		text-align: right;
+
+		.btn-group {
+			justify-content: flex-end;
+		}
+	}
+}

@@ -1,0 +1,457 @@
+/*
+Scss - Header
+
+Header & Navigation Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Message Bar
+2.0 - Site Header
+	2.1 - Branding
+	2.2 - Navigation
+	2.3 - Horizontal
+	2.4 - Vertical
+		2.4.1 - Vertical Drilldown
+3.0 - Mobile Nav
+	3.1 - Burger
+4.0 - Utility Menu
+5.0 - Search
+--------------------------------------------------------------*/
+
+// 1.0 - Message Bar
+#header-message-bar {
+	display: none;
+	@include bg-full($navy-1);
+	color: $white;
+	float: none;
+	font-family: $body;
+	font-size: rem(16px);
+	min-width: 290px;
+	padding: 0.5em;
+	text-align: center;
+	z-index: 2;
+
+	@include respond-below(sm) {
+		font-size: $size-xs;
+		margin: 0 3em 0 0;
+		text-align: left;
+		width: calc(100% - 2em);
+		&:before,
+		&:after {
+			left: 0;
+			transform: translateY(0);
+		}
+	}
+	a {
+		color: $color-light;
+		text-decoration: underline;
+	}
+
+	.message-bar-content {
+		grid-column: span 12;
+	}
+
+	.close {
+		right: calc(50% - 50vw + 0.5rem);
+		top: 50%;
+		transform: translateY(-50%);
+		position: absolute;
+		text-decoration: none;
+		color: $white;
+		transition: color 0.3s;
+
+		&:hover,
+		&:focus-visible {
+			color: rgba($color: $white, $alpha: 0.6);
+		}
+
+		.icomoon {
+			font-size: rem(22px);
+		}
+		@include respond-below(sm) {
+			right: -1em;
+		}
+	}
+	&.hide {
+		display: none !important;
+	}
+}
+
+// 2.0 - Site Header
+.site-header {
+	position: relative;
+	width: 100%;
+	background: $white;
+	z-index: 99;
+	padding: 0;
+
+	.masthead-logo {
+		text-decoration: none;
+		font-weight: 600;
+		@include font-size(24px);
+		color: $color-dark;
+		display: flex;
+	}
+
+	#logo {
+		width: rem(95px);
+
+		path {
+			fill: $navy-1;
+		}
+	}
+
+	&.site-header--sticky {
+		position: sticky;
+		top: 0;
+	}
+}
+
+// Admin Bar Fix
+.admin-bar {
+	.site-header--sticky {
+		top: 32px;
+
+		@media screen and (max-width: 782px) {
+			top: 46px;
+		}
+	}
+}
+
+.site-header__primary-container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.site-header__backdrop {
+	position: fixed;
+	inset: 0;
+	background-color: rgba($color: $navy-1, $alpha: 0.4);
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.3s 0s,
+		visibility 0.3s 0s;
+}
+
+// 2.1 - Masthead Branding
+.site-header__branding {
+	margin-right: 3rem;
+	display: flex;
+	align-items: center;
+}
+
+// 2.2 - Masthead Nav
+// Set Global Styles for the navigation
+.site-header__primary-menu {
+	align-self: center;
+
+	.menu-close {
+		display: none;
+		cursor: pointer;
+		position: absolute;
+		z-index: 10;
+		top: rem(40px);
+		right: rem(40px);
+		font-size: rem(22px);
+
+		@include respond-below(sm) {
+			right: rem(20px);
+		}
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+	}
+
+	.menu-primary {
+		> li {
+			@include respond-above(burger) {
+				padding: rem(32px) 0;
+				margin: 0 12px;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	li {
+		margin: 0;
+
+		> a {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			gap: rem(12px);
+
+			i {
+				order: -1;
+			}
+		}
+	}
+
+	a {
+		text-decoration: none;
+		color: $color-dark;
+		font-weight: 600;
+		transition: color 0.2s;
+		font-size: rem(18px);
+
+		&:hover {
+			color: $navy-2;
+		}
+	}
+
+	.sub-menu {
+		a {
+			font-weight: 600;
+		}
+	}
+
+	.hide > a {
+		display: none !important;
+	}
+
+	.menu-item {
+		&.nav-button {
+			a {
+				background-color: $navy-1;
+				color: $white;
+				border-radius: rem(60px);
+				line-height: 1.5;
+				padding: em(8px) em(28px);
+				border: 2px solid transparent;
+				transition: background 0.2s;
+
+				&:hover,
+				&:focus-visible {
+					background: $navy-2;
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+#site-header {
+	&.type-horizontal,
+	&.type-vertical-drilldown,
+	&.type-vertical {
+		.site-header__primary-menu {
+			@include respond-below(sm) {
+				padding: rem(96px) rem(60px);
+			}
+		}
+	}
+}
+
+.no-animate {
+	.site-header__primary-menu {
+		transition: none !important;
+	}
+}
+
+// 3.0 - Mobile Nav
+.burger {
+	display: none;
+	appearance: none;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	font-size: rem(22px);
+	cursor: pointer;
+	transition: color 0.2s;
+
+	&:hover {
+		color: $color-secondary;
+	}
+}
+
+@include respond-below(burger) {
+	.menu-primary {
+		> li {
+			> li {
+				padding: rem(10px) 0;
+
+				a {
+					font-size: rem(18px);
+					display: inline-block;
+				}
+
+				> .menu-item-arrow {
+					position: absolute;
+					top: rem(10px);
+					left: rem(-26px);
+					cursor: pointer;
+
+					&:after {
+						content: "\2b";
+						font-family: $icon;
+						font-weight: 700;
+						font-size: rem(16px);
+					}
+
+					&:hover {
+						color: $color-secondary;
+					}
+				}
+			}
+		}
+
+		.nav-button {
+			margin: rem(20px) 0 0;
+		}
+
+		li {
+			.sub-menu {
+				display: none;
+			}
+
+			&.is-active {
+				.sub-menu {
+					display: block;
+				}
+			}
+
+			&.has-icon {
+				position: relative;
+			}
+
+			a {
+				color: $navy-1;
+				transition: color 0.3s;
+
+				&:hover {
+					color: $navy-2;
+				}
+			}
+
+			.description {
+				display: block;
+				margin: rem(4px) 0 0;
+				color: $black-3;
+				font-weight: 400;
+			}
+		}
+
+		.hide {
+			.sub-menu li:first-child a {
+				padding-top: 0;
+			}
+		}
+	}
+}
+
+// 4.0 - Utility Menu
+.utility-menu {
+	background-color: #f1f1f1;
+}
+.menu-utility {
+	list-style-type: none;
+	margin: 0;
+	padding: rem(16px) 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	gap: rem(16px);
+
+	li {
+		margin: 0;
+	}
+
+	a {
+		font-size: rem(16px);
+		font-weight: 400;
+		text-decoration: none;
+		color: $black;
+		transition: all 0.2s;
+
+		&:hover {
+			color: $color-secondary;
+		}
+	}
+}
+
+// 5.0 - Search
+.site-header__search {
+	display: flex;
+	margin: 0 rem(16px) 0 auto;
+
+	.search-toggle {
+		appearance: none;
+		background-color: transparent;
+		padding: 0;
+		border: none;
+		font-size: rem(18px);
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&:hover {
+			color: $color-secondary;
+		}
+
+		i {
+			pointer-events: none;
+		}
+	}
+}
+
+.site-header__search-form {
+	position: fixed;
+	z-index: 1;
+	padding: rem(48px) 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: $white;
+
+	opacity: 0;
+	visibility: hidden;
+	transform: translate(0, -100%);
+	transition:
+		transform 0.3s,
+		opacity 0s 0.3s,
+		visibility 0s 0.3s;
+
+	.search-submit {
+		appearance: none;
+		background-color: transparent;
+		padding: 0;
+		border: none;
+	}
+}
+
+.site-header.search-open {
+	.site-header__search-form {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(0, 0);
+		transition:
+			transform 0.3s,
+			opacity 0s 0s,
+			visibility 0s 0s;
+	}
+
+	.site-header__backdrop {
+		opacity: 1;
+		visibility: visible;
+		transition:
+			opacity 0.3s 0s,
+			visibility 0.3s 0s;
+	}
+}

@@ -1,0 +1,68 @@
+/*
+Scss - Footer CTA
+
+Footer CTA
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Site Footer CTA
+--------------------------------------------------------------*/
+
+// 1.0 - Site Footer CTA
+.site-footer__cta {
+	&.theme-default {
+	}
+	&.theme-light {
+		background-color: $navy-4;
+		color: $color-primary;
+
+		i {
+			color: $color-primary;
+		}
+	}
+	&.theme-dark {
+		background-color: $navy-1;
+		color: $white;
+
+		i {
+			color: $white;
+		}
+	}
+
+	&.padding-none {
+		padding: 0;
+	}
+	&.padding-small {
+		padding: rem(28px) 0;
+	}
+	&.padding-medium {
+		padding: rem(48px) 0;
+
+		@include respond-below(sm) {
+			padding: rem(40px) 0;
+		}
+	}
+	&.padding-large {
+		padding: rem(90px) 0;
+
+		@include respond-below(md) {
+			padding: rem(56px) 0;
+		}
+
+		@include respond-below(sm) {
+			padding: rem(40px) 0;
+		}
+	}
+}
+
+.site-footer-cta__content {
+	text-align: center;
+
+	.title,
+	.headline {
+		margin-top: 0;
+	}
+}

@@ -1,0 +1,67 @@
+/*
+Scss - Post Type - Post
+
+Post Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Index
+2.0 - Teaser
+3.0 - Single
+--------------------------------------------------------------*/
+
+// 1.0 - Index
+// 2.0 - Teaser
+// 3.0 - Single
+.post-single {
+	padding: rem(78px) 0;
+
+	@include respond-below(md) {
+		padding: rem(48px) 0;
+	}
+}
+
+.post-single-header {
+	margin: 0 0 rem(44px);
+
+	.post-title {
+		margin: 0 0 rem(30px);
+	}
+}
+
+.post-single-description {
+	grid-column: span 6;
+
+	@include respond-below(md) {
+		grid-column: span 4;
+	}
+
+	p {
+		@include respond-above(md) {
+			font-size: rem(18px);
+			color: $navy-2;
+		}
+	}
+
+	.post-excerpt {
+		margin: 0 0 rem(30px);
+	}
+}
+
+.post-single-share {
+	grid-column: 8 / span 5;
+
+	@include respond-below(md) {
+		grid-column: span 4;
+	}
+}
+
+.post-single-image {
+	img {
+		display: block;
+		width: 100%;
+	}
+}

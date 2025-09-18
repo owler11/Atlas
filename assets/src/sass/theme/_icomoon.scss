@@ -1,0 +1,86 @@
+/*
+Icomoon Styles
+
+@package mingo
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Icomoon Fonts
+--------------------------------------------------------------*/
+
+//1.0 - Icomoon Fonts
+.icomoon {
+	font-family: $icomoon;
+}
+.icon-facebook:before {
+	content: "\e900";
+}
+.icon-instagram:before {
+	content: "\e901";
+}
+.icon-link:before {
+	content: "\e902";
+}
+.icon-linkedin:before {
+	content: "\e903";
+}
+.icon-twitter:before,
+.icon-twitterx:before {
+	content: "\e904";
+}
+.icon-arrow-right:before {
+	content: "\e905";
+}
+.icon-calendar-days:before {
+	content: "\e906";
+}
+.icon-calendar:before {
+	content: "\e907";
+}
+.icon-checkmark:before {
+	content: "\e908";
+}
+.icon-chevron-down:before {
+	content: "\e909";
+}
+.icon-chevron-left:before {
+	content: "\e90a";
+}
+.icon-chevron-right:before {
+	content: "\e90b";
+}
+.icon-close-circle:before {
+	content: "\e90c";
+}
+.icon-close:before {
+	content: "\e90d";
+}
+.icon-cookie:before {
+	content: "\e90e";
+}
+.icon-globe:before {
+	content: "\e90f";
+}
+.icon-location:before {
+	content: "\e910";
+}
+.icon-next:before {
+	content: "\e911";
+}
+.icon-phone:before {
+	content: "\e913";
+}
+.icon-play:before {
+	content: "\e914";
+}
+.icon-plus:before {
+	content: "\e915";
+}
+.icon-prev:before {
+	content: "\e916";
+}
+.icon-search:before {
+	content: "\e918";
+}

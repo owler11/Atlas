@@ -1,0 +1,145 @@
+/*
+Typography Styles
+
+@package mingo
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Resets
+2.0 - Headlines
+3.0 - Paragraph
+4.0 - Links
+	4.1 - Buttons
+5.0 - List
+6.0 - Screen Reader
+7.0 - Utilities
+--------------------------------------------------------------*/
+
+//1.0 - Resets
+html,
+body,
+button,
+input,
+select,
+textarea,
+#page {
+	color: $navy-1;
+	font-family: $body;
+	font-size: 16px;
+	@include font-smoothing;
+	line-height: 1.5;
+}
+
+//2.0 - Headlines
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $headline;
+	color: purple;
+	clear: both;
+	line-height: 1.2em;
+}
+
+// Balance Text
+h1,
+h2 {
+	text-wrap: balance;
+}
+
+.h1,
+h1 {
+	@include headingH1();
+}
+.h2,
+h2 {
+	@include headingH2();
+}
+.h3,
+h3 {
+	@include headingH3();
+}
+.h4,
+h4 {
+	@include headingH4();
+}
+.h5,
+h5 {
+	@include headingH5();
+}
+.h6,
+h6 {
+	@include headingH6();
+}
+
+//3.0 - Paragraph
+p {
+	margin-bottom: 1.5em;
+}
+
+//4.0 Links
+a {
+	text-decoration: underline;
+	color: $red-1;
+
+	&:hover {
+		color: $red-2;
+	}
+}
+
+.disable > a,
+.disabled > a,
+a.disable,
+a.disabled {
+	pointer-events: none;
+	cursor: default;
+}
+
+input:focus-visible,
+a:focus-visible,
+button:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4) !important;
+}
+
+//5.0 - List
+ul,
+ol {
+	margin-left: 0;
+	padding: 0 0 0 1.25rem;
+
+	li {
+		margin: 0 0 rem(4px);
+	}
+}
+
+// 6.0 - Screen Reader
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+// 7.0 - Utilities
+.no-margin {
+	margin: 0;
+}
+
+.no-top-margin {
+	margin-top: 0;
+}
+
+.no-bottom-margin {
+	margin-bottom: 0;
+} /* Test comment */
+/* Another test comment */
+/* Test change for file watching */
+/* File watching test - Wed Sep 17 14:03:24 CDT 2025 */
+/* Test change Wed Sep 17 14:06:45 CDT 2025 */

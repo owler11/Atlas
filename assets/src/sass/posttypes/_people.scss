@@ -1,0 +1,170 @@
+/*
+Scss - Post Type - People
+
+People Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Index
+2.0 - Teaser
+3.0 - Single
+--------------------------------------------------------------*/
+
+// 1.0 - Index
+.archive-grid {
+	.people-teaser {
+		grid-column: span 3;
+
+		@include respond-below(md) {
+			grid-column: span 4;
+		}
+
+		@include respond-below(sm) {
+			grid-column: span -1;
+		}
+	}
+}
+
+// 2.0 - Teaser
+.people-teaser {
+	background-color: $black-4;
+
+	.btn-group {
+		margin: 0 0 rem(20px);
+	}
+
+	.tag {
+		color: #9f9f9f;
+		text-decoration: none;
+		font-size: rem(14px);
+	}
+
+	.title {
+		margin: 0 0 rem(10px);
+	}
+
+	.btn__post {
+		margin-top: rem(24px);
+		text-decoration: none;
+	}
+
+	.job {
+		margin-top: 0;
+	}
+}
+
+.people-wrapper {
+	text-decoration: none;
+	color: $navy-1;
+	cursor: pointer;
+}
+button.people-wrapper {
+	appearance: none;
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	text-align: unset;
+	width: 100%;
+}
+
+.people-image {
+	// height: rem(280px);
+	aspect-ratio: 8/7;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.people-content {
+	padding: rem(24px) rem(40px) rem(30px);
+
+	@include respond-below(sm) {
+		padding: rem(24px) rem(18px) rem(30px);
+	}
+
+	p {
+		color: $navy-3;
+	}
+}
+
+// 3.0 - Single
+.people-single {
+	padding: rem(78px) 0;
+
+	@include respond-below(md) {
+		padding: rem(48px) 0;
+	}
+}
+
+.people-single-header {
+	margin: 0 0 rem(44px);
+
+	.people-title {
+		margin: 0 0 rem(30px);
+	}
+}
+
+.people-single-description {
+	grid-column: span 6;
+
+	@include respond-below(md) {
+		grid-column: span 4;
+	}
+
+	.people-job {
+		margin-top: 0;
+	}
+
+	p {
+		@include respond-above(md) {
+			font-size: rem(18px);
+			color: $navy-2;
+		}
+	}
+
+	.people-description {
+		margin: 0 0 rem(30px);
+	}
+}
+
+.people-single-media {
+	grid-column: 8 / span 5;
+
+	@include respond-below(md) {
+		grid-column: span 4;
+	}
+
+	img {
+		display: block;
+		max-width: rem(320px);
+		width: 100%;
+		margin: 0 0 rem(20px);
+	}
+
+	.socials {
+		display: flex;
+		flex-flow: row wrap;
+		gap: rem(12px);
+	}
+
+	.social {
+		font-size: rem(18px);
+		color: $color-primary;
+		transition: color 0.2s;
+
+		&:hover {
+			color: $color-accent;
+		}
+	}
+}

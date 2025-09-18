@@ -1,0 +1,42 @@
+/*
+Scss - Hero - Hero Default
+
+Hero Default Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Hero Default
+--------------------------------------------------------------*/
+
+//1.0 - Hero Default
+.hero-default-content {
+	grid-column: span 7;
+
+	&.content-center {
+		@include respond-above(md) {
+			grid-column: 3 / span 8;
+			text-align: center;
+
+			.btn-group {
+				justify-content: center;
+			}
+		}
+		@include respond-below(md) {
+			grid-column: 1 / -1;
+			text-align: center;
+
+			.btn-group {
+				justify-content: center;
+			}
+		}
+	}
+
+	&.content-right {
+		@include respond-above(md) {
+			grid-column: 6 / span 7;
+		}
+	}
+}
