@@ -1,0 +1,278 @@
+/*
+Form Styles
+
+@package mingo
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Form Header
+2.0 - Form Body
+	2.1 - Form Sections
+	2.2 - Input Fields
+	2.3 - Labels
+	2.4 - Button
+3.0 - Form Footer
+4.0 - Form Errors
+5.0 - Form Confirmation
+--------------------------------------------------------------*/
+
+
+//0.0 - Form Variables
+$input-font-size    : rem(16px); 
+$input-height       : 3em;
+$input-lineheight	: 3em;
+$input-padding      : rem(8px);  
+
+
+//1.0 - Form Header
+#page .gform_heading {
+	h2.gform_title {}
+	.gform_description { }
+	.gform_required_legend { 
+		font-size: $size-xs;
+		font-style: italic;
+		margin: .25em 0 0;
+	}
+}
+
+.gf_progressbar_wrapper {
+	margin-top: 2rem;
+}
+
+//2.0 - Form Body
+
+//2.1 - Form Sections
+#page .gform_body {
+	// margin-top: 3rem;	
+	.gsection {
+		margin: 0 0 1rem;
+		padding: 0 0 .5rem;
+		&:not(:first-child) {
+			margin-top: 2rem;
+		}
+		.gsection_title {
+			font-size: $size-xl;
+			font-weight: 700;
+			margin-bottom: .25em;
+			@include respond-below(sm) { font-size: $size-lg; }
+		}
+		.gsection_description {
+			padding: 0;
+		}
+	}
+}
+
+//2.2 - Input Fields
+#page {
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	input[type="tel"],
+	input[type="text"]:not(.facetwp-search),
+	input[type="url"],
+	input[type="search"],
+	select:not([multiple="multiple"]):not(.facetwp-dropdown),
+	textarea:not(.editor-post-title__input):not(.block-editor-default-block-appender__content)  {
+		border: 1px solid $black;
+		border-radius: $radius;
+		background: transparent;
+		color: $black;
+		font-size: $input-font-size; /* Corrects font size not being inherited in all browsers */
+		margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+		vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+		-webkit-appearance: none;
+		height: $input-height;
+		line-height: $input-lineheight;
+		padding: 0 $input-padding;
+		outline: none;
+	}
+	
+	textarea:not(.editor-post-title__input):not(.block-editor-default-block-appender__content) { 
+		height: 10em;
+		padding: calc(#{$input-padding} * 1.5) $input-padding;
+		line-height: calc(#{$input-lineheight} / 2); 
+		resize: vertical;
+	}
+	
+	.gfield_checkbox,
+	.gfield_radio {
+		font-size: $input-font-size;
+		input {
+			height: calc(#{$input-height} * .75);
+		}
+		label { font-size: 1em; }
+	}
+	
+	.gform_wrapper select:not([multiple="multiple"]) {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		cursor: pointer;
+		overflow:hidden; 
+		padding-right: $input-height;
+		text-overflow:ellipsis;
+		white-space:nowrap; 
+	}
+	
+	select[multiple="multiple"] {
+		font-size: $input-font-size;
+	}
+
+	// Gravity Form Specific
+	.gravity-theme {
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"],
+		input[type="search"],
+		select:not([multiple="multiple"]),
+		textarea:not(.editor-post-title__input):not(.block-editor-default-block-appender__content) {
+			border-radius: rem(6px);
+			background-color: $white;
+			border: 1px solid #cecece;
+		}
+	}
+	
+	.ginput_container_select,
+	.gfield_time_ampm {
+		cursor: pointer;
+		position: relative;
+		&::after {
+			background: transparent;
+			content: "\f107";
+			display: block;
+			font-family: FontAwesome;
+			height: $input-height;
+			line-height: $input-lineheight;
+			position: absolute;
+			pointer-events: none;
+			right: 0;
+			text-align: center;
+			top: 0;
+			width: $input-height;
+			z-index: 9;
+		}
+	}
+	.below.hour_minute_colon {
+		align-self: baseline !important;
+	}
+	.gfield_time_ampm {
+		flex-basis: auto;
+		max-width: none;
+	}
+
+	input[type=search].search-field {
+		border-radius: 0;
+		border: none;
+		border-bottom: 1px solid $color-primary;
+		padding: 0;
+		width: calc(100% - rem(40px));
+	
+		&::placeholder {
+			color: $color-primary;
+		}
+
+		// remove x from field
+		&::-webkit-search-cancel-button {
+			display: none;
+		}
+	}
+}
+
+
+
+
+
+//2.3 - Labels
+#page .gfield {
+	margin-bottom: calc(#{$input-font-size} * .75);
+	.gfield_label {
+		font-size: rem(14px);
+		font-weight: 400;
+		margin-bottom: rem(4px);
+	}
+
+	&.gfield_error {
+		label {
+			color: $red-2;
+		}
+	}
+
+	.gfield_description:not(.gfield_validation_message) {
+		font-size: calc(#{$input-font-size} * .75);
+		padding: calc(#{$input-font-size} * .75) 0 0;
+	}
+
+	.gfield_description.gfield_consent_description {
+		font-size: calc(#{$input-font-size} * .85);
+		padding: $input-padding;
+	}
+
+	&.field_description_above .gfield_description:not(.gfield_validation_message) { 
+		padding: calc(#{$input-font-size} * .25) 0 0;
+	}
+
+	.ginput_container {
+		margin-top: calc(#{$input-font-size} * .75);
+	}
+}
+
+//2.4 - Button
+input.button,
+input.gform_button  {
+	@include button-base;
+
+	cursor: pointer;
+	font-size: rem(16px);
+}
+
+
+//3.0 - Form Footer
+
+
+//4.0 - Form Errors
+#page .gform_wrapper.gravity-theme {
+	.gform_validation_errors {
+		background-color: $white;
+		border-color: $red-2;
+		color: $red-2;
+		border-radius: rem(6px);
+		box-shadow: none;
+
+		> h2 {
+			font-size: rem(15px);
+			line-height: 1.4;
+			font-family: $body;
+			font-weight: 400;
+			color: $red-2;
+		}
+	}
+
+	.gfield_validation_message, 
+	.validation_message {
+		background-color: $white;
+		border-color: $red-2;
+		color: $red-2;
+		border-radius: rem(6px);
+	}
+}
+
+
+//5.0 - Form Confirmation
+#page {
+	.gform_confirmation_wrapper   {
+		background: transparent;
+		border: 1px solid $navy-3;
+		color: $color-primary;
+		margin-bottom: em(20px);
+		padding: em(20px) em(30px);
+		text-align: center;
+		border-radius: rem(6px);
+		
+		br { display: none !important; }
+	}
+}

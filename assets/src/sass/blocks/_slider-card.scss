@@ -1,0 +1,61 @@
+/*
+Scss - Block - Slider Card
+
+Slider Card Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Slider Card
+--------------------------------------------------------------*/
+
+
+//1.0 - Slider Card
+.slider-card__wrapper {
+    .slick-track {
+        display: flex;
+        gap: rem(24px);
+
+        @include respond-below(sm) {
+            gap: 0;
+        }
+    }
+}
+
+.theme-light,
+.theme-default {
+    .slider-card-card {
+        background-color: #f2f2f4;
+    }    
+}
+.theme-dark {
+    .slider-card-card {
+        background-color: rgba($color: $navy-4, $alpha: .14);
+    }    
+}
+
+.slider-card-card {
+
+    &.slick-slide {
+        height: inherit;
+    }
+
+    .card-image {
+        margin: 0;
+
+        img {
+            margin: 0;
+            display: block;
+            width: 100%;
+        }
+    }
+    .card-content {
+        padding: rem(24px) rem(40px) rem(30px);
+    }
+
+    .card-headline {
+        margin-top: 0;
+    }
+}

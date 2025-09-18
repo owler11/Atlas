@@ -1,0 +1,94 @@
+/*
+Scss - Block - Grid Icon
+
+Grid Icon Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Grid Icon
+--------------------------------------------------------------*/
+
+
+//1.0 - Grid Icon
+.grid-icon-grid {
+    @include respond-below(md) {
+        row-gap: rem(60px);
+        column-gap: rem(20px);
+    }
+
+    &.grid-one {
+        .grid-icon-item {
+            grid-column: 1 / -1;
+        }
+    }
+
+    &.grid-two {
+        .grid-icon-item {
+            // .grid changes columns on responsive sizes
+            grid-column: span 6;
+
+            @include respond-below(md) {
+                grid-column: span 4;
+            }
+        }
+    }
+    
+    &.grid-three {
+        .grid-icon-item {
+            // .grid changes columns on responsive sizes
+            grid-column: span 4; 
+        }
+    }
+}
+
+.grid-icon-item {
+    @include respond-below(md) {
+        grid-column: 1 / -1;
+    }
+
+    &.icon-top {
+        .icon {
+            margin: 0 0 rem(12px);
+        }
+    }
+
+    &.icon-left {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: rem(24px);
+
+        .content {
+            flex: 1;
+        }
+    }
+
+    .icon {
+        img,
+        i {
+            display: block;
+            width: rem(50px);
+            // color: $color-primary;
+        }
+
+        i {
+            font-size: rem(50px);
+        }
+    }
+
+    .title {
+        margin: 0 0 rem(6px);
+    }
+    .headline {
+        margin: 0 0 rem(12px);
+    }
+    .description {
+        margin: 0;
+
+        p {
+            // color: $navy-2;
+        }
+    }
+}

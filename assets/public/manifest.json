@@ -1,0 +1,105 @@
+{
+  "_accordion-6fb7c855.js": {
+    "file": "js/accordion-6fb7c855.js"
+  },
+  "assets/src/fonts/icomoon.eot": {
+    "file": "fonts/icomoon.eot",
+    "src": "assets/src/fonts/icomoon.eot"
+  },
+  "assets/src/fonts/icomoon.svg": {
+    "file": "images/icomoon.svg",
+    "src": "assets/src/fonts/icomoon.svg"
+  },
+  "assets/src/fonts/icomoon.ttf": {
+    "file": "fonts/icomoon.ttf",
+    "src": "assets/src/fonts/icomoon.ttf"
+  },
+  "assets/src/fonts/icomoon.woff": {
+    "file": "fonts/icomoon.woff",
+    "src": "assets/src/fonts/icomoon.woff"
+  },
+  "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-500.woff2": {
+    "file": "fonts/source-sans-3-v15-latin-500.woff2",
+    "src": "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-500.woff2"
+  },
+  "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-600.woff2": {
+    "file": "fonts/source-sans-3-v15-latin-600.woff2",
+    "src": "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-600.woff2"
+  },
+  "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-700.woff2": {
+    "file": "fonts/source-sans-3-v15-latin-700.woff2",
+    "src": "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-700.woff2"
+  },
+  "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-700italic.woff2": {
+    "file": "fonts/source-sans-3-v15-latin-700italic.woff2",
+    "src": "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-700italic.woff2"
+  },
+  "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-800.woff2": {
+    "file": "fonts/source-sans-3-v15-latin-800.woff2",
+    "src": "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-800.woff2"
+  },
+  "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-italic.woff2": {
+    "file": "fonts/source-sans-3-v15-latin-italic.woff2",
+    "src": "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-italic.woff2"
+  },
+  "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-regular.woff2": {
+    "file": "fonts/source-sans-3-v15-latin-regular.woff2",
+    "src": "assets/src/fonts/source-sans-3/source-sans-3-v15-latin-regular.woff2"
+  },
+  "assets/src/js/backend.css": {
+    "file": "css/backend.css",
+    "src": "assets/src/js/backend.css"
+  },
+  "assets/src/js/backend.js": {
+    "assets": [
+      "fonts/icomoon.eot",
+      "fonts/icomoon.ttf",
+      "fonts/icomoon.woff",
+      "images/icomoon.svg",
+      "fonts/source-sans-3-v15-latin-regular.woff2",
+      "fonts/source-sans-3-v15-latin-italic.woff2",
+      "fonts/source-sans-3-v15-latin-500.woff2",
+      "fonts/source-sans-3-v15-latin-600.woff2",
+      "fonts/source-sans-3-v15-latin-700.woff2",
+      "fonts/source-sans-3-v15-latin-700italic.woff2",
+      "fonts/source-sans-3-v15-latin-800.woff2"
+    ],
+    "css": [
+      "css/backend.css"
+    ],
+    "file": "js/backend.js",
+    "imports": [
+      "_accordion-6fb7c855.js"
+    ],
+    "isEntry": true,
+    "src": "assets/src/js/backend.js"
+  },
+  "assets/src/js/frontend.css": {
+    "file": "css/frontend.css",
+    "src": "assets/src/js/frontend.css"
+  },
+  "assets/src/js/frontend.js": {
+    "assets": [
+      "fonts/icomoon.eot",
+      "fonts/icomoon.ttf",
+      "fonts/icomoon.woff",
+      "images/icomoon.svg",
+      "fonts/source-sans-3-v15-latin-regular.woff2",
+      "fonts/source-sans-3-v15-latin-italic.woff2",
+      "fonts/source-sans-3-v15-latin-500.woff2",
+      "fonts/source-sans-3-v15-latin-600.woff2",
+      "fonts/source-sans-3-v15-latin-700.woff2",
+      "fonts/source-sans-3-v15-latin-700italic.woff2",
+      "fonts/source-sans-3-v15-latin-800.woff2"
+    ],
+    "css": [
+      "css/frontend.css"
+    ],
+    "file": "js/frontend.js",
+    "imports": [
+      "_accordion-6fb7c855.js"
+    ],
+    "isEntry": true,
+    "src": "assets/src/js/frontend.js"
+  }
+}

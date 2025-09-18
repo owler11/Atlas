@@ -1,0 +1,101 @@
+/*
+Scss - Block - Accordion
+
+Accordion Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Accordion
+--------------------------------------------------------------*/
+
+
+//1.0 - Accordion
+.accordion__item {
+    border-bottom: 1px solid $navy-4;
+
+    &[open] {
+        summary {
+            &:after {
+                content: '\f106';
+            }
+        }
+    }
+
+    summary {
+        list-style-type: none;
+        padding: rem(24px) 0;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        .title {
+            margin: 0;
+            padding: 0 rem(60px) 0 0;
+        }
+
+        &:after {
+            content: '\f107';
+            font-family: $icon;
+            font-weight: 900;
+            font-size: rem(24px);
+
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
+
+    .content {
+        padding-bottom: rem(46px);
+        transition: all 0.2s;
+
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: rem(24px);
+        row-gap: rem(24px);
+    }
+
+    .main {
+        grid-column: span 6;
+
+        @include respond-below(md) {
+            grid-column: span 7;
+        }
+
+        @include respond-below(sm) {
+            grid-column: 1 / -1;
+        }
+    }
+    .image {
+        grid-column: 8 / span 5;
+
+        @include respond-below(sm) {
+            grid-column: 1 / -1;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            margin: 0 0 rem(16px);
+        }
+    }
+
+    figcaption {
+        font-weight: 600;
+        font-size: rem(14px);
+    }
+}
+
+.theme-dark {
+    .accordion__item {
+        border-color: rgba($color: $navy-4, $alpha: .3);
+    }
+}

@@ -1,0 +1,82 @@
+/*
+Blocks Sass Files 
+
+Block Global Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Hero
+--------------------------------------------------------------*/
+
+
+// 1.0 - Hero
+.hero {
+	&.theme-light {
+		background-color: $color-light;
+	}
+	&.theme-dark {
+		background-color: $color-dark;
+		color: $white;
+
+		.btn__solid {
+			background-color: $white;
+			color: $color-dark;
+			border-color: $white;
+
+			&:hover {
+				background-color: $color-accent;
+				border-color: $color-accent;
+				color: $color-dark;
+			}
+		}
+
+		.btn__outline {
+			background-color: transparent;
+			color: $white;
+			border-color: $white;
+			
+			&:hover {
+				background-color: $color-accent;
+				border-color: $color-accent;
+				color: $color-dark;
+			}
+		}
+
+		.btn__text {
+			color: $white;
+
+			&:hover {
+				color: $color-accent;
+			}
+		}
+	}
+
+	.content {
+		.title {
+			margin: 0 0 rem(14px);
+		}
+		.headline {
+			margin: 0 0 rem(16px);
+		}
+		.description,
+		.content {
+			margin: 0 0 rem(30px);
+			display: flex;
+			flex-direction: column;
+			gap: rem(16px);
+	
+			h1, h2, h3, h4, h5, h6, p, li {
+				margin: 0;
+			}
+	
+			p,
+			li {
+				font-size: rem(18px);
+			}
+		}
+	}
+}
+

@@ -1,0 +1,34 @@
+/*
+Blocks Sass Files 
+
+Block Global Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Block
+--------------------------------------------------------------*/
+
+
+// 1.0 - Block
+.block__wrapper {
+	&.theme-default {}
+	&.theme-light {
+		background-color: $white;
+		color: $color-primary;
+
+		i {
+			color: $color-primary;
+		}
+	}
+	&.theme-dark {
+		background-color: $navy-1;
+		color: $white;
+
+		i {
+			color: $white;
+		}
+	}
+}

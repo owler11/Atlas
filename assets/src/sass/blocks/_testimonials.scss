@@ -1,0 +1,109 @@
+/*
+Scss - Block - Testimonials
+
+Testimonials Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Testimonials
+--------------------------------------------------------------*/
+
+
+//1.0 - Testimonials
+.testimonials-main {
+    max-width: rem(856px);
+    margin: 0 auto;
+
+    @include respond-below(md) {
+        padding: 0 rem(20px);
+        margin: 0 rem(20px);
+    }
+    
+    @include respond-below(sm) {
+        padding: 0 rem(12px);
+        margin: 0 rem(20px);
+    }
+
+    .testimonials-item {
+        padding: rem(60px) rem(70px) rem(48px);
+        border-radius: rem(10px);
+        background: #e8e8ec;
+        text-align: center;
+
+        @include respond-below(sm) {
+            padding: rem(60px) rem(30px) rem(48px);
+        }
+    }
+    
+    .testimonials-quote {
+        font-size: rem(24px);
+        margin: 0 0 rem(30px);
+
+        @include respond-below(sm) {
+            font-size: rem(19px);
+        }
+    }
+
+    .testimonials-meta {
+        > * {
+            margin: 0;
+        }
+    }
+
+    .slick-arrow {
+        &.slick-next {
+            left: calc(100% + rem(16px));
+            right: auto;
+
+            @include respond-below(md) {
+                left: calc(100% + rem(0px));
+            }
+        }
+
+        &.slick-prev {
+            left: auto;
+            right: calc(100% + rem(16px));
+
+            @include respond-below(md) {
+                right: calc(100% + rem(0px));
+            }
+        }
+    }
+}
+
+.testimonials-link {
+    text-align: center;
+    margin: rem(54px) auto 0;
+
+    @include respond-below(sm) {
+        margin: rem(30px) auto 0;
+    }
+}
+
+
+// Dark Theme
+.theme-dark {
+    .testimonials-main {
+        .testimonials-item {
+            background-color: rgba($color: $navy-4, $alpha: .14);
+        }
+        .slick-arrow {
+            background: $white;
+           
+            &:before {
+                color: $color-primary;
+            }
+
+            &:hover {
+                background-color: $navy-3;
+
+                &:before {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+/*
+Scss - Components - Gutenberg
+
+Gutenberg Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Global
+--------------------------------------------------------------*/
+
+
+
+// 1.0 - Global
+.gutenberg__wrapper {
+    .content {
+        max-width: rem(654px);
+        width: 100%;
+        margin: 0 auto 0 0;
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.default-block-container {}

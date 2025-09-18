@@ -1,0 +1,132 @@
+/*
+Scss - Block - Tab Content
+
+Tab Content Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Tab Content
+--------------------------------------------------------------*/
+
+
+//1.0 - Tab Content
+.tab-content-grid {
+    .tab-content__nav-item {
+        grid-column: 1 / -1;
+    }
+    
+    .tab-content__content-item {
+        grid-column: 1 / -1;
+    }
+}
+
+.tab-content__nav-item {
+    display: flex;
+    flex-flow: row wrap;
+    gap: rem(32px);
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 rem(32px);
+}
+.tab-content__nav {
+    color: $navy-3;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &.active {
+        color: $color-primary;
+        text-decoration: underline;
+    }
+
+    &:not(.active):hover {
+        color: $color-accent;
+    }
+
+    .title {
+        margin: 0;
+    }
+}
+
+.theme-dark {
+    .tab-content__nav {
+        color: rgba($color: $white, $alpha: .6);
+
+        &.active {
+            color: $white;
+        }
+
+        &:not(.active):hover {
+            color: rgba($color: $white, $alpha: .8);
+        }
+    }
+}
+
+.tab-content__content-item {
+    &.media-left {
+        .media {
+            grid-column: 7 / span 6;
+            grid-row: 1;
+
+            @include respond-below(md) {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+        }
+        .content {
+            grid-column: 1 / span 5;
+            grid-row: 1;
+
+            @include respond-below(md) {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+        }
+    }
+    &.media-right {
+        .media {
+            grid-column: 1 / span 6;
+            grid-row: 1;
+
+            @include respond-below(md) {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+        }
+        .content {
+            grid-column: 8 / span 5;
+            grid-row: 1;
+
+            @include respond-below(md) {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+        }
+    }
+}
+
+.tab-content__content {
+    display: none;
+
+    &.active {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: rem(24px);
+
+        @include respond-below(md) {
+            grid-template-columns: repeat(8, 1fr);
+        }
+        
+        @include respond-below(sm) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .title,
+    .headline {
+        margin-top: 0;
+    }
+}

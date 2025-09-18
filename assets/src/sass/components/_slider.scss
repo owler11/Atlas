@@ -1,0 +1,233 @@
+/*
+Slick Slider Styles
+
+@package mingo
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Default Slick Slider Styles
+2.0 - Custom Slick Slider Styles
+	2.1 - Nav Arrows
+--------------------------------------------------------------*/
+
+//1.0 - Default Slick Slider Styles
+.slick-slider {
+    display: block;
+    position: relative;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ul.slick-slider {
+    margin: 0;
+    padding: 0;
+}
+.slick-list {
+	display: block;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+}
+
+.slick-list-visible {
+	position: relative;
+	overflow: hidden;
+	
+	.slick-list {
+		overflow: visible;
+
+		@include respond-below(sm) {
+			overflow: hidden;
+		}
+	}
+}
+
+
+.slick-list:focus { outline: none; }
+.slick-list.dragging {
+	cursor: pointer;
+	cursor: hand;
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+	display: block;
+	left: 0;
+	position: relative;
+	top: 0;    
+}
+.slick-track:before,
+.slick-track:after {
+	content: '';
+	display: table;
+}
+.slick-track:after { clear: both; }
+.slick-loading .slick-track { visibility: hidden; }
+.slick-slide {
+	display: none;
+	float: left;
+	height: 100%;
+	min-height: 1px;
+}
+[dir='rtl'] .slick-slide { float: right; }
+// .slick-slide img { display: block; }
+.slick-slide.slick-loading img { display: none; }
+.slick-slide.dragging img { pointer-events: none; }
+.slick-initialized .slick-slide { display: block; }
+.slick-loading .slick-slide { visibility: hidden; }
+.slick-vertical .slick-slide {
+	border: 1px solid transparent;
+	display: block;
+	height: auto;
+}
+.slick-arrow.slick-hidden { display: none; }
+
+
+//2.0 - Custom Slick Slider Styles
+
+
+//2.1 - Nav Arrows
+.slick-arrow {
+	background: $black;
+	border: none;
+	border-radius: 50%;
+	box-shadow: none;
+	color: transparent;
+	cursor: pointer;
+	
+	left: -2.5%;
+	outline: none;
+	position: absolute;
+	top: 50%;
+	height: em(40px);
+	width: em(40px);
+	z-index: 9;
+	transform: translateY(-50%);
+	padding: 0;
+	transition: all 0.2s;
+
+	@include respond-below(xl) {
+		left: rem(-10px);
+	}
+	
+	@include respond-below(lg) {
+		width: rem(30px);
+		height: rem(30px);
+	}
+
+	&:before {
+		@include absoluteCenter();
+		color: $white;
+		font-family: $icon;
+		font-weight: 900;
+		content: "\f104";
+		font-size: em(18px);
+	}
+	&:hover,
+	&:focus-visible { 
+		background: $color-accent;
+
+		&:before { color: $white; }
+	}
+	&.slick-disabled {
+		opacity: .5;
+		pointer-events: none;
+	}
+	&.slick-next {
+		left: auto;
+		right: -2.5%;
+
+		@include respond-below(xl) {
+			right: rem(-10px);
+		}
+		
+		&:before {
+			content: "\f105";
+		}
+	}
+}
+
+//2.2 - Nav Dots
+.slick-dots {
+	position: absolute;
+	list-style: none;
+	left: 50%;
+	bottom: 7.5%;
+	margin: 0;
+	transform: translateX(-50%);
+	li {
+		background: none;
+		border: 2px $white solid;
+		border-radius: 50%;
+		cursor: pointer;
+		display: inline-block;
+		height: .75em;
+		margin: 0 .5em 0 0;
+		text-indent: -9999px;
+		width: .75em;
+		&.slick-active { 
+			background: $white; 
+		}
+	}
+}
+
+.slider-dots-outside {
+	.slick-dots {
+		padding: 0;
+		position: relative;
+		left: auto;
+		bottom: auto;
+		transform: none;
+		text-align: center;
+		margin: rem(20px) 0;
+		display: flex;
+		gap: rem(8px);
+		justify-content: center;
+
+		li {
+			border-color: $color-primary;
+			margin: 0;
+
+			&.slick-active {
+				background: $color-primary;
+			}
+		}
+	}
+}
+
+.theme-dark {
+	.slider-dots-outside {
+		.slick-dots {
+			li {
+				border-color: $white;
+				&.slick-active {
+					background: $white;
+				}
+			}
+		}
+	}
+}
+
+  
+  
+  
+  
+  
+  
+  

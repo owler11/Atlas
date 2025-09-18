@@ -1,0 +1,125 @@
+/*
+Scss - Post Type - Events
+
+Events Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Index
+2.0 - Teaser
+3.0 - Single
+--------------------------------------------------------------*/
+
+
+// 1.0 - Index
+// 2.0 - Teaser
+.event-teaser {
+    .event-content {
+        .meta {
+            margin: 0 0 rem(8px);
+            display: block;
+
+            &:last-child {
+                margin-bottom: rem(24px);
+            }
+
+            i {
+                margin: 0 rem(6px) 0 0;
+            }
+        }
+
+        .btn__text, 
+        .btn__link {
+            text-decoration: none;
+        }
+    }
+
+    &.teaser-list {
+        .event-wrapper {
+            padding: 0;
+        }
+
+        .btn-group {
+            margin: 0 0 rem(18px);
+        }
+    }
+}
+
+.archive-featured {
+    .event-teaser {
+        .btn-group {
+            margin: 0 0 rem(18px);
+        }
+    }
+}
+
+// 3.0 - Single
+.event-single {
+    padding: rem(78px) 0;
+
+    @include respond-below(md) {
+        padding: rem(48px) 0;
+    }
+
+    .event-single-data {
+        margin: 0 0 rem(24px);
+    }
+    .data {
+        margin: 0 0 rem(8px);
+        display: block;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        i {
+            margin: 0 rem(6px) 0 0;
+        }
+    }
+}
+
+.event-single-header {
+    margin: 0 0 rem(44px);
+    
+    .event-title {
+        margin: 0 0 rem(30px);
+    }
+}
+
+.event-single-description {
+    grid-column: span 6;
+
+    @include respond-below(md) {
+        grid-column: span 4;
+    }
+
+    p {
+        @include respond-above(md) {
+            font-size: rem(18px);
+            color: $navy-2;
+        }
+    }
+
+    .post-excerpt {
+        margin: 0 0 rem(30px);
+    }
+}
+
+.event-single-share {
+    grid-column: 8 / span 5;
+
+    @include respond-below(md) {
+        grid-column: span 4;
+    }
+}
+
+.event-single-image {
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}

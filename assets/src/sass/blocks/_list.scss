@@ -1,0 +1,95 @@
+/*
+Scss - Block - List
+
+List Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - List
+--------------------------------------------------------------*/
+
+
+//1.0 - List
+.list__wrapper {
+    .list-headline {
+        grid-column: span 3;
+
+        @include respond-below(md) {
+            grid-column: span 4;
+        }
+
+        @include respond-below(sm) {
+            grid-column: span 6;
+        }
+        
+        @include respond-below(xs) {
+            grid-column: span 12;
+        }
+
+        .headline {
+            margin: 0;
+        }
+    }
+
+    .list-main {
+        grid-column: span 9;
+
+        @include respond-below(md) {
+            grid-column: span 8;
+        }
+
+        @include respond-below(sm) {
+            grid-column: span 6;
+        }
+        
+        @include respond-below(xs) {
+            grid-column: span 12;
+        }
+
+        display: grid;
+        grid-template-columns: subgrid;
+        row-gap: rem(32px);
+    }
+
+    .list-item {
+        padding: rem(14px) 0 0;
+        border-top: 1px solid $navy-4;
+
+        &.column-1 {
+            grid-column: span 9;
+
+            @include respond-below(sm) {
+                grid-column: span 12;
+            }
+        }
+        &.column-2 {
+            grid-column: span 4;
+
+            @include respond-below(sm) {
+                grid-column: span 12;
+            }
+        }
+        &.column-3 {
+            grid-column: span 3;
+
+            @include respond-below(md) {
+                grid-column: span 4;
+            }
+            
+            @include respond-below(sm) {
+                grid-column: span 6;
+            }
+            
+            @include respond-below(xs) {
+                grid-column: span 12;
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}

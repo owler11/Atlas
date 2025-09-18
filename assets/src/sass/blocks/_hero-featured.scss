@@ -1,0 +1,91 @@
+/*
+Scss - Hero - Hero Featured
+
+Hero Featured Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Hero Featured
+--------------------------------------------------------------*/
+
+
+//1.0 - Hero Featured
+.hero-featured-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-featured-bg-video,
+.hero-featured-bg-image {
+    position: absolute;
+    inset: 0;
+
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.hero-featured-bg-image {
+    img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        object-fit: cover;
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+.hero-featured-bg-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.hero-featured-grid {
+    position: relative;
+    z-index: 2;
+
+    &.media-left {
+        @include respond-above(md) {
+            .hero-featured-media {
+                order: 1;    
+            }
+            .hero-featured-content {
+                padding-left: rem(30px);
+                order: 2;
+            }
+        }
+    }
+    &.media-right {
+        @include respond-above(md) {
+            .hero-featured-content {
+                padding-right: rem(30px);
+            }
+        }
+    }
+}
+
+.hero-featured-content {
+    grid-column: span 7;
+}
+
+.hero-featured-media {
+    grid-column: span 5;
+
+    video {
+        width: 100%;
+        display: block;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}

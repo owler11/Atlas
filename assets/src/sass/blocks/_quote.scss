@@ -1,0 +1,30 @@
+/*
+Scss - Block - Quote
+
+Quote Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Quote
+--------------------------------------------------------------*/
+
+
+//1.0 - Quote
+.quote-main {
+    max-width: rem(856px);
+    margin: 0 auto;
+    text-align: center;
+    
+    .quote {
+        @include headingH3();
+        margin: 0 auto rem(30px);
+        text-align: center;
+    }
+    .quote-meta {}
+    .quote-name {}
+    .quote-job {}
+    .quote-company {}
+}
