@@ -14,7 +14,24 @@
 3.0 - Additional Theme Features
 4.0 - Functions
 --------------------------------------------------------------*/
+// Add this to the very top of your functions.php (before anything else)
+add_action('all', function($hook) {
+    if (strpos($hook, 'load_textdomain') !== false && !did_action('init')) {
+        error_log("Early textdomain hook: $hook");
+        error_log("Backtrace: " . wp_debug_backtrace_summary());
+    }
+});
 
+// Also add this to catch translation function calls
+if (!function_exists('__')) {
+    function __($text, $domain = 'default') {
+        if (!did_action('init')) {
+            error_log("Early translation call: '$text' in domain '$domain'");
+            error_log("Backtrace: " . wp_debug_backtrace_summary());
+        }
+        return translate($text, $domain);
+    }
+}
 
 //1.0 - Core Theme Functions
     //Theme Setup (core wp options)
@@ -75,3 +92,12 @@
     
     // Hooks
     require get_template_directory() . '/functions/functions-hook.php'; 
+
+    function debug_early_translation() {
+        if (!did_action('init')) {
+            $backtrace = debug_backtrace();
+            error_log('Early translation call detected:');
+            error_log(print_r($backtrace, true));
+        }
+    }
+    add_filter('load_textdomain_mofile', 'debug_early_translation');

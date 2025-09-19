@@ -19,19 +19,19 @@ TABLE OF CONTENTS:
 add_action( 'init', 'testimonials_init', 0 );
 function testimonials_init() {
     $labels = array(
-        'name'                => _x( 'Testimonials', 'Post Type General Name', 'text_domain' ),
-        'singular_name'       => _x( 'Testimonials', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'           => __( 'Testimonials', 'text_domain' ),
-        'parent_item_colon'   => __( 'Parent Testimonial:', 'text_domain' ),
-        'all_items'           => __( 'All Testimonials', 'text_domain' ),
-        'view_item'           => __( 'View Testimonial', 'text_domain' ),
-        'add_new_item'        => __( 'Add New Testimonial', 'text_domain' ),
-        'add_new'             => __( 'Add New Testimonial', 'text_domain' ),
-        'edit_item'           => __( 'Edit Testimonial', 'text_domain' ),
-        'update_item'         => __( 'Update Testimonial', 'text_domain' ),
-        'search_items'        => __( 'Search Testimonials', 'text_domain' ),
-        'not_found'           => __( 'Testimonial Not found', 'text_domain' ),
-        'not_found_in_trash'  => __( 'Testimonial Not found in Trash', 'text_domain' ),
+        'name'                => _x( 'Testimonials', 'Post Type General Name', 'atlas' ),
+        'singular_name'       => _x( 'Testimonials', 'Post Type Singular Name', 'atlas' ),
+        'menu_name'           => __( 'Testimonials', 'atlas' ),
+        'parent_item_colon'   => __( 'Parent Testimonial:', 'atlas' ),
+        'all_items'           => __( 'All Testimonials', 'atlas' ),
+        'view_item'           => __( 'View Testimonial', 'atlas' ),
+        'add_new_item'        => __( 'Add New Testimonial', 'atlas' ),
+        'add_new'             => __( 'Add New Testimonial', 'atlas' ),
+        'edit_item'           => __( 'Edit Testimonial', 'atlas' ),
+        'update_item'         => __( 'Update Testimonial', 'atlas' ),
+        'search_items'        => __( 'Search Testimonials', 'atlas' ),
+        'not_found'           => __( 'Testimonial Not found', 'atlas' ),
+        'not_found_in_trash'  => __( 'Testimonial Not found in Trash', 'atlas' ),
     );
     $args = array(
         'labels'              => $labels,

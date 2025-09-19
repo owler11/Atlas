@@ -19,19 +19,19 @@ TABLE OF CONTENTS:
 add_action( 'init', 'events_init', 0 );
 function events_init() {
     $labels = array(
-        'name'                => _x( 'Event', 'Post Type General Name', 'text_domain' ),
-        'singular_name'       => _x( 'Event', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'           => __( 'Events', 'text_domain' ),
-        'parent_item_colon'   => __( 'Parent Event:', 'text_domain' ),
-        'all_items'           => __( 'All Events', 'text_domain' ),
-        'view_item'           => __( 'View Event', 'text_domain' ),
-        'add_new_item'        => __( 'Add New Event', 'text_domain' ),
-        'add_new'             => __( 'Add New Event', 'text_domain' ),
-        'edit_item'           => __( 'Edit Event', 'text_domain' ),
-        'update_item'         => __( 'Update Event', 'text_domain' ),
-        'search_items'        => __( 'Search Events', 'text_domain' ),
-        'not_found'           => __( 'Event Not found', 'text_domain' ),
-        'not_found_in_trash'  => __( 'Event Not found in Trash', 'text_domain' ),
+        'name'                => _x( 'Event', 'Post Type General Name', 'atlas' ),
+        'singular_name'       => _x( 'Event', 'Post Type Singular Name', 'atlas' ),
+        'menu_name'           => __( 'Events', 'atlas' ),
+        'parent_item_colon'   => __( 'Parent Event:', 'atlas' ),
+        'all_items'           => __( 'All Events', 'atlas' ),
+        'view_item'           => __( 'View Event', 'atlas' ),
+        'add_new_item'        => __( 'Add New Event', 'atlas' ),
+        'add_new'             => __( 'Add New Event', 'atlas' ),
+        'edit_item'           => __( 'Edit Event', 'atlas' ),
+        'update_item'         => __( 'Update Event', 'atlas' ),
+        'search_items'        => __( 'Search Events', 'atlas' ),
+        'not_found'           => __( 'Event Not found', 'atlas' ),
+        'not_found_in_trash'  => __( 'Event Not found in Trash', 'atlas' ),
     );
     $args = array(
         'labels'              => $labels,

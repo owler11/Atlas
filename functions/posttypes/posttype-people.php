@@ -19,19 +19,19 @@ TABLE OF CONTENTS:
 add_action( 'init', 'people_init', 0 );
 function people_init() {
     $labels = array(
-        'name'                => _x( 'People', 'Post Type General Name', 'text_domain' ),
-        'singular_name'       => _x( 'People', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'           => __( 'People', 'text_domain' ),
-        'parent_item_colon'   => __( 'Parent People:', 'text_domain' ),
-        'all_items'           => __( 'All People', 'text_domain' ),
-        'view_item'           => __( 'View People', 'text_domain' ),
-        'add_new_item'        => __( 'Add New People', 'text_domain' ),
-        'add_new'             => __( 'Add New People', 'text_domain' ),
-        'edit_item'           => __( 'Edit People', 'text_domain' ),
-        'update_item'         => __( 'Update People', 'text_domain' ),
-        'search_items'        => __( 'Search People', 'text_domain' ),
-        'not_found'           => __( 'People Not found', 'text_domain' ),
-        'not_found_in_trash'  => __( 'People Not found in Trash', 'text_domain' ),
+        'name'                => _x( 'People', 'Post Type General Name', 'atlas' ),
+        'singular_name'       => _x( 'People', 'Post Type Singular Name', 'atlas' ),
+        'menu_name'           => __( 'People', 'atlas' ),
+        'parent_item_colon'   => __( 'Parent People:', 'atlas' ),
+        'all_items'           => __( 'All People', 'atlas' ),
+        'view_item'           => __( 'View People', 'atlas' ),
+        'add_new_item'        => __( 'Add New People', 'atlas' ),
+        'add_new'             => __( 'Add New People', 'atlas' ),
+        'edit_item'           => __( 'Edit People', 'atlas' ),
+        'update_item'         => __( 'Update People', 'atlas' ),
+        'search_items'        => __( 'Search People', 'atlas' ),
+        'not_found'           => __( 'People Not found', 'atlas' ),
+        'not_found_in_trash'  => __( 'People Not found in Trash', 'atlas' ),
     );
     $args = array(
         'labels'              => $labels,

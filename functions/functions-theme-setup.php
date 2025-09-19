@@ -2,7 +2,7 @@
 /**
  * Functions - Functions Theme Setup
  * 
- * @package mingo
+ * @package atlas
  */
 
 /*--------------------------------------------------------------
@@ -27,10 +27,15 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
-if ( ! function_exists( 'mingo_setup' ) ) :
-	function mingo_setup() {
+// Load text domain on init action as required by WordPress 6.7.0+
+function atlas_load_textdomain() {
+	load_theme_textdomain( 'atlas', get_template_directory() . '/languages' );
+}
+add_action( 'init', 'atlas_load_textdomain' );
+
+if ( ! function_exists( 'atlas_setup' ) ) :
+	function atlas_setup() {
 		
-		load_theme_textdomain( 'mingo', get_template_directory() . '/languages' );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
@@ -45,15 +50,15 @@ if ( ! function_exists( 'mingo_setup' ) ) :
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', 'mingo_setup' );
+add_action( 'after_setup_theme', 'atlas_setup' );
 
 
 //2.0 - Hide Customizer	 
-function mingo_remove_customize_page(){
+function atlas_remove_customize_page(){
 	global $submenu;
 	unset($submenu['themes.php'][6]); // remove Customizer link
 }
-add_action( 'admin_menu', 'mingo_remove_customize_page');
+add_action( 'admin_menu', 'atlas_remove_customize_page');
 
 
 //3.0 - Disable JSON API
@@ -63,12 +68,12 @@ remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
 
 
 //4.0 - Editor Block Formats
-function mingo_mce_formats( $init ) {
+function atlas_mce_formats( $init ) {
     $init['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6';
 
     return $init;
 }
-add_filter('tiny_mce_before_init', 'mingo_mce_formats');
+add_filter('tiny_mce_before_init', 'atlas_mce_formats');
 
 
 //5.0 - Hide Editor
@@ -123,4 +128,4 @@ function atlas_check_acf_pro() {
         });
     }
 }
-add_action('admin_init', 'atlas_check_acf_pro');
+add_action('wp_loaded', 'atlas_check_acf_pro');

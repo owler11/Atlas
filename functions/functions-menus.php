@@ -22,10 +22,10 @@
 //1.0 - Register Menus
 register_nav_menus(
 	array(
-		'primary' 	=> __( 'Primary', 'mingo' ),
-		'utility' 	=> __( 'Utility', 'mingo' ),
-		'footer' 	=> __( 'Footer', 'mingo' ),
-		'legal' 	=> __( 'Legal', 'mingo' ),
+		'primary' 	=> __( 'Primary', 'atlas' ),
+		'utility' 	=> __( 'Utility', 'atlas' ),
+		'footer' 	=> __( 'Footer', 'atlas' ),
+		'legal' 	=> __( 'Legal', 'atlas' ),
 	)
 );
 

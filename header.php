@@ -40,12 +40,12 @@
 
 <div id="page" class="site">
 
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'nebula' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'atlas' ); ?></a>
 
-	<?php get_template_part( 'template-parts/header/header', 'message-bar'  ); ?>
-	<?php get_template_part( 'template-parts/header/header', 'popup'  ); ?>
-	<?php get_template_part( 'template-parts/header/header', 'utility'  ); ?>
-	<?php get_template_part( 'template-parts/header/header', 'cookie'  ); ?>
-	<?php get_template_part( 'template-parts/header/header', 'masthead'  ); ?>
+	<?php get_template_part( 'template-parts/layout/header/header', 'message-bar'  ); ?>
+	<?php get_template_part( 'template-parts/layout/header/header', 'popup'  ); ?>
+	<?php get_template_part( 'template-parts/layout/header/header', 'utility'  ); ?>
+	<?php get_template_part( 'template-parts/layout/header/header', 'cookie'  ); ?>
+	<?php get_template_part( 'template-parts/layout/header/header', 'masthead'  ); ?>
 
 	<main id="content">

@@ -109,56 +109,13 @@ function mingo_allowed_block_types( $allowed_blocks, $context ) {
 
 		$allowed_blocks[] = 'acf/hero';
 
-		$allowed_blocks[] = 'acf/accordion';
-		$allowed_blocks[] = 'acf/bento-grid';
-		$allowed_blocks[] = 'acf/call-to-action';
-		$allowed_blocks[] = 'acf/callout-image';
-		$allowed_blocks[] = 'acf/flexible-content';
-		$allowed_blocks[] = 'acf/form';
-		$allowed_blocks[] = 'acf/full-width-media';
-		$allowed_blocks[] = 'acf/grid-cards';
-		$allowed_blocks[] = 'acf/grid-icon';
 		$allowed_blocks[] = 'acf/heading';
-		$allowed_blocks[] = 'acf/list';
-		$allowed_blocks[] = 'acf/people';
-		$allowed_blocks[] = 'acf/pricing';
-		$allowed_blocks[] = 'acf/pullquote';
-		$allowed_blocks[] = 'acf/quote';
-		$allowed_blocks[] = 'acf/related-content';
-		$allowed_blocks[] = 'acf/slider-card';
-		$allowed_blocks[] = 'acf/slider-logo';
-		$allowed_blocks[] = 'acf/stats';
-		$allowed_blocks[] = 'acf/tab-content';
-		$allowed_blocks[] = 'acf/tab-image';
-		$allowed_blocks[] = 'acf/testimonials';
 		$allowed_blocks[] = 'acf/video';
 		$allowed_blocks[] = 'acf/wysiwyg';
 	}
  
 	if( $context->post->post_type == 'post' || $context->post->post_type == 'events' || $context->post->post_type == 'people' ) {
-		// Specific for 'post'
-		$allowed_blocks[] = 'acf/accordion';
-		$allowed_blocks[] = 'acf/bento-grid';
-		$allowed_blocks[] = 'acf/call-to-action';
-		$allowed_blocks[] = 'acf/callout-image';
-		$allowed_blocks[] = 'acf/flexible-content';
-		$allowed_blocks[] = 'acf/form';
-		$allowed_blocks[] = 'acf/full-width-media';
-		$allowed_blocks[] = 'acf/grid-cards';
-		$allowed_blocks[] = 'acf/grid-icon';
 		$allowed_blocks[] = 'acf/heading';
-		$allowed_blocks[] = 'acf/list';
-		$allowed_blocks[] = 'acf/people';
-		$allowed_blocks[] = 'acf/pricing';
-		$allowed_blocks[] = 'acf/pullquote';
-		$allowed_blocks[] = 'acf/quote';
-		$allowed_blocks[] = 'acf/related-content';
-		$allowed_blocks[] = 'acf/slider-card';
-		$allowed_blocks[] = 'acf/slider-logo';
-		$allowed_blocks[] = 'acf/stats';
-		$allowed_blocks[] = 'acf/tab-content';
-		$allowed_blocks[] = 'acf/tab-image';
-		$allowed_blocks[] = 'acf/testimonials';
 		$allowed_blocks[] = 'acf/video';
 		$allowed_blocks[] = 'acf/wysiwyg';
 	}

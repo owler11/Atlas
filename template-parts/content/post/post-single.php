@@ -34,7 +34,7 @@ $featured_image = get_field('featured_image');
 					$output = '';
 					if ( ! empty( $categories ) ) {
 						foreach( $categories as $category ) {
-							$output .= '<a class="btn btn__outline tag" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+							$output .= '<a class="btn btn__outline tag" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'atlas' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
 						}
 						echo '<div class="btn-group">';
 							echo trim( $output, $separator );

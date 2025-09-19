@@ -4,14 +4,14 @@
  * 
  * Template part for displaying a message that posts cannot be found
  * 
- * @package mingo
+ * @package atlas
  */
 
 ?>
 
 <section class="no-results not-found">
 	<header class="no-results-header">
-		<h2><?php esc_html_e( 'Nothing Found', 'nebula' ); ?></h2>
+		<h2><?php esc_html_e( 'Nothing Found', 'atlas' ); ?></h2>
 	</header>
 
 	<div class="no-results-content">
@@ -25,7 +25,7 @@
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for.', 'nebula' ); ?></p>
+			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for.', 'atlas' ); ?></p>
 			<?php
 
 		endif;
