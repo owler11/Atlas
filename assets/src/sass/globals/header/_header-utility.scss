@@ -1,0 +1,44 @@
+/*
+ * Header - Utility Nav
+ * Mirrors: template-parts/layout/header/header-utility.php
+ *
+ * @package atlas
+ */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Utility Menu
+--------------------------------------------------------------*/
+
+.utility-menu {
+  position: relative;
+  z-index: 99;
+  background-color: $navy-4;
+}
+
+.utility-menu__list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  gap: rem(16px);
+  margin: 0;
+  padding: rem(16px) 0;
+  list-style-type: none;
+
+  .utility-menu__item {
+    margin: 0;
+  }
+
+  .utility-menu__link {
+    transition: color 0.2s;
+    font-size: rem(16px);
+    font-weight: 400;
+    color: $black;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}

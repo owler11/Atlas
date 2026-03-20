@@ -8,6 +8,7 @@ HTML Resets
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
+
 /* normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -40,8 +41,8 @@ body {
  */
 
 h1 {
-	font-size: 2em;
 	margin: 0.67em 0;
+	font-size: 2em;
 }
 
 /* Grouping content
@@ -53,8 +54,8 @@ h1 {
  */
 
 hr {
-	box-sizing: content-box; /* 1 */
 	height: 0; /* 1 */
+	box-sizing: content-box; /* 1 */
 	overflow: visible; /* 2 */
 }
 
@@ -126,9 +127,9 @@ small {
 
 sub,
 sup {
+	position: relative;
 	font-size: 75%;
 	line-height: 0;
-	position: relative;
 	vertical-align: baseline;
 }
 
@@ -164,10 +165,10 @@ input,
 optgroup,
 select,
 textarea {
+	margin: 0; /* 2 */
 	font-family: inherit; /* 1 */
 	font-size: 100%; /* 1 */
 	line-height: 1.15; /* 1 */
-	margin: 0; /* 2 */
 }
 
 /**
@@ -211,8 +212,8 @@ button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
-	border-style: none;
 	padding: 0;
+	border-style: none;
 }
 
 /**
@@ -242,11 +243,11 @@ fieldset {
  */
 
 legend {
-	box-sizing: border-box; /* 1 */
-	color: inherit; /* 2 */
 	display: table; /* 1 */
 	max-width: 100%; /* 1 */
 	padding: 0; /* 3 */
+	box-sizing: border-box; /* 1 */
+	color: inherit; /* 2 */
 	white-space: normal; /* 1 */
 }
 
@@ -273,8 +274,8 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-	box-sizing: border-box; /* 1 */
 	padding: 0; /* 2 */
+	box-sizing: border-box; /* 1 */
 }
 
 /**
@@ -361,11 +362,11 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
 	font-family: sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
+	color: #404040;
 }
 
 p {
@@ -388,15 +389,15 @@ address {
 }
 
 pre {
+	max-width: 100%;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
 	background: #eee;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 15px;
 	font-size: 0.9375rem;
 	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
 	overflow: auto;
-	padding: 1.6em;
 }
 
 code,
@@ -432,22 +433,23 @@ html {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
 	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 	box-sizing: inherit;
 }
 
 body {
 	background: #fff;
+
 	/* Fallback for when there is no custom background color defined. */
 }
 
 hr {
-	background-color: #ccc;
-	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
+	border: 0;
+	background-color: #ccc;
 }
 
 ul,
@@ -478,20 +480,22 @@ dd {
 }
 
 img {
-	height: auto;
 	/* Make sure images are scaled correctly. */
 	max-width: 100%;
+	height: auto;
+
 	/* Adhere to container width. */
 }
 
 figure {
 	margin: 1em 0;
+
 	/* Extra wide images within figure tags don't overflow the content area. */
 }
 
 table {
-	margin: 0 0 1.5em;
 	width: 100%;
+	margin: 0 0 1.5em;
 }
 
 /*--------------------------------------------------------------
@@ -501,15 +505,15 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
+	padding: 0.6em 1em 0.4em;
 	border: 1px solid;
 	border-color: #ccc #ccc #bbb;
 	border-radius: 3px;
 	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
 	font-size: 12px;
 	font-size: 0.75rem;
 	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	color: rgb(0 0 0 / 80%);
 }
 
 input[type="text"],
@@ -528,10 +532,10 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: #000;
+	padding: 3px 5px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	padding: 3px 5px;
+	color: #000;
 }
 
 select {
@@ -545,6 +549,7 @@ textarea {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
@@ -561,31 +566,31 @@ a:active {
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
+	clear: both;
+	float: left;
 }
 
 .main-navigation ul {
 	display: none;
-	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	list-style: none;
 }
 
 .main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
 	position: absolute;
 	top: 100%;
 	left: -999em;
 	z-index: 99999;
+	box-shadow: 0 3px 3px rgb(0 0 0 / 20%);
+	float: left;
 }
 
 .main-navigation ul ul ul {
-	left: -999em;
 	top: 0;
+	left: -999em;
 }
 
 .main-navigation ul ul li:hover > ul,
@@ -603,8 +608,8 @@ a:active {
 }
 
 .main-navigation li {
-	float: left;
 	position: relative;
+	float: left;
 }
 
 .main-navigation a {
@@ -622,55 +627,56 @@ a:active {
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
-	float: left;
 	width: 50%;
+	float: left;
 }
 
 .comment-navigation .nav-next,
 .posts-navigation .nav-next,
 .post-navigation .nav-next {
+	width: 50%;
 	float: right;
 	text-align: right;
-	width: 50%;
 }
 
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
 	overflow: hidden;
-	padding: 0;
-	position: absolute !important;
-	width: 1px;
-	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+	overflow-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
 
-.screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	clip-path: none;
-	color: #21759b;
+.screen-reader-text:focus-visible {
+	top: 5px;
+	left: 5px;
+	z-index: 100000;
 	display: block;
+	width: auto;
+	height: auto;
+	padding: 15px 23px 14px;
+	border-radius: 3px;
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5);
+	background-color: #f1f1f1;
 	font-size: 14px;
 	font-size: 0.875rem;
 	font-weight: bold;
-	height: auto;
-	left: 5px;
 	line-height: normal;
-	padding: 15px 23px 14px;
+	color: #21759b;
 	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000;
-	/* Above WP toolbar. */
+	clip: auto !important;
+	clip-path: none;
 }
 
 /* Do not show the outline on the skip link target. */
@@ -678,26 +684,34 @@ a:active {
 	outline: 0;
 }
 
+/* Firefox: remove inner focus spacing on buttons so the focus ring looks correct. */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
 .alignleft {
 	display: inline;
-	float: left;
 	margin-right: 1.5em;
+	float: left;
 }
 
 .alignright {
 	display: inline;
-	float: right;
 	margin-left: 1.5em;
+	float: right;
 }
 
 .aligncenter {
-	clear: both;
 	display: block;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
+	clear: both;
 }
 
 /*--------------------------------------------------------------
@@ -705,6 +719,7 @@ a:active {
 --------------------------------------------------------------*/
 .widget {
 	margin: 0 0 1.5em;
+
 	/* Make sure select elements fit in widgets. */
 }
 
@@ -715,6 +730,7 @@ a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -733,15 +749,15 @@ a:active {
 }
 
 .page-links {
-	clear: both;
 	margin: 0 0 1.5em;
+	clear: both;
 }
 
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
 .comment-content a {
-	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 .bypostauthor {
@@ -751,6 +767,7 @@ a:active {
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
+
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
@@ -769,10 +786,10 @@ a:active {
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {
-	border: none;
-	margin-bottom: 0;
 	margin-top: 0;
+	margin-bottom: 0;
 	padding: 0;
+	border: none;
 }
 
 /* Make sure embeds and iframes fit their containers. */
@@ -791,14 +808,14 @@ object {
 ## Captions
 --------------------------------------------------------------*/
 .wp-caption {
-	margin-bottom: 1.5em;
 	max-width: 100%;
+	margin-bottom: 1.5em;
 }
 
 .wp-caption img[class*="wp-image-"] {
 	display: block;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
 }
 
 .wp-caption .wp-caption-text {
@@ -818,9 +835,9 @@ object {
 
 .gallery-item {
 	display: inline-block;
+	width: 100%;
 	text-align: center;
 	vertical-align: top;
-	width: 100%;
 }
 
 .gallery-columns-2 .gallery-item {

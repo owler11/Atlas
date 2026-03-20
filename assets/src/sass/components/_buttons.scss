@@ -35,37 +35,50 @@ $button-outline-hover-color: $white;
 // Mixins
 // ============================================
 
-// Base button styles
-@mixin button-base {
-	background: $navy-1;
-	color: $white;
+// Base Button styles
+%button-base {
+	--button__padding: #{$button-padding};
+	--button__bg-color: #{$navy-1};
+	--button__border-width: 2px;
+	--button__border-color: transparent;
+	--button__text-color: #{$white};
+	--button__hover-bg: #{$navy-2};
+	--button__hover-border: transparent;
+	--button__hover-text: #{$white};
+
 	display: inline-block;
-	line-height: 1.5;
-	padding: $button-padding;
-	border: 2px solid transparent;
+	padding: var(--button__padding);
+	border: var(--button__border-width) solid var(--button__border-color);
 	border-radius: $button-border-radius;
-	text-decoration: none;
+	background: var(--button__bg-color);
 	transition: all 0.2s;
 	font-weight: $button-font-weight;
+	line-height: 1.5;
+	color: var(--button__text-color);
+	text-decoration: none;
 
 	&:hover,
 	&:focus-visible {
-		background: $navy-2;
-		color: $white;
+		border-color: var(--button__hover-border);
+		background: var(--button__hover-bg);
+		color: var(--button__hover-text);
 	}
 }
 
-// Styles for buttons with icons
-@mixin button-icon {
+// Button Styles
+// ============================================
+.btn {
+	@extend %button-base;
+
 	&.has-icon {
-		padding-right: rem(44px);
 		position: relative;
+		padding-right: rem(44px);
 		text-decoration: none;
 	}
 
 	> i {
-		font-size: rem(13px);
 		padding-left: $button-icon-padding-left;
+		font-size: rem(13px);
 	}
 
 	> .icomoon {
@@ -74,267 +87,142 @@ $button-outline-hover-color: $white;
 		right: $button-icon-right;
 		transform: $button-icon-transform;
 	}
-}
-
-// Theme-based button styling (default and hover states)
-@mixin button-theme(
-	$bg-color,
-	$border-color,
-	$text-color,
-	$hover-bg,
-	$hover-border,
-	$hover-text
-) {
-	background-color: $bg-color;
-	border-color: $border-color;
-	color: $text-color;
-
-	&:hover,
-	&:focus-visible {
-		background: $hover-bg;
-		border-color: $hover-border;
-		color: $hover-text;
-	}
-}
-
-// Outline button styling
-@mixin button-outline(
-	$border-color,
-	$text-color,
-	$hover-bg,
-	$hover-border,
-	$hover-text
-) {
-	background: transparent;
-	border: $button-outline-border-width solid $border-color;
-	color: $text-color;
-
-	&:hover {
-		background: $hover-bg;
-		border: $button-outline-border-width solid $hover-border;
-		color: $hover-text;
-	}
-}
-
-// Button size variations
-@mixin button-size($padding) {
-	padding: $padding;
-}
-
-// Button Styles
-// ============================================
-.btn {
-	@include button-base;
-	@include button-icon;
 
 	// Default dark and light themed buttons
 	&__dark.btn__default {
-		@include button-theme(
-			$color-primary,
-			// background color
-			$color-primary,
-			// border color
-			$white,
-			// text color
-			$navy-3,
-			// hover background
-			$navy-3,
-			// hover border color
-			$white // hover text color
-		);
+		--button__bg-color: #{$color-primary};
+		--button__border-color: #{$color-primary};
+		--button__text-color: #{$white};
+		--button__hover-bg: #{$navy-3};
+		--button__hover-border: #{$navy-3};
+		--button__hover-text: #{$white};
 	}
 
 	&__light.btn__default {
-		@include button-theme(
-			$white,
-			// background color
-			$white,
-			// border color
-			$color-primary,
-			// text color
-			$navy-4,
-			// hover background
-			$navy-4,
-			// hover border color
-			$navy-1 // hover text color
-		);
+		--button__bg-color: #{$white};
+		--button__border-color: #{$white};
+		--button__text-color: #{$color-primary};
+		--button__hover-bg: #{$navy-4};
+		--button__hover-border: #{$navy-4};
+		--button__hover-text: #{$navy-1};
 	}
 
 	// Outline button variations
 	&__outline {
-		@include button-outline(
-			$navy-1,
-			// border color
-			$navy-1,
-			// text color
-			$navy-2,
-			// hover background
-			$navy-2,
-			// hover border color
-			$white // hover text color
-		);
+		--button__border-width: #{$button-outline-border-width};
+		--button__bg-color: transparent;
+		--button__border-color: #{$navy-1};
+		--button__text-color: #{$navy-1};
+		--button__hover-bg: #{$navy-2};
+		--button__hover-border: #{$navy-2};
+		--button__hover-text: #{$white};
 
 		&.btn__dark {
-			@include button-outline(
-				$color-primary,
-				// border color
-				$color-primary,
-				// text color
-				$color-primary,
-				// hover background
-				$color-primary,
-				// hover border color
-				$white // hover text color
-			);
+			--button__border-color: #{$color-primary};
+			--button__text-color: #{$color-primary};
+			--button__hover-bg: #{$color-primary};
+			--button__hover-border: #{$color-primary};
+			--button__hover-text: #{$white};
 		}
 
 		&.btn__light {
-			@include button-outline(
-				$white,
-				// border color
-				$white,
-				// text color
-				$white,
-				// hover background
-				$white,
-				// hover border color
-				$color-primary // hover text color
-			);
+			--button__border-color: #{$white};
+			--button__text-color: #{$white};
+			--button__hover-bg: #{$white};
+			--button__hover-border: #{$white};
+			--button__hover-text: #{$color-primary};
 		}
 	}
 
 	// Themed button styles
 	&__primary {
-		@include button-theme(
-			$navy-1,
-			// background color
-			transparent,
-			// border color
-			$white,
-			// text color
-			$navy-2,
-			// hover background
-			transparent,
-			// hover border color
-			$white // hover text color
-		);
+		--button__bg-color: #{$navy-1};
+		--button__border-color: transparent;
+		--button__text-color: #{$white};
+		--button__hover-bg: #{$navy-2};
+		--button__hover-border: transparent;
+		--button__hover-text: #{$white};
 	}
 
 	&__secondary {
-		@include button-theme(
-			$navy-2,
-			// background color
-			transparent,
-			// border color
-			$white,
-			// text color
-			$navy-2,
-			// hover background
-			$navy-2,
-			// hover border color
-			$white // hover text color
-		);
+		--button__bg-color: #{$navy-2};
+		--button__border-color: transparent;
+		--button__text-color: #{$white};
+		--button__hover-bg: #{$navy-2};
+		--button__hover-border: #{$navy-2};
+		--button__hover-text: #{$white};
 	}
 
 	&__accent {
-		@include button-theme(
-			$color-accent,
-			// background color
-			transparent,
-			// border color
-			$white,
-			// text color
-			$navy-2,
-			// hover background
-			$navy-2,
-			// hover border color
-			$white // hover text color
-		);
+		--button__bg-color: #{$color-accent};
+		--button__border-color: transparent;
+		--button__text-color: #{$white};
+		--button__hover-bg: #{$navy-2};
+		--button__hover-border: #{$navy-2};
+		--button__hover-text: #{$white};
 	}
 
 	&__ghost {
-		@include button-theme(
-			transparent,
-			// background color
-			transparent,
-			// border color
-			$color-primary,
-			// text color
-			$navy-2,
-			// hover background
-			$navy-2,
-			// hover border color
-			$white // hover text color
-		);
+		--button__bg-color: transparent;
+		--button__border-color: transparent;
+		--button__text-color: #{$color-primary};
+		--button__hover-bg: #{$navy-2};
+		--button__hover-border: #{$navy-2};
+		--button__hover-text: #{$white};
 	}
 
 	&__white {
-		@include button-theme(
-			$white,
-			// background color
-			transparent,
-			// border color
-			$navy-1,
-			// text color
-			$navy-2,
-			// hover background
-			$navy-2,
-			// hover border color
-			$navy-1 // hover text color
-		);
+		--button__bg-color: #{$white};
+		--button__border-color: transparent;
+		--button__text-color: #{$navy-1};
+		--button__hover-bg: #{$navy-2};
+		--button__hover-border: #{$navy-2};
+		--button__hover-text: #{$navy-1};
 	}
 
 	// Link-style buttons (text only)
 	&__text,
 	&__link {
-		padding: 0;
-		background: transparent;
-		border-color: transparent;
-		color: $navy-1;
-		text-decoration: underline;
+		--button__padding: 0;
+		--button__border-color: transparent;
+		--button__bg-color: transparent;
+		--button__text-color: #{$navy-1};
+		--button__hover-border: transparent;
+		--button__hover-bg: transparent;
+		--button__hover-text: #{$navy-2};
 
-		&:hover {
-			background-color: transparent;
-			border-color: transparent;
-			color: $navy-2;
-		}
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		text-decoration-color: color-mix(in srgb, currentcolor, transparent 50%);
 
 		&.btn__dark {
-			@include button-outline(
-				"",
-				// border color
-				$color-primary,
-				// text color
-				"",
-				// hover background
-				"",
-				// hover border color
-				$navy-2 // hover text color
-			);
+			--button__border-width: #{$button-outline-border-width};
+			--button__bg-color: transparent;
+			--button__border-color: transparent;
+			--button__text-color: #{$color-primary};
+			--button__hover-bg: #{transparent};
+			--button__hover-border: #{transparent};
+			--button__hover-text: #{$navy-2};
 		}
 
 		&.btn__light {
-			@include button-outline(
-				"",
-				// border color
-				$white,
-				// text color
-				"",
-				// hover background
-				"",
-				// hover border color
-				$navy-4 // hover text color
-			);
+			--button__border-width: #{$button-outline-border-width};
+			--button__bg-color: transparent;
+			--button__border-color: transparent;
+			--button__text-color: #{$white};
+			--button__hover-bg: #{transparent};
+			--button__hover-border: #{transparent};
+			--button__hover-text: #{$navy-4};
 		}
 	}
 
 	// Size variations
 	&__small {
-		@include button-size(em(4px) em(18px));
+		--button__padding: #{em(4px) em(18px)};
 	}
 
 	&__large {
-		@include button-size(em(14px) em(36px));
+		--button__padding: #{em(14px) em(36px)};
 	}
 }
 
@@ -342,8 +230,8 @@ $button-outline-hover-color: $white;
 .btn-group {
 	display: flex;
 	flex-flow: row wrap;
-	gap: rem(10px);
 	align-items: center;
+	gap: rem(10px);
 
 	&.center {
 		justify-content: center;

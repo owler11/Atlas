@@ -30,8 +30,8 @@ $scrollbarWidth: var(--scrollbarWidth, 0px);
 $viewportWidth: calc(100vw - #{$scrollbarWidth});
 
 //2.0 - Colors
-$white: #ffffff;
-$black: #000000;
+$white: #fff;
+$black: #000;
 $grey: #dedede;
 $grey-2: #f9f9f9;
 
@@ -40,12 +40,9 @@ $black-1: $black;
 $black-2: $black;
 $black-3: #787878;
 $black-4: #f2f2f4;
-
 $red-1: #ff5869;
 $red-2: #b13c48;
-
 $teal-1: #45988a;
-
 $navy-1: #1f2041;
 $navy-2: #4b4c66;
 $navy-3: #78798d;
@@ -63,20 +60,22 @@ $bg-light: $navy-4;
 $bg-medium: $navy-2;
 $bg-dark: $navy-1;
 $bg-accent: $teal-1;
-
 $color-primary: $navy-1;
 $color-secondary: $teal-1;
 
+// Focus ring (3:1 contrast; use for :focus-visible only)
+$focus-ring-color: $teal-1;
+$focus-ring-width: 3px;
+
 //3.0 - Fonts
-$body: "Source Sans 3", sans-serif;
-$headline: "Source Sans 3", sans-serif;
-$accent: "Source Sans 3", sans-serif;
-$icon: "Font Awesome 6 Free";
+$body: "DM Sans", sans-serif;
+$headline: "DM Sans", sans-serif;
+$accent: "DM Sans", sans-serif;
+$icon: "Font Awesome 7 Pro", "Font Awesome 6 Free";
 $icomoon: "icomoon";
 
 //3.1 - Font Sizes
 $base-font-size: 16px;
-
 $size-xxs: em(12px);
 $size-xs: em(14px);
 $size-sm: em(16px);
@@ -122,12 +121,11 @@ $radius-lg: 0.1rem;
 $radius-max: 999rem;
 
 //4.2 - Shadows
-$shadow-sm: 0 0 5px 5px rgba(0, 0, 0, 0.15);
-$shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
-$shadow-md: 0 0 20px 20px rgba(0, 0, 0, 0.15);
-$shadow-lg: 0 0 30px 30px rgba(0, 0, 0, 0.15);
-$shadow-max: 0 0 40px 40px rgba(0, 0, 0, 0.15);
-
+$shadow-sm: 0 0 5px 5px rgb(0 0 0 / 15%);
+$shadow: 0 0 10px 10px rgb(0 0 0 / 15%);
+$shadow-md: 0 0 20px 20px rgb(0 0 0 / 15%);
+$shadow-lg: 0 0 30px 30px rgb(0 0 0 / 15%);
+$shadow-max: 0 0 40px 40px rgb(0 0 0 / 15%);
 $spacing-xs: 8px;
 $spacing-s: 16px;
 $spacing-sm: 24px;
@@ -136,7 +134,6 @@ $spacing-ml: 40px;
 $spacing-l: 48px;
 $spacing-xl: 64px;
 $spacing-xxl: 128px;
-
 $spacing: (
 	none: 0px,
 	small: $spacing-m,
@@ -156,4 +153,10 @@ $spacing: (
 	.padding-both-#{$size} {
 		padding: $value 0;
 	}
+}
+
+:root {
+    --clamp__min-viewport-width: 20;
+    --clamp__max-viewport-width: 75; // viewport max/min both should be unitless in rems
+    --clamp__relative-value: 100vw;
 }

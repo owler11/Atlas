@@ -28,12 +28,14 @@ $input-padding: rem(8px);
 #page .gform_heading {
 	h2.gform_title {
 	}
+
 	.gform_description {
 	}
+
 	.gform_required_legend {
+		margin: 0.25em 0 0;
 		font-size: $size-xs;
 		font-style: italic;
-		margin: 0.25em 0 0;
 	}
 }
 
@@ -49,17 +51,20 @@ $input-padding: rem(8px);
 	.gsection {
 		margin: 0 0 1rem;
 		padding: 0 0 0.5rem;
+
 		&:not(:first-child) {
 			margin-top: 2rem;
 		}
+
 		.gsection_title {
+			margin-bottom: 0.25em;
 			font-size: $size-xl;
 			font-weight: 700;
-			margin-bottom: 0.25em;
 			@include respond-below(sm) {
 				font-size: $size-lg;
 			}
 		}
+
 		.gsection_description {
 			padding: 0;
 		}
@@ -75,27 +80,23 @@ $input-padding: rem(8px);
 	input[type="text"]:not(.facetwp-search),
 	input[type="url"],
 	input[type="search"],
-	select:not([multiple="multiple"]):not(.facetwp-dropdown),
-	textarea:not(.editor-post-title__input):not(
-			.block-editor-default-block-appender__content
-		) {
-		border: 1px solid $black;
-		border-radius: $radius;
-		background: transparent;
-		color: $black;
-		font-size: $input-font-size; /* Corrects font size not being inherited in all browsers */
-		margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-		vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+	select:not([multiple="multiple"], .facetwp-dropdown),
+	textarea:not(.editor-post-title__input, .block-editor-default-block-appender__content) {
 		-webkit-appearance: none;
 		height: $input-height;
-		line-height: $input-lineheight;
+		margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 		padding: 0 $input-padding;
+		border: 1px solid $black;
+		border-radius: $radius;
 		outline: none;
+		background: transparent;
+		font-size: $input-font-size; /* Corrects font size not being inherited in all browsers */
+		line-height: $input-lineheight;
+		color: $black;
+		vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 	}
 
-	textarea:not(.editor-post-title__input):not(
-			.block-editor-default-block-appender__content
-		) {
+	textarea:not(.editor-post-title__input, .block-editor-default-block-appender__content) {
 		height: 10em;
 		padding: calc(#{$input-padding} * 1.5) $input-padding;
 		line-height: calc(#{$input-lineheight} / 2);
@@ -105,9 +106,11 @@ $input-padding: rem(8px);
 	.gfield_checkbox,
 	.gfield_radio {
 		font-size: $input-font-size;
+
 		input {
 			height: calc(#{$input-height} * 0.75);
 		}
+
 		label {
 			font-size: 1em;
 		}
@@ -117,9 +120,9 @@ $input-padding: rem(8px);
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		padding-right: $input-height;
 		cursor: pointer;
 		overflow: hidden;
-		padding-right: $input-height;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
@@ -138,49 +141,50 @@ $input-padding: rem(8px);
 		input[type="url"],
 		input[type="search"],
 		select:not([multiple="multiple"]),
-		textarea:not(.editor-post-title__input):not(
-				.block-editor-default-block-appender__content
-			) {
+		textarea:not(.editor-post-title__input, .block-editor-default-block-appender__content) {
+			border: 1px solid #cecece;
 			border-radius: rem(6px);
 			background-color: $white;
-			border: 1px solid #cecece;
 		}
 	}
 
 	.ginput_container_select,
 	.gfield_time_ampm {
-		cursor: pointer;
 		position: relative;
+		cursor: pointer;
+
 		&::after {
-			background: transparent;
 			content: "\f107";
-			display: block;
-			font-family: FontAwesome;
-			height: $input-height;
-			line-height: $input-lineheight;
 			position: absolute;
-			pointer-events: none;
-			right: 0;
-			text-align: center;
 			top: 0;
-			width: $input-height;
+			right: 0;
 			z-index: 9;
+			display: block;
+			width: $input-height;
+			height: $input-height;
+			background: transparent;
+			font-family: FontAwesome;
+			line-height: $input-lineheight;
+			pointer-events: none;
+			text-align: center;
 		}
 	}
+
 	.below.hour_minute_colon {
 		align-self: baseline !important;
 	}
+
 	.gfield_time_ampm {
 		flex-basis: auto;
 		max-width: none;
 	}
 
 	input[type="search"].search-field {
-		border-radius: 0;
+		width: calc(100% - rem(40px));
+		padding: 0;
 		border: none;
 		border-bottom: 1px solid $color-primary;
-		padding: 0;
-		width: calc(100% - rem(40px));
+		border-radius: 0;
 
 		&::placeholder {
 			color: $color-primary;
@@ -196,10 +200,11 @@ $input-padding: rem(8px);
 //2.3 - Labels
 #page .gfield {
 	margin-bottom: calc(#{$input-font-size} * 0.75);
+
 	.gfield_label {
+		margin-bottom: rem(4px);
 		font-size: rem(14px);
 		font-weight: 400;
-		margin-bottom: rem(4px);
 	}
 
 	&.gfield_error {
@@ -209,13 +214,13 @@ $input-padding: rem(8px);
 	}
 
 	.gfield_description:not(.gfield_validation_message) {
-		font-size: calc(#{$input-font-size} * 0.75);
 		padding: calc(#{$input-font-size} * 0.75) 0 0;
+		font-size: calc(#{$input-font-size} * 0.75);
 	}
 
 	.gfield_description.gfield_consent_description {
-		font-size: calc(#{$input-font-size} * 0.85);
 		padding: $input-padding;
+		font-size: calc(#{$input-font-size} * 0.85);
 	}
 
 	&.field_description_above
@@ -231,10 +236,10 @@ $input-padding: rem(8px);
 //2.4 - Button
 input.button,
 input.gform_button {
-	@include button-base;
+	@extend %button-base;
 
-	cursor: pointer;
 	font-size: rem(16px);
+	cursor: pointer;
 }
 
 //3.0 - Form Footer
@@ -242,40 +247,40 @@ input.gform_button {
 //4.0 - Form Errors
 #page .gform_wrapper.gravity-theme {
 	.gform_validation_errors {
-		background-color: $white;
 		border-color: $red-2;
-		color: $red-2;
 		border-radius: rem(6px);
 		box-shadow: none;
+		background-color: $white;
+		color: $red-2;
 
 		> h2 {
-			font-size: rem(15px);
-			line-height: 1.4;
 			font-family: $body;
+			font-size: rem(15px);
 			font-weight: 400;
+			line-height: 1.4;
 			color: $red-2;
 		}
 	}
 
 	.gfield_validation_message,
 	.validation_message {
-		background-color: $white;
 		border-color: $red-2;
-		color: $red-2;
 		border-radius: rem(6px);
+		background-color: $white;
+		color: $red-2;
 	}
 }
 
 //5.0 - Form Confirmation
 #page {
 	.gform_confirmation_wrapper {
-		background: transparent;
-		border: 1px solid $navy-3;
-		color: $color-primary;
 		margin-bottom: em(20px);
 		padding: em(20px) em(30px);
-		text-align: center;
+		border: 1px solid $navy-3;
 		border-radius: rem(6px);
+		background: transparent;
+		color: $color-primary;
+		text-align: center;
 
 		br {
 			display: none !important;

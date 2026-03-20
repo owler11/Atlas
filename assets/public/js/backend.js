@@ -1,1 +1,1 @@
-import"./frontend.js";function t(){import.meta.url,import("_").catch(()=>1),async function*(){}().next()}export{t as __vite_legacy_guard};
+import{$ as o,b as a,t as i,a as n}from"./accordion-C5cyxoDX.js";o(function(){a(),i(),n()});

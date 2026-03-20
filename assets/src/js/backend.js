@@ -20,7 +20,7 @@ import { accordionAnimation } from './components/accordion.js';
 /**
  * JS
  */
-const $ = require('jquery');
+import $ from 'jquery';
 
 $(function () {
   blocks();

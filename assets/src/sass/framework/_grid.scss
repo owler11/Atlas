@@ -23,16 +23,34 @@ Grid Styles
 	// }
 }
 
-.container {
-	@include box-sizing;
-	margin: 0 auto;
-	max-width: $container-regular;
-	padding: 0 20px;
-	min-width: 270px;
+.container, .container-grid {
+	--container-base-width: #{$container-regular};
+	--padding-inline: 20px;
 
 	@include respond-above(md) {
-		padding: 0 40px;
+		--padding-inline: 40px;
 	}
+
+	&[data-size="lg"] {
+		--container-base-width: #{$container-lg};
+	}
+
+	&[data-size="md"] {
+		--container-base-width: #{$container-md};
+	}
+
+	&[data-size="sm"] {
+		--container-base-width: #{$container-sm};
+	}
+}
+
+.container {
+	@include box-sizing;
+
+	max-width: var(--container-base-width);
+	min-width: 270px;
+	margin: 0 auto;
+	padding: 0 var(--padding-inline);
 }
 
 .grid {
@@ -46,5 +64,36 @@ Grid Styles
 
 	@include respond-below(sm) {
 		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.container-grid {
+	--max-width: #{rem(2500px)};
+	--container-size: calc(var(--container-base-width) - var(--padding-inline) * 2);
+	--margin-inline: max(
+		/* if our container is smaller than our 100vw, this'll be positive */
+		calc((min(100vw, var(--max-width)) - var(--container-size)) / 2 - var(--gap)),
+		/* this is our fallback to guarantee the margin is always greater than --padding-inline */
+		calc(var(--padding-inline) - var(--gap))
+	);
+	--column-count: 12;
+	--gap: #{rem(24px)};
+
+	display: grid;
+	grid-template-columns: 
+		[full-start] var(--margin-inline) 
+		[content-start] repeat(var(--column-count), 1fr) 
+		[content-end] var(--margin-inline) 
+		[full-end];
+	gap: var(--gap);
+	max-width: var(--max-width);
+	margin-inline: auto;
+
+	@include respond-below(md) {
+		--column-count: 8;
+	}
+
+	@include respond-below(sm) {
+		--column-count: 4;
 	}
 }

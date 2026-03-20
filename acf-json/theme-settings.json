@@ -390,6 +390,25 @@
             "ui": 1
         },
         {
+            "key": "field_6982a9298c7f0",
+            "label": "Cookie",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_66ad3c492bb6a",
             "label": "Site Cookie",
             "name": "site_cookie",
@@ -639,8 +658,9 @@
                         "class": "",
                         "id": ""
                     },
+                    "relevanssi_exclude": 0,
                     "icon_sets": [
-                        "fab"
+                        "brands"
                     ],
                     "custom_icon_set": "",
                     "default_label": "",
@@ -648,7 +668,8 @@
                     "save_format": "element",
                     "allow_null": 0,
                     "show_preview": 1,
-                    "enqueue_fa": 0,
+                    "enqueue_fa": 1,
+                    "allow_in_bindings": 1,
                     "fa_live_preview": "",
                     "choices": [],
                     "parent_repeater": "field_650328d45aaf6"
@@ -840,5 +861,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1746803843
+    "display_title": "",
+    "modified": 1774013357
 }

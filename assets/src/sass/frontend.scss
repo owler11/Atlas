@@ -25,11 +25,11 @@ Frontend Sass Files
 @import "framework/resets";
 
 // 2.0 - Framework
-// @import "fontawesome/fontawesome";
-// @import "fontawesome/brands";
-// @import "fontawesome/regular";
-// @import "fontawesome/solid";
-// @import "fontawesome/v4-shims";
+@import "fontawesome-pro/fontawesome";
+@import "fontawesome-pro/brands";
+@import "fontawesome-pro/regular";
+@import "fontawesome-pro/solid";
+@import "fontawesome-pro/v4-shims";
 
 @import "theme/legacy";
 @import "theme/variables";
@@ -38,15 +38,13 @@ Frontend Sass Files
 @import "theme/icomoon";
 @import "theme/utility";
 @import "theme/typography";
+@import "theme/headings";
 @import "framework/grid";
 
 // 3.0 - Plugins
 
 // 4.0 - Globals
 @import "globals/header";
-@import "globals/menu-vertical";
-@import "globals/menu-drilldown";
-@import "globals/menu-horizontal";
 @import "globals/footer";
 @import "globals/footer-cta";
 
@@ -59,20 +57,18 @@ Frontend Sass Files
 
 // 6.0 - Pages
 @import "pages/error-404";
+@import "pages/styleguide";
 
 // 7.0 - Other
 @import "components/blocks";
 @import "components/hero";
 
 // 8.0 - Hero
-// Add Heros (* do not remove this comment *)
 @import "blocks/hero-default";
 
 // 9.0 - Blocks
-// Add Blocks (* do not remove this comment *)
-@import "blocks/heading";
-@import "blocks/video";
-@import "blocks/wysiwyg";
+@import "blocks/block-heading";
+@import "blocks/block-flexible-content";
 
 // 10.0 - Components
 @import "components/buttons";

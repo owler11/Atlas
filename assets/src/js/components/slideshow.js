@@ -6,7 +6,7 @@
 --------------------------------------------------------------*/
 
 // 1.0 - Globals
-const $ = require("jquery");
+import $ from "jquery";
 
 // 2.0 - Slideshow
 export function initSlideShows() {

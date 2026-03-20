@@ -6,7 +6,7 @@ import "../sass/frontend.scss";
 /**
  * Node Modules
  */
-import jQuery from "jquery";
+import $ from "jquery";
 import "slick-carousel";
 import "magnific-popup";
 
@@ -20,13 +20,7 @@ window.$ = jQuery;
 import { popup } from "./components/popup.js";
 import { blocks } from "./components/blocks.js";
 import { initSlideShows } from "./components/slideshow.js";
-import {
-  menuWalker,
-  mobileMenu,
-  menuChildrenToggle,
-  searchToggle,
-  menuDrilldown,
-} from "./components/navigation.js";
+import { mobileMenu, primaryMenuSubmenus } from "./components/navigation.js";
 import { tabToggle } from "./components/tab.js";
 import { dialogModal } from "./components/dialog.js";
 import { statNumberAnimation } from "./components/animation.js";
@@ -40,11 +34,8 @@ $(function () {
   popup();
   initSlideShows();
   blocks();
-  menuWalker();
   mobileMenu();
-  menuChildrenToggle();
-  searchToggle();
-  menuDrilldown();
+  primaryMenuSubmenus();
   tabToggle();
   dialogModal();
   statNumberAnimation();

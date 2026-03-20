@@ -18,8 +18,8 @@ Events Styles
 .event-teaser {
 	.event-content {
 		.meta {
-			margin: 0 0 rem(8px);
 			display: block;
+			margin: 0 0 rem(8px);
 
 			&:last-child {
 				margin-bottom: rem(24px);
@@ -66,9 +66,10 @@ Events Styles
 	.event-single-data {
 		margin: 0 0 rem(24px);
 	}
+
 	.data {
-		margin: 0 0 rem(8px);
 		display: block;
+		margin: 0 0 rem(8px);
 
 		&:last-child {
 			margin-bottom: 0;

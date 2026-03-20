@@ -37,9 +37,9 @@ People Styles
 	}
 
 	.tag {
+		font-size: rem(14px);
 		color: #9f9f9f;
 		text-decoration: none;
-		font-size: rem(14px);
 	}
 
 	.title {
@@ -57,25 +57,27 @@ People Styles
 }
 
 .people-wrapper {
-	text-decoration: none;
 	color: $navy-1;
+	text-decoration: none;
 	cursor: pointer;
 }
+
 button.people-wrapper {
 	appearance: none;
-	padding: 0;
+	width: 100%;
 	margin: 0;
+	padding: 0;
 	border: none;
 	background: none;
 	text-align: unset;
-	width: 100%;
 }
 
 .people-image {
+	position: relative;
+	width: 100%;
+
 	// height: rem(280px);
 	aspect-ratio: 8/7;
-	width: 100%;
-	position: relative;
 	overflow: hidden;
 
 	img {
@@ -147,8 +149,8 @@ button.people-wrapper {
 
 	img {
 		display: block;
-		max-width: rem(320px);
 		width: 100%;
+		max-width: rem(320px);
 		margin: 0 0 rem(20px);
 	}
 
@@ -159,9 +161,9 @@ button.people-wrapper {
 	}
 
 	.social {
+		transition: color 0.2s;
 		font-size: rem(18px);
 		color: $color-primary;
-		transition: color 0.2s;
 
 		&:hover {
 			color: $color-accent;

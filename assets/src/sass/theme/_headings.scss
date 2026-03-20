@@ -1,0 +1,78 @@
+/*
+Headings Styles
+
+@package mingo
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Headlines
+--------------------------------------------------------------*/
+
+//1.0 - Headlines
+:root {
+    --clamp__min-viewport-width: 20;
+    --clamp__max-viewport-width: 75; // viewport max/min both should be unitless in rems
+    --clamp__relative-value: 100vw;
+}
+
+%headingBase {
+    --margin-block-start: #{rem(56px)};
+    --margin-block-end: #{rem(12px)};
+    --font-family: #{$headline};
+    --font-size__min: calc(var(--font-size__max) / 1.4);
+    --font-size__max: 1rem;
+    --font-weight: 600;
+    --letter-spacing: 0;
+    --line-height: 1.12;
+
+    margin-block: var(--margin-block-start) var(--margin-block-end);
+	font-family: var(--font-family);
+    font-size: atlas-clamp(var(--font-size__max), var(--font-size__min));
+	font-weight: var(--font-weight);
+	line-height: var(--line-height);
+	letter-spacing: var(--letter-spacing);
+}
+%headingH1 {
+    @extend %headingBase;
+
+    --font-size__max: #{strip-units(rem(62px))};
+}
+%headingH2 {
+    @extend %headingBase;
+
+    --margin-block-start: #{rem(48px)};
+    --font-size__max: #{strip-units(rem(48px))};
+    --line-height: 1.2;
+}
+%headingH3 {
+    @extend %headingBase;
+
+    --margin-block-start: #{rem(40px)};
+    --font-size__max: #{strip-units(rem(34px))};
+    --line-height: 1.2;
+}
+%headingH4 {
+    @extend %headingBase;
+
+    --margin-block-start: #{rem(32px)};
+    --font-size__max: #{strip-units(rem(28px))};
+    --line-height: 1.36;
+}
+%headingH5 {
+    @extend %headingBase;
+
+    --margin-block-start: #{rem(24px)};
+    --font-size__max: #{strip-units(rem(24px))};
+    --font-weight: 400;
+    --line-height: 1.4;
+}
+%headingH6 {
+    @extend %headingBase;
+
+    --margin-block-start: #{rem(24px)};
+    --font-size__max: #{strip-units(rem(18px))};
+    --font-weight: 700;
+    --line-height: 1.55;
+}

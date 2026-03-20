@@ -33,7 +33,7 @@ Search Styles
 	}
 
 	.search-results__filter {
-		margin: rem(30px) 0 0 0;
+		margin: rem(30px) 0 0;
 	}
 }
 
@@ -43,64 +43,65 @@ Search Styles
 		row-gap: rem(60px);
 	}
 }
+
 .archive-pagination {
 	&.hide {
 		display: none;
 	}
 }
+
 .search-group {
-	grid-column: 1 / -1;
 	display: flex;
 	flex-flow: row wrap;
+	grid-column: 1 / -1;
 	gap: rem(40px);
 
 	.group-headline {
 		display: flex;
 		align-items: center;
-		gap: rem(40px);
 		justify-content: space-between;
+		gap: rem(40px);
 		width: 100%;
 
 		@include respond-below(sm) {
 			flex-flow: column wrap;
-			gap: rem(16px);
 			align-items: flex-start;
+			gap: rem(16px);
 		}
 
 		.headline {
-			margin: 0;
 			display: flex;
 			align-items: center;
+			margin: 0;
 		}
 
 		.number {
-			font-size: rem(16px);
-			line-height: 1;
 			position: relative;
 			display: inline-block;
-			text-align: center;
 			margin: 0 0 0 rem(16px);
+			font-size: rem(16px);
+			line-height: 1;
+			text-align: center;
 
-			&:after {
+			&::after {
 				content: "";
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%, -50%);
 				width: rem(30px);
 				height: rem(30px);
 				border: 1px solid $color-primary;
 				border-radius: rem(100px);
+				transform: translate(-50%, -50%);
 			}
 		}
 	}
 
 	.post__list {
-		width: 100%;
-
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
 		gap: rem(24px);
+		width: 100%;
 
 		@include respond-below(md) {
 			grid-template-columns: repeat(8, 1fr);
@@ -113,9 +114,9 @@ Search Styles
 }
 
 .search-list__indv {
-	grid-column: 1 / -1;
 	display: grid;
 	grid-template-columns: subgrid;
+	grid-column: 1 / -1;
 	gap: rem(24px);
 
 	@include respond-below(md) {

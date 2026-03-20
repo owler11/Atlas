@@ -1,0 +1,314 @@
+/*
+Scss - Pages - Styleguide
+
+Styleguide Styles
+
+@package mingo
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Styleguide
+--------------------------------------------------------------*/
+
+//1.0 - Styleguide
+.styleguide__wrapper {
+    // background-color: #f7f7f7;
+    position: relative;
+}
+
+.styleguide__container {
+    max-width: none;
+    margin: 0 auto;
+    padding: 0;    
+}
+
+.styleguide__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: rem(304px) 1fr;
+    gap: rem(134px);
+    row-gap: rem(40px);
+}
+
+.styleguide__aside {
+    position: relative;
+    width: 100%;
+    max-width: rem(304px);
+    padding: rem(40px) rem(20px);
+    background-color: #f7f7f7;
+    
+    .styleguide__title {
+        --font-weight: 600;
+        @extend %headingH6;
+
+        margin: 0 0 rem(68px);
+    }
+
+    .navigation {
+        position: sticky;
+        top: rem(40px);
+        display: flex;
+        flex-flow: column nowrap;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        row-gap: rem(64px);
+    }
+
+    .navigation__item {
+        > .title {
+            font-size: rem(16px);
+            line-height: 1.5;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+    }
+
+    .navigation__sub-menu {
+        display: flex;
+        flex-flow: column nowrap;
+        margin: rem(16px) 0 0;
+        padding: 0;
+        list-style: none;
+        row-gap: rem(16px);
+    }
+
+    .navigation__sub-item {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: rem(-20px);
+            width: rem(0px);
+            height: 2px;
+            background-color: $navy-1;
+            transform: translate(0, -50%);
+            transition: width 0.3s ease-in-out;
+        }
+
+        &.active {
+            &::after {
+                width: rem(40px);
+            }
+        }
+
+        &:hover {
+            &::after {
+                width: rem(40px);
+            }
+        }
+    }
+
+    .navigation__sub-link {
+        transition: color 0.2s;
+        font-size: rem(20px);
+        color: $navy-1;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+            color: $navy-2;
+        }
+    }
+}
+
+.styleguide__main {
+    padding: rem(40px) rem(0px);
+    scroll-behavior: smooth;
+
+    .section-title {
+        --font-weight: 400;
+        @extend %headingH4;
+
+        grid-column: span 10;
+        margin: 0;
+    }
+
+    .styleguide__section {
+        scroll-margin-block-start: rem(100px);
+
+        &:not(:first-child) {
+            margin-top: rem(100px);
+        }
+    }
+
+    .type-intro {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: span 10;
+
+        .item {
+            grid-column: span 4;
+
+            &:last-child {
+                grid-column: span 2;
+            }
+        }
+
+        .value {
+            margin: 0;
+            font-size: rem(260px);
+            line-height: 1;
+        }
+
+        ul {
+            display: flex;
+            flex-flow: column nowrap;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            row-gap: rem(16px);
+
+            li {
+                font-size: rem(28px);
+                line-height: 1.5;
+            }
+        }
+    }
+
+    .type-font {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: span 10;
+
+        .title {
+            grid-column: span 10;
+
+            --font-weight: 500;
+            @extend %headingH5;
+
+            margin: 0 0 rem(24px);
+        }
+
+        .item {
+            grid-column: span 4;
+
+            &:last-child {
+                grid-column: 6 / span 4;
+            }
+        }
+
+        .label {
+            margin: 0 0 rem(18px);
+            padding: 0 0 rem(18px);
+            border-bottom: 2px solid #f0f0f0;
+            font-size: rem(16px);
+            line-height: 1.5;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .value {
+            margin: 0;
+            font-size: rem(26px);
+        }
+    }
+
+    .typescale {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: span 10;
+        margin: rem(100px) 0 0;
+
+        .title {
+            grid-column: span 10;
+            
+            --font-weight: 500;
+            @extend %headingH5;
+
+            margin: 0 0 rem(18px);
+            padding: 0 0 rem(18px);
+            border-bottom: 2px solid #f0f0f0;
+        }   
+
+        .item {
+            grid-column: span 10;
+
+            > * {
+                margin-top: rem(18px);
+            }
+        }
+    }
+
+    .icon-list {
+        display: flex;
+        flex-flow: row wrap;
+        grid-column: span 10;
+        gap: rem(18px);
+
+        i {
+            font-size: rem(18px);
+        }
+    }
+
+    .color-group {
+        display: flex;
+        flex-flow: row wrap;
+        grid-column: span 10;
+        gap: rem(18px);
+
+        .color-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: rem(240px);
+            height: rem(240px);
+            border-radius: rem(8px);
+            font-size: rem(18px);
+            color: $white;
+            text-align: center;
+        }
+    }
+
+    .btn-group {
+        display: flex;
+        flex-flow: row wrap;
+        grid-column: span 10;
+        gap: rem(18px);
+    }
+
+    .styleguide-section__grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column: span 10;
+        gap: rem(18px);
+
+        div {
+            padding: rem(12px);
+            border-radius: rem(8px);
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+    }
+
+    .form-group {
+        display: flex;
+        flex-flow: column nowrap;
+        grid-column: span 10;
+        gap: rem(18px);
+        max-width: rem(500px);
+
+        .item {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: rem(0px);
+        }
+    }
+
+    .content-group {
+        display: flex;
+        flex-flow: column nowrap;
+        grid-column: span 10;
+        max-width: rem(640px);
+    }
+}
+
+.styleguide--grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: rem(24px);
+    max-width: rem(1076px);
+}

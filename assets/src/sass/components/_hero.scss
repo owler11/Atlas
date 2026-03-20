@@ -16,30 +16,31 @@ Block Global Styles
 	&.theme-light {
 		background-color: $color-light;
 	}
+
 	&.theme-dark {
 		background-color: $color-dark;
 		color: $white;
 
 		.btn__solid {
+			border-color: $white;
 			background-color: $white;
 			color: $color-dark;
-			border-color: $white;
 
 			&:hover {
-				background-color: $color-accent;
 				border-color: $color-accent;
+				background-color: $color-accent;
 				color: $color-dark;
 			}
 		}
 
 		.btn__outline {
+			border-color: $white;
 			background-color: transparent;
 			color: $white;
-			border-color: $white;
 
 			&:hover {
-				background-color: $color-accent;
 				border-color: $color-accent;
+				background-color: $color-accent;
 				color: $color-dark;
 			}
 		}
@@ -57,15 +58,17 @@ Block Global Styles
 		.title {
 			margin: 0 0 rem(14px);
 		}
+
 		.headline {
 			margin: 0 0 rem(16px);
 		}
+
 		.description,
 		.content {
-			margin: 0 0 rem(30px);
 			display: flex;
 			flex-direction: column;
 			gap: rem(16px);
+			margin: 0 0 rem(30px);
 
 			h1,
 			h2,

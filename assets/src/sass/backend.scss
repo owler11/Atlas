@@ -30,9 +30,6 @@ Backend Sass Files
 		@import "theme/typography";
 		@import "framework/grid";
 		@import "globals/header";
-		@import "globals/menu-vertical";
-		@import "globals/menu-drilldown";
-		@import "globals/menu-horizontal";
 		@import "globals/footer";
 		@import "globals/footer-cta";
 		@import "posttypes/settings";
@@ -46,9 +43,9 @@ Backend Sass Files
 		@import "blocks/hero-default";
 
 		// Add Blocks (* do not remove this comment *)
-		@import "blocks/heading";
-		@import "blocks/video";
-		@import "blocks/wysiwyg";
+		@import "blocks/block-heading";
+		@import "blocks/block-flexible-content";
+
 		@import "components/buttons";
 		@import "components/cookie";
 		@import "components/facets";
@@ -70,5 +67,13 @@ Backend Sass Files
 		margin-right: calc(-100vw / 2 + 100% / 2 + #{$scrollbarWidth} / 2);
 		margin-left: calc(-100vw / 2 + 100% / 2 + #{$scrollbarWidth} / 2);
 		padding: 0;
+		box-sizing: border-box;
+		font-family: $body;
+		font-size: 16px;
+		line-height: 1.5;
+
+		// Typography
+		color: $navy-1;
+		@include font-smoothing;
 	}
 }

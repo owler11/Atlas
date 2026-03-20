@@ -16,7 +16,7 @@ TABLE OF CONTENTS:
 
 
 // 1.0 - Register Post Type
-add_action( 'init', 'events_init', 0 );
+add_action( 'init', 'events_init', 10 );
 function events_init() {
     $labels = array(
         'name'                => _x( 'Event', 'Post Type General Name', 'atlas' ),

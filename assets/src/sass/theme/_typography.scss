@@ -17,6 +17,8 @@ Typography Styles
 7.0 - Utilities
 --------------------------------------------------------------*/
 
+@import "headings";
+
 //1.0 - Resets
 html,
 body,
@@ -25,11 +27,13 @@ input,
 select,
 textarea,
 #page {
-	color: $navy-1;
 	font-family: $body;
 	font-size: 16px;
-	@include font-smoothing;
 	line-height: 1.5;
+	color: $navy-1;
+	@include font-smoothing;
+
+	font-optical-sizing: auto;
 }
 
 //2.0 - Headlines
@@ -40,40 +44,38 @@ h4,
 h5,
 h6 {
 	font-family: $headline;
-	color: purple;
-	clear: both;
 	line-height: 1.2em;
-}
-
-// Balance Text
-h1,
-h2 {
-	text-wrap: balance;
+	clear: both;
 }
 
 .h1,
 h1 {
-	@include headingH1();
+	@extend %headingH1;
 }
+
 .h2,
 h2 {
-	@include headingH2();
+	@extend %headingH2;
 }
+
 .h3,
 h3 {
-	@include headingH3();
+	@extend %headingH3;
 }
+
 .h4,
 h4 {
-	@include headingH4();
+	@extend %headingH4;
 }
+
 .h5,
 h5 {
-	@include headingH5();
+	@extend %headingH5;
 }
+
 .h6,
 h6 {
-	@include headingH6();
+	@extend %headingH6;
 }
 
 //3.0 - Paragraph
@@ -83,8 +85,8 @@ p {
 
 //4.0 Links
 a {
-	text-decoration: underline;
 	color: $red-1;
+	text-decoration: underline;
 
 	&:hover {
 		color: $red-2;
@@ -99,11 +101,14 @@ a.disabled {
 	cursor: default;
 }
 
+// Global focus ring (keyboard only; box-shadow so it doesn’t affect layout)
 input:focus-visible,
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
 	outline: none;
-	box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4) !important;
+	box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
 }
 
 //5.0 - List
@@ -120,8 +125,8 @@ ol {
 // 6.0 - Screen Reader
 .sr-only {
 	position: absolute;
-	left: -10000px;
 	top: auto;
+	left: -10000px;
 	width: 1px;
 	height: 1px;
 	overflow: hidden;
@@ -139,7 +144,11 @@ ol {
 .no-bottom-margin {
 	margin-bottom: 0;
 } /* Test comment */
+
 /* Another test comment */
+
 /* Test change for file watching */
+
 /* File watching test - Wed Sep 17 14:03:24 CDT 2025 */
+
 /* Test change Wed Sep 17 14:06:45 CDT 2025 */

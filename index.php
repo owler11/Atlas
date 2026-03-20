@@ -27,24 +27,6 @@ get_header(); ?>
 <section class="wrapper archive-wrapper">
 	<div class="container archive-container">	
 		<?php
-		if($archive_featured) :
-		?>
-		<div class="archive-featured">
-			<?php
-			foreach($archive_featured as $post) :
-				setup_postdata($post);
-				$id = get_the_ID();
-				set_query_var('id', $id);
-    			get_template_part('template-parts/' . get_post_type($id) . '/' . get_post_type($id) . '-teaser-card');
-			endforeach;
-			wp_reset_postdata();
-			?>
-		</div>
-		<?php
-		endif;
-		?>
-
-		<?php
 		if($archive_search || $archive_tag || $archive_category) :
 		?>
 		<div class="archive-facets">
@@ -73,13 +55,13 @@ get_header(); ?>
 				while ( have_posts() ) :
 					the_post();
 
-					include( locate_template( 'template-parts/' . get_post_type() . '/' . get_post_type() . '-teaser.php', false, false ) );
+					include( locate_template( 'template-parts/content/' . get_post_type() . '/' . get_post_type() . '-teaser.php', false, false ) );
 
 				endwhile;
 
 			else :
 
-				get_template_part( 'template-parts/content/content', 'none' );
+				get_template_part( 'template-parts/content/none' );
 
 			endif;
 			?>

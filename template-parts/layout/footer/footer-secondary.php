@@ -2,26 +2,23 @@
 /**
  * Template Parts - Footer - Footer Secondary
  * 
- * @package mingo
+ * @package atlas
  */
 
-$site_copyright 	= get_field('site_copyright', 'options');
+$site_copyright = get_field('site_copyright', 'options');
+$privacy_url 	= get_privacy_policy_url();
 ?>
 
 
-<div class="site-footer__secondary">
-	<div class="container site-footer__secondary-container">
-		<div class="site-footer__copyright">
-			<p class="copyright">© <?php echo date('Y'); ?> <?php echo $site_copyright; ?></p>
+<div class="site-footer-secondary">
+	<div class="container site-footer-secondary__container">
+		<div class="site-footer-secondary__legal">
+			<p class="copyright">© <?php echo esc_html(date('Y')); ?> <?php echo $site_copyright; ?></p>
 
-			<?php 
-			wp_nav_menu(array(
-				'theme_location' => 'legal',
-				'container' 	 => 'false',
-				'menu_class' 	 => 'legal-menu',
-				'depth'			 => 1,	
-				'fallback_cb' 	 => false
-			));
+			<?php
+			if ($privacy_url) {
+				echo '<span>|</span> <a href="' . esc_url($privacy_url) . '">' . esc_html__('Privacy Policy', 'atlas') . '</a>';
+			}
 			?>
 		</div>
 	</div>

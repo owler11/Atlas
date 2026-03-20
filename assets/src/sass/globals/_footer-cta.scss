@@ -15,6 +15,7 @@ Footer CTA
 .site-footer__cta {
 	&.theme-default {
 	}
+
 	&.theme-light {
 		background-color: $navy-4;
 		color: $color-primary;
@@ -23,6 +24,7 @@ Footer CTA
 			color: $color-primary;
 		}
 	}
+
 	&.theme-dark {
 		background-color: $navy-1;
 		color: $white;
@@ -35,9 +37,11 @@ Footer CTA
 	&.padding-none {
 		padding: 0;
 	}
+
 	&.padding-small {
 		padding: rem(28px) 0;
 	}
+
 	&.padding-medium {
 		padding: rem(48px) 0;
 
@@ -45,6 +49,7 @@ Footer CTA
 			padding: rem(40px) 0;
 		}
 	}
+
 	&.padding-large {
 		padding: rem(90px) 0;
 

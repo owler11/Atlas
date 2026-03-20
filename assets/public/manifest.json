@@ -1,0 +1,30 @@
+{
+  "_accordion-C5cyxoDX.js": {
+    "file": "js/accordion-C5cyxoDX.js",
+    "name": "accordion"
+  },
+  "assets/src/js/backend.js": {
+    "file": "js/backend.js",
+    "name": "backend",
+    "src": "assets/src/js/backend.js",
+    "isEntry": true,
+    "imports": [
+      "_accordion-C5cyxoDX.js"
+    ],
+    "css": [
+      "css/backend.css"
+    ]
+  },
+  "assets/src/js/frontend.js": {
+    "file": "js/frontend.js",
+    "name": "frontend",
+    "src": "assets/src/js/frontend.js",
+    "isEntry": true,
+    "imports": [
+      "_accordion-C5cyxoDX.js"
+    ],
+    "css": [
+      "css/frontend.css"
+    ]
+  }
+}

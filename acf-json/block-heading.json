@@ -192,5 +192,6 @@
     "active": true,
     "description": "Heading for Blocks",
     "show_in_rest": 0,
-    "modified": 1756138584
+    "display_title": "",
+    "modified": 1774025019
 }

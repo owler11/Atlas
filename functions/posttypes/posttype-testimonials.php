@@ -16,7 +16,7 @@ TABLE OF CONTENTS:
 
 
 // 1.0 - Register Post Type
-add_action( 'init', 'testimonials_init', 0 );
+add_action( 'init', 'testimonials_init', 10 );
 function testimonials_init() {
     $labels = array(
         'name'                => _x( 'Testimonials', 'Post Type General Name', 'atlas' ),

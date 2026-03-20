@@ -5,9 +5,7 @@
  * @package mingo
  */
 
-?>
-
-<?php get_header(); ?>
+get_header(); ?>
 
 <header class="hero search-hero">
 	<div class="container search-container">
@@ -22,20 +20,20 @@
 
 <section class="wrapper archive-wrapper">
 	<div class="container archive-container">
-		<div class="grid archive-grid type-list">
+		<div class="grid archive-grid">
 			<?php
 			if ( have_posts() ) :
 
 				while ( have_posts() ) :
 					the_post();
 
-					include( locate_template( 'template-parts/search/search-teaser.php', false, false ) );
+					include( locate_template( 'template-parts/content/search/search-teaser.php', false, false ) );
 
 				endwhile;
 
 			else :
 
-				get_template_part( 'template-parts/content/content', 'none' );
+				get_template_part( 'template-parts/content/none' );
 
 			endif;
 			?>

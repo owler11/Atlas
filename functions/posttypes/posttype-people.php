@@ -16,7 +16,7 @@ TABLE OF CONTENTS:
 
 
 // 1.0 - Register Post Type
-add_action( 'init', 'people_init', 0 );
+add_action( 'init', 'people_init', 10 );
 function people_init() {
     $labels = array(
         'name'                => _x( 'People', 'Post Type General Name', 'atlas' ),
