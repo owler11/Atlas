@@ -2,7 +2,7 @@
 /**
  * Template Parts - Block - Flexible Content
  * 
- * @package mingo
+ * @package atlas
  */
 
 // Gutenberg Preview Image
@@ -49,16 +49,10 @@ $theme          = $fields['theme'] ?? 'default';
 
                             foreach($buttons as $button) {
                                 $b_link    = $button['link'];
-                                $b_type    = $button['type'];
-                                if($theme == 'dark') {
-                                    $color = ' btn__light';
-                                } elseif($theme == 'light') {
-                                    $color = ' btn__dark';
-                                } else {
-                                    $color = '';
-                                }
+                                $b_type    = $button['type'] ?? 'solid';
+                                $b_icon    = $button['icon'] ?? '';
                 
-                                echo '<a href="'. $b_link['url'] .'" class="btn btn__'. $b_type . $color .'" target="'. $b_link['target'] .'">'. $b_link['title'] .'</a>';
+                                echo atlas_get_button($b_link, 'btn__'. $b_type, $b_icon);
                             }
             
                         echo '</div>';

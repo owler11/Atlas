@@ -2,7 +2,7 @@
 /**
  * Post Type - People
  * 
- * @package mingo
+ * @package atlas
  */
 
 /*--------------------------------------------------------------
@@ -16,8 +16,8 @@ TABLE OF CONTENTS:
 
 
 // 1.0 - Register Post Type
-add_action( 'init', 'people_init', 10 );
-function people_init() {
+add_action( 'init', 'atlas_people_init', 10 );
+function atlas_people_init() {
     $labels = array(
         'name'                => _x( 'People', 'Post Type General Name', 'atlas' ),
         'singular_name'       => _x( 'People', 'Post Type Singular Name', 'atlas' ),

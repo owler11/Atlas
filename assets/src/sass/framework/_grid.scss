@@ -1,7 +1,7 @@
 /*
 Grid Styles
 
-@package mingo
+@package atlas
 */
 
 /*--------------------------------------------------------------
@@ -16,15 +16,10 @@ Grid Styles
 }
 
 .wrapper {
-	// padding: 2rem 0;
-
-	// @include respond-above(md) {
-	//     padding: 3rem 0;
-	// }
 }
 
 .container, .container-grid {
-	--container-base-width: #{$container-regular};
+	--container-base-width: #{$container-md};
 	--padding-inline: 20px;
 
 	@include respond-above(md) {

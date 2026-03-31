@@ -2,7 +2,7 @@
 /**
  * Template Parts - Components - Social Share
  * 
- * @package mingo
+ * @package atlas
  * 
  * $currentUrl => get_the_permalink()
  * $subject => Yoast Title ??? Post Title

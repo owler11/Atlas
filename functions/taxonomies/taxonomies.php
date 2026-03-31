@@ -2,7 +2,7 @@
 /**
  * Custom Taxonomies
  *
- * @package mingo
+ * @package atlas
  */
 
 /*--------------------------------------------------------------
@@ -12,8 +12,8 @@
 --------------------------------------------------------------*/
 
 //1.0 - Events Category	
-add_action( 'init', 'events_cat', 10 );
-function events_cat() {
+add_action( 'init', 'atlas_events_cat', 10 );
+function atlas_events_cat() {
 	$labels = array(
 		'name'                       => _x( 'Events Categories', 'Taxonomy General Name', 'atlas' ),
 		'singular_name'              => _x( 'Events Category', 'Taxonomy Singular Name', 'atlas' ),

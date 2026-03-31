@@ -2,7 +2,7 @@
 /**
  * Functions - Functions Image
  * 
- * @package mingo
+ * @package atlas
  * Updated Version: 1.0
  */
 
@@ -12,23 +12,18 @@
 1.0 - Custom Sizes Images
 2.0 - Set Featured Image off ACF Field
 3.0 - Images
-    3.1 - getSVG
-    3.2 - getImage
+    3.1 - atlas_get_svg
+    3.2 - atlas_get_image
 4.0 - Allow SVG Uploads
 --------------------------------------------------------------*/
 
 
 //1.0 - Custom Sizes Images
-// Custom
-add_image_size('atlas_sm', 400); 
-// add_image_size('atlas_md', 800); 
-// add_image_size('atlas_lg', 1200);
-// add_image_size('atlas_xl', 1800);
-
+add_image_size('atlas_sm', 400);
 
 // 2.0 - Set Featured Image off ACF Field
-add_action('save_post', 'set_featured_image_on_post_update', 10, 3);
-function set_featured_image_on_post_update($post_id, $post, $update) {
+add_action('save_post', 'atlas_set_featured_image_on_post_update', 10, 3);
+function atlas_set_featured_image_on_post_update($post_id, $post, $update) {
     // Check if this is an autosave or a revision
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
@@ -54,8 +49,8 @@ function set_featured_image_on_post_update($post_id, $post, $update) {
 
 
 // 3.0 - Images
-// 3.1 - getSVG
-function getSVG($svg) {
+// 3.1 - atlas_get_svg
+function atlas_get_svg($svg) {
 	$url =  get_bloginfo('url');
 	if (strpos($url,'.local') !== false) {
 		$arrContextOptions=array(
@@ -74,12 +69,12 @@ function getSVG($svg) {
 }
 
 
-// 3.2 - getImage
-function getImage($acf_array, $size = '', $class='') {
+// 3.2 - atlas_get_image
+function atlas_get_image($acf_array, $size = '', $class='') {
 	//Get the file extension 
 	$ext = pathinfo($acf_array['url'], PATHINFO_EXTENSION);
 	if ($ext === 'svg') {
-		return getSVG($acf_array['url']);
+		return atlas_get_svg($acf_array['url']);
 	} else {
 		return wp_get_attachment_image($acf_array['id'], $size, '', array('class' => $class ));
 	}
@@ -87,8 +82,8 @@ function getImage($acf_array, $size = '', $class='') {
 
 
 // 4.0 - Allow SVG Uploads
-function mingo_allow_svg_uploads($mimes) {
+function atlas_allow_svg_uploads($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
-add_filter('upload_mimes', 'mingo_allow_svg_uploads');
+add_filter('upload_mimes', 'atlas_allow_svg_uploads');

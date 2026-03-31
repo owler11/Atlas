@@ -1,7 +1,7 @@
 /*
 Backend Sass Files 
 
-@package mingo
+@package atlas
 */
 
 /* --------------------------------------------------------------
@@ -25,7 +25,6 @@ Backend Sass Files
 .edit-post-visual-editor {
 	// Load only in preview mode
 	.acf-block-preview {
-		@import "theme/legacy";
 		@import "theme/utility";
 		@import "theme/typography";
 		@import "framework/grid";
@@ -36,13 +35,12 @@ Backend Sass Files
 		@import "posttypes/post";
 		@import "posttypes/search";
 		@import "pages/error-404";
+		@import "components/theme-color";
 		@import "components/hero";
 		@import "components/blocks";
 
-		// Add Heros (* do not remove this comment *)
 		@import "blocks/hero-default";
 
-		// Add Blocks (* do not remove this comment *)
 		@import "blocks/block-heading";
 		@import "blocks/block-flexible-content";
 
@@ -73,7 +71,7 @@ Backend Sass Files
 		line-height: 1.5;
 
 		// Typography
-		color: $navy-1;
+		color: $black-1;
 		@include font-smoothing;
 	}
 }

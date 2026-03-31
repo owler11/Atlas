@@ -1,53 +1,91 @@
 /*
 Form Styles
 
-@package mingo
+@package atlas
 */
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 - Form Header
-2.0 - Form Body
-	2.1 - Form Sections
-	2.2 - Input Fields
-	2.3 - Labels
-	2.4 - Button
-3.0 - Form Footer
-4.0 - Form Errors
-5.0 - Form Confirmation
+1.0 - Variables
+2.0 - Site-wide Input Resets
+3.0 - Gravity Forms
+	3.1 - Form Header
+	3.2 - Form Sections
+	3.3 - Input Overrides
+	3.4 - Select & Time Fields
+	3.5 - Checkboxes & Radio
+	3.6 - Labels & Fields
+	3.7 - Errors
+	3.8 - Confirmation
+4.0 - Progress Bar
+5.0 - Button
+6.0 - Search Field
 --------------------------------------------------------------*/
 
-//0.0 - Form Variables
-$input-font-size: rem(16px);
-$input-height: 3em;
-$input-lineheight: 3em;
-$input-padding: rem(8px);
+//1.0 - Variables
 
-//1.0 - Form Header
-#page .gform_heading {
-	h2.gform_title {
-	}
 
-	.gform_description {
-	}
+//2.0 - Site-wide Input Resets
+label {
+	margin-bottom: rem(8px);
+	font-size: rem(14px);
+	font-weight: 400;
+}
 
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+input[type="text"]:not(.facetwp-search),
+input[type="url"],
+input[type="search"],
+select:not([multiple="multiple"], .facetwp-dropdown),
+textarea:not(.editor-post-title__input, .block-editor-default-block-appender__content) {
+	-webkit-appearance: none;
+	appearance: none;
+	height: auto;
+	margin: 0;
+	padding: rem(12px);
+	border: 1px solid $black;
+	border-radius: $radius;
+	background: transparent;
+	font-size: rem(16px);
+	line-height: 1.2;
+	color: $black;
+	vertical-align: baseline;
+}
+
+textarea:not(.editor-post-title__input, .block-editor-default-block-appender__content) {
+	height: rem(180px);
+	padding: rem(12px);
+	line-height: 1.2;
+	resize: vertical;
+}
+
+select[multiple="multiple"] {
+	font-size: rem(16px);
+}
+
+input[type="submit"],
+button[type="submit"] {
+	@extend %button-base;
+
+	font-size: rem(16px);
+	cursor: pointer;
+}
+
+
+//3.0 - Gravity Forms
+.gform_wrapper.gravity-theme {
+	//3.1 - Form Header
 	.gform_required_legend {
 		margin: 0.25em 0 0;
-		font-size: $size-xs;
+		font-size: rem(14px);
 		font-style: italic;
 	}
-}
 
-.gf_progressbar_wrapper {
-	margin-top: 2rem;
-}
-
-//2.0 - Form Body
-
-//2.1 - Form Sections
-#page .gform_body {
-	// margin-top: 3rem;
+	//3.2 - Form Sections
 	.gsection {
 		margin: 0 0 1rem;
 		padding: 0 0 0.5rem;
@@ -58,10 +96,11 @@ $input-padding: rem(8px);
 
 		.gsection_title {
 			margin-bottom: 0.25em;
-			font-size: $size-xl;
+			font-size: rem(48px);
 			font-weight: 700;
+
 			@include respond-below(sm) {
-				font-size: $size-lg;
+				font-size: rem(34px);
 			}
 		}
 
@@ -69,83 +108,35 @@ $input-padding: rem(8px);
 			padding: 0;
 		}
 	}
-}
 
-//2.2 - Input Fields
-#page {
+	//3.3 - Input Overrides
+	// Override GF's default field appearance inside gravity-theme forms.
 	input[type="email"],
 	input[type="number"],
 	input[type="password"],
 	input[type="tel"],
-	input[type="text"]:not(.facetwp-search),
+	input[type="text"],
 	input[type="url"],
 	input[type="search"],
-	select:not([multiple="multiple"], .facetwp-dropdown),
-	textarea:not(.editor-post-title__input, .block-editor-default-block-appender__content) {
-		-webkit-appearance: none;
-		height: $input-height;
-		margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-		padding: 0 $input-padding;
-		border: 1px solid $black;
-		border-radius: $radius;
-		outline: none;
-		background: transparent;
-		font-size: $input-font-size; /* Corrects font size not being inherited in all browsers */
-		line-height: $input-lineheight;
-		color: $black;
-		vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+	select:not([multiple="multiple"]),
+	textarea {
+		padding: rem(12px);
+		font-size: rem(16px);
+		line-height: 1.2;
 	}
 
-	textarea:not(.editor-post-title__input, .block-editor-default-block-appender__content) {
-		height: 10em;
-		padding: calc(#{$input-padding} * 1.5) $input-padding;
-		line-height: calc(#{$input-lineheight} / 2);
-		resize: vertical;
-	}
-
-	.gfield_checkbox,
-	.gfield_radio {
-		font-size: $input-font-size;
-
-		input {
-			height: calc(#{$input-height} * 0.75);
-		}
-
-		label {
-			font-size: 1em;
-		}
-	}
-
-	.gform_wrapper select:not([multiple="multiple"]) {
-		-webkit-appearance: none;
-		-moz-appearance: none;
+	//3.4 - Select & Time Fields
+	select:not([multiple="multiple"]) {
 		appearance: none;
-		padding-right: $input-height;
+		padding-right: rem(40px);
+		background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="%231F2041" d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
+		background-position: right rem(14px) center;
+		background-size: rem(14px);
 		cursor: pointer;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-	}
-
-	select[multiple="multiple"] {
-		font-size: $input-font-size;
-	}
-
-	// Gravity Form Specific
-	.gravity-theme {
-		input[type="email"],
-		input[type="number"],
-		input[type="password"],
-		input[type="tel"],
-		input[type="text"],
-		input[type="url"],
-		input[type="search"],
-		select:not([multiple="multiple"]),
-		textarea:not(.editor-post-title__input, .block-editor-default-block-appender__content) {
-			border: 1px solid #cecece;
-			border-radius: rem(6px);
-			background-color: $white;
-		}
+		background-repeat: no-repeat;
 	}
 
 	.ginput_container_select,
@@ -153,25 +144,21 @@ $input-padding: rem(8px);
 		position: relative;
 		cursor: pointer;
 
-		&::after {
-			content: "\f107";
-			position: absolute;
-			top: 0;
-			right: 0;
-			z-index: 9;
-			display: block;
-			width: $input-height;
-			height: $input-height;
-			background: transparent;
-			font-family: FontAwesome;
-			line-height: $input-lineheight;
-			pointer-events: none;
-			text-align: center;
-		}
-	}
-
-	.below.hour_minute_colon {
-		align-self: baseline !important;
+		// &::after {
+		// 	content: "\f107";
+		// 	position: absolute;
+		// 	top: 0;
+		// 	right: 0;
+		// 	z-index: 9;
+		// 	display: block;
+		// 	width: rem(40px);
+		// 	height: rem(40px);
+		// 	background: transparent;
+		// 	font-family: $icon;
+		// 	line-height: 1.2;
+		// 	pointer-events: none;
+		// 	text-align: center;
+		// }
 	}
 
 	.gfield_time_ampm {
@@ -179,73 +166,66 @@ $input-padding: rem(8px);
 		max-width: none;
 	}
 
-	input[type="search"].search-field {
-		width: calc(100% - rem(40px));
-		padding: 0;
-		border: none;
-		border-bottom: 1px solid $color-primary;
-		border-radius: 0;
-
-		&::placeholder {
-			color: $color-primary;
-		}
-
-		// remove x from field
-		&::-webkit-search-cancel-button {
-			display: none;
-		}
-	}
-}
-
-//2.3 - Labels
-#page .gfield {
-	margin-bottom: calc(#{$input-font-size} * 0.75);
-
-	.gfield_label {
-		margin-bottom: rem(4px);
-		font-size: rem(14px);
-		font-weight: 400;
+	.below.hour_minute_colon {
+		align-self: baseline !important;
 	}
 
-	&.gfield_error {
+	//3.5 - Checkboxes & Radio
+	.gfield_checkbox,
+	.gfield_radio {
+		font-size: rem(16px);
+
+		input {
+			height: rem(24px);
+		}
+
 		label {
+			font-size: 1em;
+		}
+	}
+
+	//3.6 - Labels & Fields
+	.gfield {
+		margin-bottom: rem(0px);
+
+		.gfield_label {
+			margin-bottom: rem(8px);
+			font-size: rem(14px);
+			font-weight: 400;
+		}
+
+		&.gfield_error label {
 			color: $red-2;
 		}
-	}
 
-	.gfield_description:not(.gfield_validation_message) {
-		padding: calc(#{$input-font-size} * 0.75) 0 0;
-		font-size: calc(#{$input-font-size} * 0.75);
-	}
-
-	.gfield_description.gfield_consent_description {
-		padding: $input-padding;
-		font-size: calc(#{$input-font-size} * 0.85);
-	}
-
-	&.field_description_above
 		.gfield_description:not(.gfield_validation_message) {
-		padding: calc(#{$input-font-size} * 0.25) 0 0;
+			padding: rem(12px) 0 0;
+			font-size: rem(14px);
+		}
+
+		.gfield_description.gfield_consent_description {
+			padding: rem(12px);
+			font-size: rem(16px);
+		}
+
+		&.field_description_above .gfield_description:not(.gfield_validation_message) {
+			padding: rem(4px) 0 rem(12px);
+		}
+
+		.ginput_container {
+			margin-top: rem(0px);
+		}
 	}
 
-	.ginput_container {
-		margin-top: calc(#{$input-font-size} * 0.75);
+	// Sub-labels
+	.ginput_complex label {
+		&.gform-field-label--type-sub {
+			font-size: rem(14px);
+		}
 	}
-}
+	
 
-//2.4 - Button
-input.button,
-input.gform_button {
-	@extend %button-base;
-
-	font-size: rem(16px);
-	cursor: pointer;
-}
-
-//3.0 - Form Footer
-
-//4.0 - Form Errors
-#page .gform_wrapper.gravity-theme {
+	//3.7 - Errors
 	.gform_validation_errors {
 		border-color: $red-2;
 		border-radius: rem(6px);
@@ -269,14 +249,12 @@ input.gform_button {
 		background-color: $white;
 		color: $red-2;
 	}
-}
 
-//5.0 - Form Confirmation
-#page {
+	//3.8 - Confirmation
 	.gform_confirmation_wrapper {
-		margin-bottom: em(20px);
-		padding: em(20px) em(30px);
-		border: 1px solid $navy-3;
+		margin-bottom: rem(20px);
+		padding: rem(20px) rem(30px);
+		border: 1px solid $black-3;
 		border-radius: rem(6px);
 		background: transparent;
 		color: $color-primary;
@@ -285,5 +263,36 @@ input.gform_button {
 		br {
 			display: none !important;
 		}
+	}
+}
+
+//4.0 - Progress Bar
+.gf_progressbar_wrapper {
+	margin-top: 2rem;
+}
+
+//5.0 - Button
+input.button,
+input.gform_button {
+	@extend %button-base;
+
+	font-size: rem(16px);
+	cursor: pointer;
+}
+
+//6.0 - Search Field
+#page input[type="search"].search-field {
+	width: calc(100% - rem(40px));
+	padding: 0;
+	border: none;
+	border-bottom: 1px solid $color-primary;
+	border-radius: 0;
+
+	&::placeholder {
+		color: $color-primary;
+	}
+
+	&::-webkit-search-cancel-button {
+		display: none;
 	}
 }

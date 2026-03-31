@@ -77,44 +77,44 @@ add_filter('tiny_mce_before_init', 'atlas_mce_formats');
 
 
 //5.0 - Hide Editor
-add_action( 'admin_head', 'hide_editor' );
-function hide_editor() {
+add_action( 'admin_head', 'atlas_hide_editor' );
+function atlas_hide_editor() {
     remove_post_type_support('page', 'editor');
 }
 
-function remove_meta_boxes() {
+function atlas_remove_meta_boxes() {
         remove_meta_box('postimagediv', 'post', 'side');
 }
-add_action('admin_head','remove_meta_boxes');
+add_action('admin_head','atlas_remove_meta_boxes');
 
 
 // 6.0 - Inject Tracking Code
-function header_inject_tracking_code() {
+function atlas_header_inject_tracking_code() {
 	// Global Tracking Code
 	$tc_header = get_field('tc_header', 'option');
 	if ($tc_header) {
 		echo $tc_header;
 	}
 }
-add_action('wp_head', 'header_inject_tracking_code');
+add_action('wp_head', 'atlas_header_inject_tracking_code');
 
-function footer_inject_tracking_code() {
+function atlas_footer_inject_tracking_code() {
 	// Global Tracking Code
 	$tc_footer = get_field('tc_footer', 'option');
 	if ($tc_footer) {
 		echo $tc_footer;
 	}
 }
-add_action('wp_footer', 'footer_inject_tracking_code');
+add_action('wp_footer', 'atlas_footer_inject_tracking_code');
 
-function body_inject_tracking_code() {
+function atlas_body_inject_tracking_code() {
 	// Global Tracking Code
 	$tc_body = get_field('tc_body', 'option');
 	if ($tc_body) {
 		echo $tc_body;
 	}
 }
-add_action('wp_body_open', 'body_inject_tracking_code');
+add_action('wp_body_open', 'atlas_body_inject_tracking_code');
 
 // Check for ACF Pro
 function atlas_check_acf_pro() {

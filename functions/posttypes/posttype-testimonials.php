@@ -2,7 +2,7 @@
 /**
  * Post Type - Testimonials
  * 
- * @package mingo
+ * @package atlas
  */
 
 /*--------------------------------------------------------------
@@ -16,8 +16,8 @@ TABLE OF CONTENTS:
 
 
 // 1.0 - Register Post Type
-add_action( 'init', 'testimonials_init', 10 );
-function testimonials_init() {
+add_action( 'init', 'atlas_testimonials_init', 10 );
+function atlas_testimonials_init() {
     $labels = array(
         'name'                => _x( 'Testimonials', 'Post Type General Name', 'atlas' ),
         'singular_name'       => _x( 'Testimonials', 'Post Type Singular Name', 'atlas' ),

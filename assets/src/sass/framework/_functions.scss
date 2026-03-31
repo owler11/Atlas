@@ -3,15 +3,15 @@ Scss - Functions
 
 Sass Variables & Mix-ins
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.0 - Media Queries
-    1.1 - Above Breakpoint
-    1.2 - Below Breakpoint
-    1.3 - Between Breakpoints
+		1.1 - Above Breakpoint
+		1.2 - Below Breakpoint
+		1.3 - Between Breakpoints
 2.0 - Colors Utilities
 3.0 - Font Utilities
 4.0 - Elements
@@ -26,183 +26,175 @@ Sass Variables & Mix-ins
 
 //1.0 - Media Queries
 $breakpoints: (
-  xs: 576px,
-  sm: 768px,
-  md: 1024px,
-  lg: 1248px,
-  xl: 1548px,
+	xs: 576px,
+	sm: 768px,
+	md: 1024px,
+	lg: 1248px,
+	xl: 1548px,
 );
 
 //1.1 - Above Breakpoint
 @mixin respond-above($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map.get($breakpoints, $breakpoint);
-    @media (min-width: $breakpoint-value) {
-      @content;
-    }
-  } @else {
-    @warn 'Invalid breakpoint: #{$breakpoint}.';
-  }
+	@if map.has-key($breakpoints, $breakpoint) {
+		$breakpoint-value: map.get($breakpoints, $breakpoint);
+		@media (min-width: $breakpoint-value) {
+			@content;
+		}
+	} @else {
+		@warn 'Invalid breakpoint: #{$breakpoint}.';
+	}
 }
 
 //1.2 - Below Breakpoint
 @mixin respond-below($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map.get($breakpoints, $breakpoint);
-    @media (max-width: ($breakpoint-value - 1)) {
-      @content;
-    }
-  } @else {
-    @warn 'Invalid breakpoint: #{$breakpoint}.';
-  }
+	@if map.has-key($breakpoints, $breakpoint) {
+		$breakpoint-value: map.get($breakpoints, $breakpoint);
+		@media (max-width: ($breakpoint-value - 1)) {
+			@content;
+		}
+	} @else {
+		@warn 'Invalid breakpoint: #{$breakpoint}.';
+	}
 }
 
 //1.3 - Between Breakpoints
 @mixin respond-between($lower, $upper) {
-  @if map.has-key($breakpoints, $lower) and map.has-key($breakpoints, $upper) {
-    $lower-breakpoint: map.get($breakpoints, $lower);
-    $upper-breakpoint: map.get($breakpoints, $upper);
-    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
-      @content;
-    }
-  } @else {
-    @if map.has-key($breakpoints, $lower) == false {
-      @warn 'Your lower breakpoint was invalid: #{$lower}.';
-    }
-    @if map.has-key($breakpoints, $upper) == false {
-      @warn 'Your upper breakpoint was invalid: #{$upper}.';
-    }
-  }
+	@if map.has-key($breakpoints, $lower) and map.has-key($breakpoints, $upper) {
+		$lower-breakpoint: map.get($breakpoints, $lower);
+		$upper-breakpoint: map.get($breakpoints, $upper);
+		@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+			@content;
+		}
+	} @else {
+		@if map.has-key($breakpoints, $lower) == false {
+			@warn 'Your lower breakpoint was invalid: #{$lower}.';
+		}
+		@if map.has-key($breakpoints, $upper) == false {
+			@warn 'Your upper breakpoint was invalid: #{$upper}.';
+		}
+	}
 }
 
 //2.0 - Colors Utilities
 
 //3.0 - Font Utilities
+$base-font-size: 16px;
+
 @mixin font-smoothing($smoothing: antialiased) {
-  -webkit-font-smoothing: $smoothing;
-  -moz-font-smoothing: $smoothing;
-  -ms-font-smoothing: $smoothing;
-  font-smoothing: $smoothing;
+	-webkit-font-smoothing: $smoothing;
+	-moz-font-smoothing: $smoothing;
+	-ms-font-smoothing: $smoothing;
+	font-smoothing: $smoothing;
 }
 
 @function em($target, $context: $base-font-size) {
-  @return calc($target / $context) * 1em;
+	@return calc($target / $context) * 1em;
 }
 
 @function rem($target) {
-  @return calc($target / 16px) * 1rem;
+	@return calc($target / 16px) * 1rem;
 }
 
 @mixin font-size($size) {
-  font-size: $size; //Fallback in px
-  font-size: rem($size);
+	font-size: $size; //Fallback in px
+	font-size: rem($size);
 }
 
 @function strip-units($number) {
-  @return math.div($number, ($number * 0 + 1));
+	@return math.div($number, ($number * 0 + 1));
 }
 @function strip-units-rem($target) {
-  @return strip-units(rem($target));
+	@return strip-units(rem($target));
 }
 @function is-css-var($value) {
-  @return string.index(string.to-lower-case($value + ""), "var(") == 1;
+	@return string.index(string.to-lower-case($value + ""), "var(") == 1;
 }
 
 @function atlas-clamp(
-  $max,
-  $min,
-  $max-viewport-width: var(--clamp__max-viewport-width),
-  $min-viewport-width: var(--clamp__min-viewport-width)
+	$max,
+	$min,
+	$max-viewport-width: var(--clamp__max-viewport-width),
+	$min-viewport-width: var(--clamp__min-viewport-width)
 ) {
-  @if meta.type-of($max) == "number" {
-    @if not(math.is-unitless($max)) {
-      @if math.unit($max) == "rem" {
-        $max: strip-units($max);
-      } @else {
-        @error "atlas-clamp: $max must me unitless or rem";
-      }
-    }
-  } @else if not is-css-var($max) {
-    @error "atlas-clamp: $max must me unitless or rem";
-  }
-  @if meta.type-of($min) == "number" {
-    @if not(math.is-unitless($min)) {
-      @if math.unit($min) == "rem" {
-        $min: strip-units($min);
-      } @else {
-        @error "atlas-clamp: $min must me unitless or rem";
-      }
-    }
-  } @else if not is-css-var($min) {
-    @error "atlas-clamp: $min must me unitless or rem";
-  }
+	@if meta.type-of($max) == "number" {
+		@if not(math.is-unitless($max)) {
+			@if math.unit($max) == "rem" {
+				$max: strip-units($max);
+			} @else {
+				@error "atlas-clamp: $max must me unitless or rem";
+			}
+		}
+	} @else if not is-css-var($max) {
+		@error "atlas-clamp: $max must me unitless or rem";
+	}
+	@if meta.type-of($min) == "number" {
+		@if not(math.is-unitless($min)) {
+			@if math.unit($min) == "rem" {
+				$min: strip-units($min);
+			} @else {
+				@error "atlas-clamp: $min must me unitless or rem";
+			}
+		}
+	} @else if not is-css-var($min) {
+		@error "atlas-clamp: $min must me unitless or rem";
+	}
 
-  // calculations for clamp
-  // the following logic is copies from @walbo
-  // https://clamp.font-size.app/
-  $font-difference: calc($max - $min);
-  $preferred-value: calc(
-    (
-        (0 - $min-viewport-width) * $font-difference * 1rem +
-          var(--clamp__relative-value) * $font-difference
-      ) /
-      ($max-viewport-width - $min-viewport-width) + $min * 1rem
-  );
-  @return clamp(
-    #{calc($min * 1rem)},
-    #{$preferred-value},
-    #{calc($max * 1rem)}
-  );
+	// calculations for clamp
+	// the following logic is copies from @walbo
+	// https://clamp.font-size.app/
+	$font-difference: calc($max - $min);
+	$preferred-value: calc(
+		(
+				(0 - $min-viewport-width) * $font-difference * 1rem +
+					var(--clamp__relative-value) * $font-difference
+			) /
+			($max-viewport-width - $min-viewport-width) + $min * 1rem
+	);
+	@return clamp(
+		#{calc($min * 1rem)},
+		#{$preferred-value},
+		#{calc($max * 1rem)}
+	);
 }
 
 //4.0 - Elements
 @mixin box-sizing($sizing: border-box) {
-  -webkit-box-sizing: $sizing;
-  -moz-box-sizing: $sizing;
-  -ms-box-sizing: $sizing;
-  box-sizing: $sizing;
+	box-sizing: $sizing;
 }
 
 //5.0 - Centering & Covering
 @mixin absoluteCenter() {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 @mixin unCenter() {
-  position: relative;
-  top: auto;
-  left: auto;
-  transform: translate(0, 0);
+	position: relative;
+	top: auto;
+	left: auto;
+	transform: translate(0, 0);
 }
 
 @mixin absoluteCover() {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 //6.0 - Transform & Transitions
 @mixin transform($transforms) {
-  -webkit-transform: $transforms;
-  -moz-transform: $transforms;
-  -ms-transform: $transforms;
-  -o-transform: $transforms;
-  transform: $transforms;
+	transform: $transforms;
 }
 
 @mixin transition(
-  $property: all,
-  $duration: 0.2s,
-  $timing: linear,
-  $delay: 0s
+	$property: all,
+	$duration: 0.2s,
+	$timing: linear,
+	$delay: 0s
 ) {
-  -webkit-transition: $property $duration $timing $delay;
-  -moz-transition: $property $duration $timing $delay;
-  -ms-transition: $property $duration $timing $delay;
-  transition: $property $duration $timing $delay;
+	transition: $property $duration $timing $delay;
 }

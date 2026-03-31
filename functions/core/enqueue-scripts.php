@@ -36,12 +36,12 @@ function atlas_is_vite_development()
 
 /**
  * Vite dev server URL (must match host/port in vite.config.js).
- * Uses HTTPS when the site is loaded over HTTPS so https://atlas.local:8890 can load dev assets (requires mkcert certs in .vite-certs/).
+ * Always HTTP — Vite dev server runs without HTTPS unless .vite-certs/ exist (they don't by default).
+ * CORS headers in vite.config.js allow cross-origin loading from an HTTPS WordPress host.
  */
 function atlas_get_vite_dev_server()
 {
-    $protocol = is_ssl() ? 'https' : 'http';
-    return $protocol . '://localhost:3000';
+    return 'http://localhost:3000';
 }
 
 /*--------------------------------------------------------------
@@ -83,12 +83,14 @@ function atlas_scripts()
         --------------------------------------------------------------*/
 
         // Load production CSS
+        // Depend on GF theme CSS if present so our styles win the cascade without specificity hacks.
+        $css_deps = wp_style_is('gravity_forms_theme_css', 'registered') ? ['gravity_forms_theme_css'] : [];
         $css_file = get_template_directory() . '/assets/public/css/frontend.css';
         if (file_exists($css_file)) {
             wp_enqueue_style(
                 'atlas-frontend-style',
                 get_template_directory_uri() . '/assets/public/css/frontend.css',
-                [],
+                $css_deps,
                 filemtime($css_file)
             );
         }
@@ -125,7 +127,7 @@ add_action('wp_enqueue_scripts', 'atlas_scripts');
 4.0 - Admin Styles & Scripts
 --------------------------------------------------------------*/
 
-function load_custom_wp_admin_style()
+function atlas_load_custom_wp_admin_style()
 {
     $is_dev = atlas_is_vite_development();
 
@@ -162,7 +164,7 @@ function load_custom_wp_admin_style()
         }
     }
 }
-add_action('enqueue_block_editor_assets', 'load_custom_wp_admin_style');
+add_action('enqueue_block_editor_assets', 'atlas_load_custom_wp_admin_style');
 
 /*--------------------------------------------------------------
 5.0 - Script Module Type Filter (Moved outside for reliability)
@@ -185,8 +187,20 @@ add_filter('script_loader_tag', 'atlas_add_module_type_to_scripts', 10, 3);
 6.0 - De-enqueue WP Embed script (unchanged)
 --------------------------------------------------------------*/
 
-function atlas_deregister_scripts()
-{
+function atlas_deregister_scripts() {
     wp_dequeue_script('wp-embed');
 }
 add_action('wp_footer', 'atlas_deregister_scripts');
+
+/*--------------------------------------------------------------
+7.0 - Dequeue ACF Font Awesome plugin assets
+      The theme bundles Font Awesome Pro via compiled SCSS, so
+      we don't want the plugin loading its own version on top.
+--------------------------------------------------------------*/
+
+function atlas_dequeue_acf_fontawesome() {
+    wp_dequeue_style('acffa_font-awesome');
+    wp_dequeue_script('acffa_font-awesome-kit');
+    wp_dequeue_script('acffa_fontawesome-js-api');
+}
+add_action('wp_enqueue_scripts', 'atlas_dequeue_acf_fontawesome', 100);

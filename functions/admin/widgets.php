@@ -2,7 +2,7 @@
 /**
  * Widgets
  *
- * @package mingo
+ * @package atlas
  */
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -13,7 +13,7 @@
 
 
 // 1.0 - Stock Photography
-function stock_photography_dashboard_widget() {
+function atlas_stock_photography_dashboard_widget() {
     echo '<p>Looking for stock photography? Here are some great resources:</p>';
     echo '<ul>
             <li><a href="https://unsplash.com/" target="_blank">Unsplash</a></li>
@@ -22,11 +22,11 @@ function stock_photography_dashboard_widget() {
           </ul>';
 }
 
-function add_stock_photography_dashboard_widget() {
+function atlas_add_stock_photography_dashboard_widget() {
     wp_add_dashboard_widget(
         'stock_photography_widget',         // Widget slug.
         'Stock Photography Resources',      // Title.
-        'stock_photography_dashboard_widget' // Display function.
-    ); 
+        'atlas_stock_photography_dashboard_widget' // Display function.
+    );
 }
-add_action('wp_dashboard_setup', 'add_stock_photography_dashboard_widget' );
+add_action('wp_dashboard_setup', 'atlas_add_stock_photography_dashboard_widget' );

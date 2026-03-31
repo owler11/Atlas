@@ -2,7 +2,7 @@
 /**
  * Template Parts - Block - Hero Default
  * 
- * @package mingo
+ * @package atlas
  */
 
 $className = 'hero-default';
@@ -48,9 +48,10 @@ if(empty($headline)) {
 
 					foreach($buttons as $button) {
 						$link    = $button['link'];
-						$type    = $button['type'];
+						$type    = $button['type'] ?? 'solid';
+						$icon    = $button['icon'] ?? '';
 
-						echo getButton($link, 'btn__'. $type);
+						echo atlas_get_button($link, 'btn__'. $type, $icon);
 					}
 
 					echo '</div>';

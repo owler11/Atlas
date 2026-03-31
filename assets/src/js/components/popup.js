@@ -10,11 +10,11 @@ import $ from "jquery";
 
 // 2.0 - Popup
 export function popup() {
-  $("[data-mfp-help]").magnificPopup({
-    type: "inline",
-  });
+	$("[data-mfp-help]").magnificPopup({
+		type: "inline",
+	});
 
-  $(".js-popup-video").magnificPopup({
-    type: "iframe",
-  });
+	$(".js-popup-video").magnificPopup({
+		type: "iframe",
+	});
 }

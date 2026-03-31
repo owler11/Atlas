@@ -1,0 +1,66 @@
+/*
+ * Header - Search
+ * 
+ *
+ * @package atlas
+ */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Search
+--------------------------------------------------------------*/
+
+// Search
+.header-search-icon {
+	appearance: none;
+	z-index: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+	padding: rem(8px);
+	border: none;
+    border-radius: rem(4px);
+	background-color: transparent;
+    transition: color 0.2s;
+	color: inherit;
+    text-decoration: none;
+	cursor: pointer;
+	outline-offset: rem(4px);
+  
+    &:hover,
+    &:focus-visible {
+      	color: $black-2;
+    }
+}
+
+
+.site-header__search {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	background-color: $white;
+	opacity: 0;
+	transition: opacity 0.2s;
+	transition: opacity 0.2s, visibility 0.0s 0.2s, pointer-events 0.0s 0.2s;
+	visibility: hidden;
+	pointer-events: none;
+
+	&.active {
+		opacity: 1;		
+		transition: opacity 0.2s, visibility 0.0s 0.0s, pointer-events 0.0s 0.0s;
+		visibility: visible;
+		pointer-events: auto;
+	}
+}
+
+.site-header__search-container {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	height: 100%;
+	padding-right: rem(60px);
+}

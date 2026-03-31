@@ -2,7 +2,7 @@
 /**
  * Template Parts - Post - Post Single
  * 
- * @package mingo
+ * @package atlas
  */
 
 $featured_image = get_field('featured_image');

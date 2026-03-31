@@ -3,7 +3,7 @@ Scss - Block - Heading
 
 Heading Styles
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -14,19 +14,40 @@ Heading Styles
 //1.0 - Heading
 .heading__heading {
 	max-width: rem(856px);
-	margin: 0 auto rem(70px);
+	margin: 0 auto;
 	text-align: center;
 
 	.title {
-		margin: 0 0 rem(14px);
+		margin: 0;
+
+		&:has(+ .headline),
+		&:has(+ .description) {
+			margin-bottom: rem(14px);
+		}
+
+		&:has(+ .btn-group) {
+			margin-bottom: rem(30px);
+		}
 	}
 
 	.headline {
-		margin: 0 0 rem(16px);
+		margin: 0;
+
+		&:has(+ .description) {
+			margin-bottom: rem(16px);
+		}
+
+		&:has(+ .btn-group) {
+			margin-bottom: rem(30px);
+		}
 	}
 
 	.description {
-		margin: 0 0 rem(30px);
+		margin: 0;
+
+		&:has(+ .btn-group) {
+			margin-bottom: rem(30px);
+		}
 
 		> * {
 			&:first-child {

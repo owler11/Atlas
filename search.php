@@ -2,7 +2,7 @@
 /**
  * Template Files - Search Results
  * 
- * @package mingo
+ * @package atlas
  */
 
 get_header(); ?>

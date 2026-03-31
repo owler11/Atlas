@@ -320,11 +320,11 @@
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
-                                    "key": "field_66f3171b6fbb5",
-                                    "label": "Type",
-                                    "name": "type",
+                                    "key": "field_69c2dc9fa3422",
+                                    "label": "Button",
+                                    "name": "button",
                                     "aria-label": "",
-                                    "type": "button_group",
+                                    "type": "clone",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -334,36 +334,13 @@
                                         "id": ""
                                     },
                                     "relevanssi_exclude": 0,
-                                    "choices": {
-                                        "default": "Default",
-                                        "secondary": "Secondary",
-                                        "outline": "Outline",
-                                        "text": "Text"
-                                    },
-                                    "default_value": "",
-                                    "return_format": "value",
-                                    "allow_null": 0,
-                                    "allow_in_bindings": 0,
-                                    "layout": "horizontal",
-                                    "parent_repeater": "field_66f317096fbb4"
-                                },
-                                {
-                                    "key": "field_66f317476fbb6",
-                                    "label": "Link",
-                                    "name": "link",
-                                    "aria-label": "",
-                                    "type": "link",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "relevanssi_exclude": 0,
-                                    "return_format": "array",
-                                    "allow_in_bindings": 0,
+                                    "clone": [
+                                        "group_69c2dbf6cb452"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0,
                                     "parent_repeater": "field_66f317096fbb4"
                                 }
                             ]
@@ -396,5 +373,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756136058
+    "display_title": "",
+    "modified": 1774378204
 }

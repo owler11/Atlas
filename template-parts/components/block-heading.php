@@ -2,7 +2,7 @@
 /**
  * Template Parts - Block - Grid Icon
  * 
- * @package mingo
+ * @package atlas
  */
 
 $h_activate       = $heading['activate'];
@@ -35,7 +35,7 @@ if($h_activate) :
                 $b_link    = $button['link'];
                 $b_type    = $button['type']; 
 
-                echo getButton($b_link, 'btn__' . $b_type);
+                echo atlas_get_button($b_link, 'btn__' . $b_type);
             }
 
             echo '</div>';

@@ -4,7 +4,7 @@
  * 
  * Template part for displaying the teaser of post on index and archive pages
  * 
- * @package mingo
+ * @package atlas
  */
 
 if (isset($args) && $args) {

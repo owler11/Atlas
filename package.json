@@ -1,7 +1,7 @@
 {
   "name": "brevity-workflow-vite",
   "version": "2.0.0",
-  "author": "WP-Strap",
+  "author": "Atlas",
   "license": "MIT",
   "homepage": "https://github.com/owler11/Brevity-Vite/upload",
   "description": "Modern Vite workflow for WordPress front-end development and testing (plugins & themes) with handy tools included.",
@@ -9,10 +9,10 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wp-strap/wordpress-vite-workflow.git"
+    "url": ""
   },
   "bugs": {
-    "url": "https://github.com/wp-strap/wordpress-vite-workflow/issues"
+    "url": ""
   },
   "scripts": {
     "dev": "rimraf assets/public/manifest.json && vite",
@@ -28,7 +28,7 @@
     "lint:css:fix": "stylelint 'assets/src/**/**/*.{css,scss,sass,pcss}' '!assets/src/sass/fontawesome-pro/*' '!assets/src/sass/plugin/**/*' --config config/.stylelintrc.cjs --fix",
     "format": "prettier assets/src/js/**/*.js --write",
     "format:check": "prettier assets/src/js/**/*.js --check",
-    "translate": "wp-pot --src '**/**/**/*.php' --dest-file 'languages/wordpress-vite.pot' --package 'Brevity Vite Workflow' --domain 'brevity-vite' --last-translator 'WP-Strap <hello@wp-strap.com>' --team 'WP-Strap <hello@wp-strap.com>' --bug-report 'https://github.com/wp-strap/wordpress-vite-workflow'",
+    "translate": "wp-pot --src '**/**/**/*.php' --dest-file 'languages/wordpress-vite.pot' --package 'Atlas' --domain 'atlas' --last-translator 'Atlas' --team 'Atlas' --bug-report ''",
     "clean": "rimraf assets/public/*",
     "analyze": "vite-bundle-analyzer",
     "add:acf-block": "node scripts/add-block.js",
@@ -44,6 +44,7 @@
     "@vitejs/plugin-legacy": "^5.4.3",
     "@wordpress/eslint-plugin": "^17.13.0",
     "autoprefixer": "^10.4.15",
+    "baseline-browser-mapping": "^2.10.10",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.2",
     "eslint-plugin-prettier": "^5.5.4",

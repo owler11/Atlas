@@ -2,7 +2,7 @@
 /**
  * Template Parts - Footer - Footer Primary
  * 
- * @package mingo
+ * @package atlas
  */
 
 $social_links = get_field('social_links', 'option');

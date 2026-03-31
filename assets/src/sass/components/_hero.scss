@@ -3,7 +3,7 @@ Blocks Sass Files
 
 Block Global Styles
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -13,47 +13,6 @@ Block Global Styles
 
 // 1.0 - Hero
 .hero {
-	&.theme-light {
-		background-color: $color-light;
-	}
-
-	&.theme-dark {
-		background-color: $color-dark;
-		color: $white;
-
-		.btn__solid {
-			border-color: $white;
-			background-color: $white;
-			color: $color-dark;
-
-			&:hover {
-				border-color: $color-accent;
-				background-color: $color-accent;
-				color: $color-dark;
-			}
-		}
-
-		.btn__outline {
-			border-color: $white;
-			background-color: transparent;
-			color: $white;
-
-			&:hover {
-				border-color: $color-accent;
-				background-color: $color-accent;
-				color: $color-dark;
-			}
-		}
-
-		.btn__text {
-			color: $white;
-
-			&:hover {
-				color: $color-accent;
-			}
-		}
-	}
-
 	.content {
 		.title {
 			margin: 0 0 rem(14px);
@@ -77,7 +36,9 @@ Block Global Styles
 			h5,
 			h6,
 			p,
-			li {
+			li,
+			ul, 
+			ol {
 				margin: 0;
 			}
 

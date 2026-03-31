@@ -3,7 +3,7 @@ Scss - Post Type - People
 
 People Styles
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -57,7 +57,7 @@ People Styles
 }
 
 .people-wrapper {
-	color: $navy-1;
+	color: $black-1;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -96,7 +96,7 @@ button.people-wrapper {
 	}
 
 	p {
-		color: $navy-3;
+		color: $black-3;
 	}
 }
 
@@ -131,7 +131,7 @@ button.people-wrapper {
 	p {
 		@include respond-above(md) {
 			font-size: rem(18px);
-			color: $navy-2;
+			color: $black-2;
 		}
 	}
 

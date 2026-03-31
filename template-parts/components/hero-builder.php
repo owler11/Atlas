@@ -2,22 +2,25 @@
 /**
  * Template Parts - Page - Page Header
  * 
- * @package mingo
+ * @package atlas
  */
 
-$hero_builder = get_field('hero_builder');
-?>
+$hero_builder = get_field('hero_builder') ?? [];
 
-<?php
 if ($hero_builder != '') :
 	foreach ($hero_builder as $module) :
 		$layout = str_replace('_', '-', $module['acf_fc_layout']);
-		
-		// Modules
-		include( locate_template( 'template-parts/blocks/hero-' . $layout . '.php', false, false ) );
 
+		// Modules
+		$template_path = locate_template( 'template-parts/blocks/hero-' . $layout . '.php', false, false );
+		if ( $template_path ) {
+			include( $template_path );
+		}
 	endforeach;
 else :
-	include( locate_template( 'template-parts/blocks/hero-default.php', false, false ) );
+	$default_path = locate_template( 'template-parts/blocks/hero-default.php', false, false );
+	if ( $default_path ) {
+		include( $default_path );
+	}
 endif;
 ?>

@@ -12,63 +12,63 @@
 --------------------------------------------------------------*/
 
 #header-message-bar {
-  position: relative;
-  z-index: 99;
-  display: none;
-  min-width: 290px;
-  width: 100%;
-  padding: 0.5em;
-  background-color: $navy-1;
-  font-family: $body;
-  font-size: rem(16px);
-  color: $white;
-  float: none;
-  text-align: center;
+	position: relative;
+	z-index: 99;
+	display: none;
+	width: 100%;
+	min-width: 290px;
+	padding: 0.5em;
+	background-color: $black-1;
+	font-family: $body;
+	font-size: rem(16px);
+	color: $white;
+	float: none;
+	text-align: center;
 
-  @include respond-below(sm) {
-    font-size: $size-xs;
-    text-align: left;
+	@include respond-below(sm) {
+		font-size: rem(14px);
+		text-align: left;
 
-    &::before,
-    &::after {
-      left: 0;
-      transform: translateY(0);
-    }
-  }
+		&::before,
+		&::after {
+			left: 0;
+			transform: translateY(0);
+		}
+	}
 
-  a {
-    color: $color-light;
-    text-decoration: underline;
-  }
+	a {
+		color: $black-3;
+		text-decoration: underline;
+	}
 
-  .message-bar-content {
-    grid-column: span 12;
-  }
+	.message-bar-content {
+		grid-column: span 12;
+	}
 
-  .close {
-    position: absolute;
-    top: 50%;
-    right: calc(50% - 50vw + 1rem);
-    transform: translateY(-50%);
-    transition: color 0.3s;
-    color: $white;
-    text-decoration: none;
+	.close {
+		position: absolute;
+		top: 50%;
+		right: calc(50% - 50vw + 1rem);
+		transform: translateY(-50%);
+		transition: color 0.3s;
+		color: $white;
+		text-decoration: none;
 
-    &:hover,
-    &:focus-visible {
-      color: rgba($color: $white, $alpha: 60%);
-    }
+		&:hover,
+		&:focus-visible {
+			color: rgba($color: $white, $alpha: 60%);
+		}
 
-    .icomoon {
-      font-size: rem(22px);
-    }
+		.icomoon {
+			font-size: rem(22px);
+		}
 
-    @include respond-below(sm) {
-      right: -1em;
-    }
-  }
+		@include respond-below(sm) {
+			right: -1em;
+		}
+	}
 
-  &.hide {
-    display: none !important;
-  }
+	&.hide {
+		display: none !important;
+	}
 }

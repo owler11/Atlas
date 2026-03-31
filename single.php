@@ -2,7 +2,7 @@
 /**
  * Template Files - Single Posts
  * 
- * @package mingo
+ * @package atlas
  */
 
 get_header(); 

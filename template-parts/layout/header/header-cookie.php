@@ -4,7 +4,7 @@
  * 
  * Header Masthead
  * 
- * @package mingo
+ * @package atlas
  */
 
 $cookie_active	= get_field('site_cookie', 'option');

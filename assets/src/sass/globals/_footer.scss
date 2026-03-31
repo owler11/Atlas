@@ -3,7 +3,7 @@ Scss - Footer
 
 Footer & Navigation Styles
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -19,7 +19,7 @@ Footer & Navigation Styles
 //1.0 - Site Footer
 .site-footer {
 	padding: rem(48px) 0 0;
-	background-color: $navy-1;
+	background-color: $black-1;
 	color: $white;
 }
 
@@ -92,31 +92,31 @@ Footer & Navigation Styles
 // 2.0 - Menu
 .site-footer-primary__menu {
 	.footer-menu__list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
 		display: flex;
 		flex-direction: column;
 		gap: rem(24px);
+		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
 
 	.footer-menu__item {
+		width: fit-content;
 		margin: 0;
 		padding: 0;
-		width: fit-content;
 	}
 
 	.footer-menu__link {
 		display: block;
+		transition: color 0.3s;
+		font-size: rem(16px);
+		font-weight: 700;
 		color: $white;
 		text-decoration: none;
-		font-size: rem(16px);
-		font-weight: $bold;
-		transition: color 0.3s;
 
 		&:hover,
 		&:focus-visible {
-			color: $teal-1;
+			color: $black-2;
 			text-decoration: underline;
 		}
 	}
@@ -130,8 +130,8 @@ Footer & Navigation Styles
     &__container {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
         align-items: baseline;
+        justify-content: space-between;
         gap: rem(24px);
 
         @include respond-below(sm) {
@@ -160,20 +160,20 @@ Footer & Navigation Styles
 
         p,
         a {
-            color: $white;
             display: inline-block;
-            font-size: rem(16px);
             margin: 0;
+            font-size: rem(16px);
+            color: $white;
         }
 
         a {
             text-decoration: none;
-            @include transition();
+            @include transition;
 
             &:hover,
             &:focus-visible {
+                color: $black-2;
                 text-decoration: underline;
-                color: $teal-1;
             }
         }
     }

@@ -1,7 +1,7 @@
 === Atlas ===
 
 Contributors: Brevity
-Tags: blocks/modules, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: blocks/modules, custom-menu, translation-ready
 
 Requires at least: 5.2
 Tested up to: 6.2
@@ -23,7 +23,7 @@ Atlas is a custom WordPress theme developed for all Brevity projects. It feature
 == Requirements ==
 
 * Advanced Custom Fields Pro plugin must be installed and activated
-* PHP 8.2 or higher
+* PHP 8.4 or higher
 * WordPress 5.2 or higher
 
 == Development Workflow ==
@@ -32,7 +32,7 @@ Atlas is a custom WordPress theme developed for all Brevity projects. It feature
 Atlas uses modern development tools to streamline workflows:  
 - **Node.js** for managing dependencies and running scripts.
 - **Sass** for advanced CSS preprocessing.
-- **Webpack** for bundling assets.
+- **Vite** for bundling assets.
 
 #### Commands:
 1. Install dependencies:
@@ -46,5 +46,5 @@ Atlas uses modern development tools to streamline workflows:
 
 == Credits ==
 
-* Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Custom WordPress theme
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)

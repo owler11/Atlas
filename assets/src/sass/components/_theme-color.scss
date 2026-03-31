@@ -1,0 +1,59 @@
+/*
+Theme Color Styles
+
+@package atlas
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Styles
+--------------------------------------------------------------*/
+ 
+
+// 1.0 - Styles
+.theme-default {}
+
+.theme-light {
+    background-color: $black-4;
+}
+
+.theme-dark {
+    background-color: $black-1;
+    color: $white;
+
+    .btn__solid {
+        --button__bg-color: #{$black-4};
+        --button__text-color: #{$black-1};
+        
+        &:hover,
+        &:focus-visible {
+            --button__hover-bg: #{$black-2};
+            --button__hover-border: #{$black-2};
+            --button__hover-text: #{$black-1};
+        }
+    }
+
+    .btn__outline {
+        --button__border-color: #{$black-4};
+        --button__text-color: #{$white};
+        
+        &:hover,
+        &:focus-visible {
+            --button__hover-bg: #{$black-2};
+            --button__hover-border: #{$black-2};
+            --button__hover-text: #{$black-1};
+        }
+    }
+
+    .btn__text {
+        --button__text-color: #{$white};
+
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+            --button__hover-text: #{$black-2};
+        }
+    }
+}

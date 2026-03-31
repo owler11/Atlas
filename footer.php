@@ -2,7 +2,7 @@
 /**
  * Template Files - Footer
  * 
- * @package mingo
+ * @package atlas
  */
 
 ?>

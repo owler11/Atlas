@@ -4,7 +4,7 @@
  * 
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  * 
- * @package mingo
+ * @package atlas
  */
 
 $archive_headline 	= get_field('post_archive_headline', 'option');

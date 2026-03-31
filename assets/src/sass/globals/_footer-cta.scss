@@ -3,7 +3,7 @@ Scss - Footer CTA
 
 Footer CTA
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -17,7 +17,7 @@ Footer CTA
 	}
 
 	&.theme-light {
-		background-color: $navy-4;
+		background-color: $black-4;
 		color: $color-primary;
 
 		i {
@@ -26,7 +26,7 @@ Footer CTA
 	}
 
 	&.theme-dark {
-		background-color: $navy-1;
+		background-color: $black-1;
 		color: $white;
 
 		i {

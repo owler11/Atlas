@@ -2,7 +2,7 @@
 /**
  * Template Parts - Block - Heading
  * 
- * @package mingo
+ * @package atlas
  */
 
 // Gutenberg Preview Image
@@ -19,10 +19,10 @@ include dirname(__FILE__) . '/../components/block-settings.php';
 
 // ACF Fields
 $fields         = get_fields();
-$title          = $fields['title'];
-$headline       = $fields['headline'];
-$content        = $fields['content'];
-$buttons        = $fields['buttons'];
+$title          = $fields['title'] ?? '';
+$headline       = $fields['headline'] ?? '';
+$content        = $fields['content'] ?? '';
+$buttons        = $fields['buttons'] ?? [];
 $text_align     = $fields['text_align'];
 
 $padding_top    = $fields['padding_top'];
@@ -52,9 +52,10 @@ $theme          = $fields['theme'];
 
                 foreach($buttons as $button) {
                     $link    = $button['link'];
-                    $type    = $button['type']; 
+                    $type    = $button['type'] ?? 'solid';
+                    $icon    = $button['icon'] ?? '';
 
-                    echo getButton($link, 'btn__' . $type);
+                    echo atlas_get_button($link, 'btn__' . $type, $icon);
                 }
 
                 echo '</div>';

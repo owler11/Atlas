@@ -2,7 +2,7 @@
 /**
  * Template Parts - Footer - Footer CTA
  * 
- * @package mingo
+ * @package atlas
  */
 
 $override_footer_cta 	= get_field('footer_cta'); 			 	// From 'page'
@@ -49,14 +49,7 @@ if($footer_cta_status == 'disable' || is_search() || is_post_type_archive() || i
 				endif;
 
 				if($cta_link) :
-					if($cta_theme == 'dark') {
-						$color = ' btn__light';
-					} elseif($cta_theme == 'light') {
-						$color = ' btn__dark';
-					} else {
-						$color = '';
-					}
-					echo getButton($cta_link, 'btn__default' . $color);
+					echo atlas_get_button($cta_link, 'btn__solid');
 				endif;
 				?>
 			</div>

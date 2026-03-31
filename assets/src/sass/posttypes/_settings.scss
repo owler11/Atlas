@@ -3,7 +3,7 @@ Scss - Post Type - Settings
 
 Settings Styles
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -68,7 +68,7 @@ Settings Styles
 		display: flex;
 		flex-flow: row wrap;
 		padding: 0;
-		color: $navy-1;
+		color: $black-1;
 		text-decoration: none;
 	}
 
@@ -108,7 +108,7 @@ Settings Styles
 		}
 
 		p {
-			color: $navy-3;
+			color: $black-3;
 		}
 	}
 }
@@ -172,7 +172,7 @@ Settings Styles
 		flex-flow: column wrap;
 		height: 100%;
 		padding: 0;
-		color: $navy-1;
+		color: $black-1;
 		text-decoration: none;
 	}
 
@@ -206,7 +206,7 @@ Settings Styles
 		}
 
 		p {
-			color: $navy-3;
+			color: $black-3;
 		}
 
 		.btn {
@@ -218,7 +218,7 @@ Settings Styles
 .teaser-list {
 	grid-column: 4 / span 6;
 	padding: rem(32px) 0;
-	border-bottom: 1px solid $navy-4;
+	border-bottom: 1px solid $black-4;
 
 	&:last-child {
 		border-bottom: none;
@@ -241,12 +241,12 @@ Settings Styles
 	.search-content,
 	.post-content {
 		.tag {
-			background-color: $navy-4;
+			background-color: $black-4;
 			font-size: rem(13px);
-			color: $navy-1;
+			color: $black-1;
 
 			&:hover {
-				background-color: rgba($color: $navy-3, $alpha: 60%);
+				background-color: rgba($color: $black-3, $alpha: 60%);
 			}
 		}
 
@@ -264,7 +264,7 @@ Settings Styles
 		}
 
 		p {
-			color: $navy-3;
+			color: $black-3;
 		}
 	}
 }
@@ -273,7 +273,7 @@ Settings Styles
 .no-results {
 	grid-column: 4 / span 6;
 	padding: rem(32px);
-	background-color: $navy-4;
+	background-color: $black-4;
 	text-align: center;
 
 	&:last-child {
@@ -320,7 +320,7 @@ ul.meta {
 	}
 
 	.date {
-		color: $navy-3;
+		color: $black-3;
 	}
 }
 
@@ -333,7 +333,7 @@ ul.meta {
 	a {
 		transition: all 0.2s;
 		font-size: rem(20px);
-		color: $navy-1;
+		color: $black-1;
 
 		&:hover {
 			color: $color-accent;

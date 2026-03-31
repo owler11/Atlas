@@ -1,7 +1,7 @@
 /*
 Typography Styles
 
-@package mingo
+@package atlas
 */
 
 /*--------------------------------------------------------------
@@ -30,7 +30,7 @@ textarea,
 	font-family: $body;
 	font-size: 16px;
 	line-height: 1.5;
-	color: $navy-1;
+	color: $black-1;
 	@include font-smoothing;
 
 	font-optical-sizing: auto;
@@ -107,8 +107,9 @@ a:focus-visible,
 button:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-	outline: none;
-	box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+	outline: 2px solid $focus-ring-color;
+	box-shadow: none;
+	outline-offset: rem(4px);
 }
 
 //5.0 - List
@@ -131,24 +132,3 @@ ol {
 	height: 1px;
 	overflow: hidden;
 }
-
-// 7.0 - Utilities
-.no-margin {
-	margin: 0;
-}
-
-.no-top-margin {
-	margin-top: 0;
-}
-
-.no-bottom-margin {
-	margin-bottom: 0;
-} /* Test comment */
-
-/* Another test comment */
-
-/* Test change for file watching */
-
-/* File watching test - Wed Sep 17 14:03:24 CDT 2025 */
-
-/* Test change Wed Sep 17 14:06:45 CDT 2025 */

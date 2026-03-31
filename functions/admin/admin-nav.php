@@ -2,7 +2,7 @@
 /**
  * Functions - Functions Admin Nav
  *
- * @package mingo
+ * @package atlas
  */
 
 /*--------------------------------------------------------------
@@ -16,7 +16,7 @@
 
 
 //1.0 - Menu Order
-function wpse_custom_menu_order( $menu_ord ) {
+function atlas_custom_menu_order( $menu_ord ) {
     if ( !$menu_ord ) return true;
 
     return array(
@@ -42,14 +42,14 @@ function wpse_custom_menu_order( $menu_ord ) {
         'separator-last', // Last separator
     );
 }
-add_filter( 'custom_menu_order', 'wpse_custom_menu_order', 10, 1 );
-add_filter( 'menu_order', 'wpse_custom_menu_order', 10, 1 );
+add_filter( 'custom_menu_order', 'atlas_custom_menu_order', 10, 1 );
+add_filter( 'menu_order', 'atlas_custom_menu_order', 10, 1 );
 
 
 
 //2.0 - Disable Menu Items	
-add_action( 'admin_menu', 'mingo_remove_menu_pages' );
-function mingo_remove_menu_pages() {
+add_action( 'admin_menu', 'atlas_remove_menu_pages' );
+function atlas_remove_menu_pages() {
 	global $current_user;
 	
 	remove_menu_page('edit-comments.php');
@@ -57,11 +57,10 @@ function mingo_remove_menu_pages() {
 	remove_submenu_page('themes.php','theme-editor.php');
 	remove_submenu_page('themes.php','widgets.php');
 
-    $admins = array(1, 2, 3, 4, 5, 6, 7, 8);
+    $admins = array(1, 2);
     if ( in_array($current_user->ID, $admins) ) {
 		// If User ID is 1 to 7, do nothing
 	} else {
-		// define('DISALLOW_FILE_MODS',true);
 	  	remove_menu_page('edit.php?post_type=acf-field-group');
 	  	remove_submenu_page('themes.php','themes.php');
 	}
@@ -69,8 +68,8 @@ function mingo_remove_menu_pages() {
 
 
 //3.0 - Remove Items from Menu Nav Bar
-add_action( 'admin_bar_menu', 'mingo_remove_nodes', 999 );
-function mingo_remove_nodes( $wp_admin_bar ) {
+add_action( 'admin_bar_menu', 'atlas_remove_nodes', 999 );
+function atlas_remove_nodes( $wp_admin_bar ) {
 	$wp_admin_bar->remove_node( 'new-content' );
 	$wp_admin_bar->remove_node( 'comments' );
 	$wp_admin_bar->remove_node( 'customize' );

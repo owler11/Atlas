@@ -1,7 +1,7 @@
 /*
 Headings Styles
 
-@package mingo
+@package atlas
 */
 
 /*--------------------------------------------------------------
@@ -27,7 +27,6 @@ Headings Styles
     --letter-spacing: 0;
     --line-height: 1.12;
 
-    margin-block: var(--margin-block-start) var(--margin-block-end);
 	font-family: var(--font-family);
     font-size: atlas-clamp(var(--font-size__max), var(--font-size__min));
 	font-weight: var(--font-weight);

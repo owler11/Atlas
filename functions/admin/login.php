@@ -2,7 +2,7 @@
 /**
  * Functions - Login
  *
- * @package mingo
+ * @package atlas
  * Updated Version: 1.0
  */
 
@@ -14,17 +14,17 @@
 
 //1.0 - Login CSS
 // Calling your own login css so you can style it
-function custom_login_css() {
+function atlas_login_css() {
 	wp_enqueue_style( 'custom_login_css', get_template_directory_uri() . '/assets/admin.css', false );
 }
 
 // changing the logo link from wordpress.org to your site
-function custom_login_url() {  return home_url(); }
+function atlas_login_url() {  return home_url(); }
 
 // changing the alt text on the logo to show your site name
-function custom_login_title() { return get_option('blogname'); }
+function atlas_login_title() { return get_option('blogname'); }
 
 // calling it only on the login page
-add_action( 'login_enqueue_scripts', 'custom_login_css', 10 );
-add_filter( 'login_headerurl', 'custom_login_url');
-add_filter( 'login_headertext', 'custom_login_title');
+add_action( 'login_enqueue_scripts', 'atlas_login_css', 10 );
+add_filter( 'login_headerurl', 'atlas_login_url');
+add_filter( 'login_headertext', 'atlas_login_title');

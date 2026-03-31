@@ -13,6 +13,7 @@
 3.0 - Primary       (header-primary.php: site header, nav, menu, toggle)
 --------------------------------------------------------------*/
 
+@import "header/header-search";
 @import "header/header-message-bar";
 @import "header/header-utility";
 @import "header/header-primary";

@@ -40,11 +40,7 @@
     // Load Post Posttype
     require get_template_directory() . '/functions/posttypes/posttype-post.php';
 
-//3.0 - Taxonomies
-    // Load Taxonomies
-    require get_template_directory() . '/functions/taxonomies/taxonomies.php';
-
-//4.0 - Additional Theme Features
+//3.0 - Additional Theme Features
     //Custom template tags for this theme
     require get_template_directory() . '/functions/content/template-tags.php';
 
@@ -56,9 +52,6 @@
     
     // Links 
     require get_template_directory() . '/functions/content/links.php'; 
-    
-    // General Functions
-    require get_template_directory() . '/functions/content/functions.php'; 
 
     // Widgets
     require get_template_directory() . '/functions/admin/widgets.php'; 
@@ -68,7 +61,4 @@
 
 //5.0 - Functions
     // Login
-    require get_template_directory() . '/functions/admin/login.php'; 
-    
-    // Hooks
-    require get_template_directory() . '/functions/integrations/notification-hook.php'; 
+    require get_template_directory() . '/functions/admin/login.php';

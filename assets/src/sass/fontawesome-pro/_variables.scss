@@ -49,8 +49,9 @@ $stack-width           : ($fw-width * 2) !default;
 $stack-z-index         : auto !default;
 
 // web fonts-related variables
+// Relative to Vite output CSS (assets/public/css/). No /wp-content/themes/{slug}/ — survives theme renames.
 $font-display          : block !default;
-$font-path             : "../webfonts" !default;
+$font-path             : "../../fonts/webfonts" !default;
 
 // deprecated: these older SCSS variables will be removed with Font Awesome's next major release
 $style-family          : $family;

@@ -1,7 +1,7 @@
 /*
 Popup Styles
 
-@package mingo
+@package atlas
 */
 
 /*--------------------------------------------------------------
@@ -555,7 +555,7 @@ img.mfp-img {
 
 dialog {
 	&::backdrop {
-		background-color: rgba($color: $navy-1, $alpha: 40%);
+		background-color: rgba($color: $black-1, $alpha: 40%);
 	}
 }
 

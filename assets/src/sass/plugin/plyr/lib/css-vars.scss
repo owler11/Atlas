@@ -15,7 +15,7 @@ $css-vars-use-native: false !default;
 // Assigns a variable to the global map
 ///
 @function css-var-assign($varName: null, $varValue: null) {
-	@return map-merge(
+	@return map.merge(
 		$css-vars,
 		(
 			$varName: $varValue,
@@ -52,7 +52,7 @@ $css-vars-use-native: false !default;
 	@if $css-vars-use-native {
 		// CSS variables
 		// Native CSS: don't process function in case of native
-		@return unquote("var(" + $args + ")");
+		@return string.unquote("var(" + $args + ")");
 	} @else {
 		@if not $var-value {
 			// variable is not provided so far
@@ -82,7 +82,7 @@ $css-vars-use-native: false !default;
 	}
 
 	@if type_of($var-map) != map {
-		@error 'Map of variables is expected, instead got another type passed: #{type_of($var, ap)}';
+		@error 'Map of variables is expected, instead got another type passed: #{meta.type-of($var-map)}';
 	}
 
 	// PROCESS

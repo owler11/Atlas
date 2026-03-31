@@ -2,14 +2,14 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.0 - Globals
-2.0 - Blocks
+2.0 - Slick Slider
 --------------------------------------------------------------*/
 
 // 1.0 - Globals
 import $ from "jquery";
 
-// 2.0 - Blocks
-export function blocks() {
+// 2.0 - Slick Slider
+export function slickSliders() {
 	(function () {
 		const sliderThree = function () {
 			$(".js-slider-3")
@@ -83,7 +83,6 @@ export function blocks() {
 					dots: false,
 					slidesToShow: 6,
 					slidesToScroll: 1,
-					// variableWidth: true,
 					infinite: true,
 					responsive: [
 						{
@@ -114,7 +113,6 @@ export function blocks() {
 				dots: true,
 				slidesToShow: 1,
 				slidesToScroll: 1,
-				// variableWidth: true,
 				infinite: true,
 			});
 		};

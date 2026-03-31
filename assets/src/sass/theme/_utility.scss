@@ -1,7 +1,7 @@
 /*
 Utility Classes
 
-@package mingo
+@package atlas
 */
 
 /*--------------------------------------------------------------
@@ -13,6 +13,7 @@ Utility Classes
 	1.3 - Color
 2.0 - Layouts
 	2.1 - Grids
+3.0 - Margins & Padding
 --------------------------------------------------------------*/
 
 //1.0 - Text Styles
@@ -30,115 +31,27 @@ Utility Classes
 }
 
 .weight-light {
-	font-weight: $light;
+	font-weight: 300;
 }
 
 .weight-thin {
-	font-weight: $thin;
+	font-weight: 100;
 }
 
 .weight-regular {
-	font-weight: $regular;
+	font-weight: 400;
 }
 
 .weight-semi {
-	font-weight: $semi;
+	font-weight: 600;
 }
 
 .weight-bold {
-	font-weight: $bold;
+	font-weight: 700;
 }
 
 .weight-bolder {
-	font-weight: $bolder;
-}
-
-.size-xxs {
-	font-size: $size-xxs;
-}
-
-.size-xs {
-	font-size: $size-xs;
-}
-
-.size-sm {
-	font-size: $size-sm;
-}
-
-.size-base {
-	font-size: $size-base;
-}
-
-.size-md {
-	font-size: $size-md;
-	@include respond-below(md) {
-		font-size: $size-base;
-	}
-}
-
-.size-lg {
-	font-size: $size-lg;
-	@include respond-below(md) {
-		font-size: $size-md;
-	}
-}
-
-.size-xl {
-	font-size: $size-xl;
-	@include respond-below(md) {
-		font-size: $size-lg;
-	}
-}
-
-.size-xxl {
-	font-size: $size-xxl;
-	@include respond-below(md) {
-		font-size: $size-xl;
-	}
-}
-
-.size-xxxl {
-	font-size: $size-xxxl;
-	@include respond-below(md) {
-		font-size: $size-xxl;
-	}
-}
-
-.size-jumbo {
-	font-size: $size-jumbo;
-	@include respond-below(md) {
-		font-size: $size-xxxl;
-	}
-}
-
-.size-super {
-	font-size: $size-super;
-	@include respond-below(md) {
-		font-size: $size-jumbo;
-	}
-}
-
-.size-epic {
-	font-size: $size-epic;
-	@include respond-below(md) {
-		font-size: $size-jumbo;
-	}
-}
-
-.letter-spacing {
-	letter-spacing: $letter-spacing;
-}
-
-.text-uppercase {
-	text-transform: uppercase;
-}
-
-.text-lowercase {
-	text-transform: lowercase;
-}
-
-.text-capitalize {
-	text-transform: capitalize;
+	font-weight: 900;
 }
 
 //1.2 - Align
@@ -155,20 +68,21 @@ Utility Classes
 }
 
 //1.3 - Color
+// Map these colors to the variables
 .color-light {
-	color: $color-light;
+	color: $black-3;
 }
 
 .color-medium {
-	color: $color-medium;
+	color: $black-2;
 }
 
 .color-dark {
-	color: $color-dark;
+	color: $black-1;
 }
 
 .color-accent {
-	color: $color-accent;
+	color: $black-3;
 }
 
 .color-black {
@@ -176,7 +90,7 @@ Utility Classes
 }
 
 .color-grey {
-	color: $color-grey;
+	color: $grey;
 }
 
 .color-white {
@@ -200,7 +114,7 @@ Utility Classes
 }
 
 .bg-grey {
-	background-color: $bg-grey;
+	background-color: $grey;
 }
 
 .bg-white {
@@ -219,3 +133,15 @@ Utility Classes
 	background-color: $color-secondary;
 }
 
+// 3.0 - Margins & Padding
+.no-margin {
+	margin: 0;
+}
+
+.no-top-margin {
+	margin-top: 0;
+}
+
+.no-bottom-margin {
+	margin-bottom: 0;
+}

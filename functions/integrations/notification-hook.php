@@ -2,7 +2,7 @@
 /**
  * Functions Hook
  * 
- * @package mingo
+ * @package atlas
  */
 
 /*--------------------------------------------------------------
@@ -14,9 +14,9 @@ TABLE OF CONTENTS:
 
 
 // 1.0 - Theme Activation
-add_action('after_switch_theme', 'notify_on_theme_activation');
+add_action('after_switch_theme', 'atlas_notify_on_theme_activation');
 
-function notify_on_theme_activation() {
+function atlas_notify_on_theme_activation() {
     // Get the current site URL
     $site_url = get_site_url();
     

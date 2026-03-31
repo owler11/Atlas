@@ -1,7 +1,19 @@
 {
-  "_accordion-C5cyxoDX.js": {
-    "file": "js/accordion-C5cyxoDX.js",
-    "name": "accordion"
+  "_slick-OfLbIYnB.js": {
+    "file": "js/slick-OfLbIYnB.js",
+    "name": "slick"
+  },
+  "assets/fonts/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-ChfuyuEw.woff2",
+    "src": "assets/fonts/webfonts/fa-brands-400.woff2"
+  },
+  "assets/fonts/webfonts/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-BOgqvwHK.woff2",
+    "src": "assets/fonts/webfonts/fa-regular-400.woff2"
+  },
+  "assets/fonts/webfonts/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-BoIGJYu2.woff2",
+    "src": "assets/fonts/webfonts/fa-solid-900.woff2"
   },
   "assets/src/js/backend.js": {
     "file": "js/backend.js",
@@ -9,7 +21,7 @@
     "src": "assets/src/js/backend.js",
     "isEntry": true,
     "imports": [
-      "_accordion-C5cyxoDX.js"
+      "_slick-OfLbIYnB.js"
     ],
     "css": [
       "css/backend.css"
@@ -21,10 +33,15 @@
     "src": "assets/src/js/frontend.js",
     "isEntry": true,
     "imports": [
-      "_accordion-C5cyxoDX.js"
+      "_slick-OfLbIYnB.js"
     ],
     "css": [
       "css/frontend.css"
+    ],
+    "assets": [
+      "assets/fa-brands-400-ChfuyuEw.woff2",
+      "assets/fa-regular-400-BOgqvwHK.woff2",
+      "assets/fa-solid-900-BoIGJYu2.woff2"
     ]
   }
 }

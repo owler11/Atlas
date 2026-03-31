@@ -2,7 +2,7 @@
 /**
  * ACF Settings
  * 
- * @package mingo
+ * @package atlas
  */
 
 /*--------------------------------------------------------------
@@ -48,35 +48,26 @@ add_action('init', function() {
         )); 
         
         //1.3 Events Options
-        acf_add_options_sub_page(array(
-            'page_title'    => 'Events Settings',
-            'menu_title'    => 'Events Settings',
-            'parent_slug'   => 'edit.php?post_type=events',
-        )); 
-        
-        //1.4 People Options
-        acf_add_options_sub_page(array(
-            'page_title'    => 'People Settings',
-            'menu_title'    => 'People Settings',
-            'parent_slug'   => 'edit.php?post_type=people',
-        )); 
+        // acf_add_options_sub_page(array(
+        //     'page_title'    => 'Events Settings',
+        //     'menu_title'    => 'Events Settings',
+        //     'parent_slug'   => 'edit.php?post_type=events',
+        // )); 
     }
 });
 
 
-
 //2.0 - Google Map API Key
-// function my_acf_init() {    
+// function atlas_acf_init() {    
 //     acf_update_setting('google_api_key', 'AIzaSyDSa90Zcwo9gCm-VdhdRWZArgSRcdbaFWE');
 // }
-// add_action('acf/init', 'my_acf_init');
-
+// add_action('acf/init', 'atlas_acf_init');
 
 
 // 3.0 - Custom Blocks
 // 3.1 - Category
-add_filter( 'block_categories_all', 'custom_block_category', 10, 2);
-function custom_block_category( $categories, $post ) {
+add_filter( 'block_categories_all', 'atlas_block_category', 10, 2);
+function atlas_block_category( $categories, $post ) {
     
     array_unshift( $categories, array(
         'slug'	=> 'custom',
@@ -87,16 +78,16 @@ function custom_block_category( $categories, $post ) {
 }
 
 // 3.1.1 - Auto-apply ACF Blocks V3 to all blocks
-function mingo_acf_block_version( $version, $block ) {
+function atlas_acf_block_version( $version, $block ) {
     return 3;
 }
-add_filter( 'acf/blocks/default_block_version', 'mingo_acf_block_version', 10, 2 );
+add_filter( 'acf/blocks/default_block_version', 'atlas_acf_block_version', 10, 2 );
 
 
 
 // 3.2 - Blocks
-add_action('acf/init', 'mingo_acf_init_block_types');
-function mingo_acf_init_block_types() {
+add_action('acf/init', 'atlas_acf_init_block_types');
+function atlas_acf_init_block_types() {
 
     $svg = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve"><style type="text/css">.st0{fill:#64C4B3;}</style><path class="st0" d="M42.5,6.7H30.2c-0.3,0-0.6,0.2-0.7,0.5L19,31.5c-0.1,0.3,0,0.5,0.3,0.5h6.6l-8.7,20.8c-0.2,0.6,0.5,0.7,0.9,0.2 l23.5-27.3c0.3-0.3,0.2-0.7-0.2-0.7h-6.3l7.7-17.8C43,6.9,42.8,6.7,42.5,6.7z"/></svg>';
 
@@ -208,7 +199,7 @@ add_filter( 'acf/fields/wysiwyg/toolbars', function ( $toolbars ) {
 
 
 // 5.0 - JSON File Name
-function custom_acf_json_filename( $filename, $post, $load_path ) {
+function atlas_acf_json_filename( $filename, $post, $load_path ) {
     $filename = str_replace(
         array(
             ' ',
@@ -225,4 +216,4 @@ function custom_acf_json_filename( $filename, $post, $load_path ) {
 
     return $filename;
 }
-add_filter( 'acf/json/save_file_name', 'custom_acf_json_filename', 10, 3 );
+add_filter( 'acf/json/save_file_name', 'atlas_acf_json_filename', 10, 3 );

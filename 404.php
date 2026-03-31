@@ -4,17 +4,17 @@
  * 
  * Template for displaying Error 404 page
  * 
- * @package mingo
+ * @package atlas
  */
 
 
 get_header();
 ?>
 
-<section class="wrapper hero__error">
+<section class="hero hero__error padding-t-medium padding-b-medium theme-dark">
 	<div class="container hero-error__container">
 		<header class="hero-error__headline"> 
-			<h1>404 Error</h1>
+			<h1 class="headline">404 Error</h1>
 	
 			<div class="entry-content">
 				<h5 class="entry-title">Sorry, this page isn't available</h5>

@@ -3,7 +3,7 @@
 /**
  * Template Files - Header
  * 
- * @package mingo
+ * @package atlas
  */
 
 ?>

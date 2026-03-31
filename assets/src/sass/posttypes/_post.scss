@@ -3,7 +3,7 @@ Scss - Post Type - Post
 
 Post Styles
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -42,7 +42,7 @@ Post Styles
 	p {
 		@include respond-above(md) {
 			font-size: rem(18px);
-			color: $navy-2;
+			color: $black-2;
 		}
 	}
 

@@ -2,7 +2,7 @@
 /**
  * Template Files - Default Page
  * 
- * @package mingo
+ * @package atlas
  */
 
 get_header(); 

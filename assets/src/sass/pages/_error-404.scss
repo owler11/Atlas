@@ -3,10 +3,25 @@ Scss - Pages - 404
 
 404 Styles
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.0 - 404
 --------------------------------------------------------------*/
+
+
+.hero__error {
+	.headline {
+		margin: 0;
+
+        &:has(+ .entry-content) {
+            margin-bottom: rem(24px);
+        }
+	}
+
+    .entry-content {
+        margin: 0;
+    }
+}

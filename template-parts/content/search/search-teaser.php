@@ -2,7 +2,7 @@
 /**
  * Template Parts - Search - Search Teaser
  * 
- * @package mingo
+ * @package atlas
  */
 
 ?>

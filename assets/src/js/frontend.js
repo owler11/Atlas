@@ -17,10 +17,9 @@ window.$ = jQuery;
 /**
  * Components
  */
-import { popup } from "./components/popup.js";
-import { blocks } from "./components/blocks.js";
-import { initSlideShows } from "./components/slideshow.js";
+import { slickSliders } from "./components/slider.js";
 import { mobileMenu, primaryMenuSubmenus } from "./components/navigation.js";
+import { toggleSearch } from "./components/toggle.js";
 import { tabToggle } from "./components/tab.js";
 import { dialogModal } from "./components/dialog.js";
 import { statNumberAnimation } from "./components/animation.js";
@@ -30,19 +29,18 @@ import { accordionAnimation } from "./components/accordion.js";
  * JS
  */
 $(function () {
-  console.log("Atlas Vite + WordPress loaded!");
-  popup();
-  initSlideShows();
-  blocks();
-  mobileMenu();
-  primaryMenuSubmenus();
-  tabToggle();
-  dialogModal();
-  statNumberAnimation();
-  accordionAnimation();
+	console.log("Atlas Vite + WordPress loaded!");
+	slickSliders();
+	mobileMenu();
+	primaryMenuSubmenus();
+	toggleSearch();
+	tabToggle();
+	dialogModal();
+	statNumberAnimation();
+	accordionAnimation();
 });
 
 // Reinitialize popups after FacetWP reloads
 $(document).on("facetwp-loaded", function () {
-  dialogModal();
+	dialogModal();
 });

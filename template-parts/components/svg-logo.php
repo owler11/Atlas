@@ -2,7 +2,7 @@
 /**
  * Template Parts - Components - SVG Logo
  * 
- * @package mingo
+ * @package atlas
  */
 
 ?>

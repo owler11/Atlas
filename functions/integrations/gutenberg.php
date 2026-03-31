@@ -2,7 +2,7 @@
 /**
  * Functions - Functions Gutenberg
  * 
- * @package mingo
+ * @package atlas
  * Updated Version: 1.0
  */
 
@@ -28,7 +28,6 @@
 		);
 
 		$excluded_ids = array(
-			// get_option( 'page_on_front' )
 		);
 
 		if( empty( $id ) )
@@ -52,18 +51,14 @@
 		return $can_edit;
 
 	}
-	//add_filter( 'gutenberg_can_edit_post_type', 'ea_disable_gutenberg', 10, 2 );
-	//add_filter( 'use_block_editor_for_post_type', 'ea_disable_gutenberg', 10, 2 );
-
 
 
 //2.0 - Disable Gutenburg Site-wide
-//add_filter('use_block_editor_for_post_type', '__return_false');
 
 
 //3.0 - Enable/Disable Blocks
-add_filter( 'allowed_block_types_all', 'mingo_allowed_block_types', 10, 2 );
-function mingo_allowed_block_types( $allowed_blocks, $context ) {
+add_filter( 'allowed_block_types_all', 'atlas_allowed_block_types', 10, 2 );
+function atlas_allowed_block_types( $allowed_blocks, $context ) {
  
 	$allowed_blocks = array(
 		'core/paragraph',
@@ -135,8 +130,8 @@ add_filter( 'render_block', function ( $block_content, $block ) {
 	return $block_content;
 }, 10, 2 );
 
-add_filter('render_block_data', 'block_data_pre_render', 10, 2);
-function block_data_pre_render($parsed_block, $source_block) {
+add_filter('render_block_data', 'atlas_block_data_pre_render', 10, 2);
+function atlas_block_data_pre_render($parsed_block, $source_block) {
     $core_blocks = [
         'core/group',
         'core/columns',
@@ -150,25 +145,25 @@ function block_data_pre_render($parsed_block, $source_block) {
         !wp_is_json_request()
     ) {
         $parsed_block['attrs']['hasChild'] = 1;
-        array_walk($parsed_block['innerBlocks'], 'inner_block_looper');
+        array_walk($parsed_block['innerBlocks'], 'atlas_inner_block_looper');
     }
 
     return $parsed_block;
 }
 
-function inner_block_looper(&$itm, $key) {
+function atlas_inner_block_looper(&$itm, $key) {
     if ($key === 'attrs') {
         $itm['hasParent'] = 1;
     }
     if (is_array($itm)) {
-        array_walk($itm, 'inner_block_looper');
+        array_walk($itm, 'atlas_inner_block_looper');
     }
 }
 
 
 
 //5.0 - Block Templates
-function page_header_block_template() {
+function atlas_page_header_block_template() {
     $post_type_object = get_post_type_object( 'page' );
     $post_type_object->template = array(
 	    array( 'acf/hero', array(
@@ -179,4 +174,4 @@ function page_header_block_template() {
 	    ) ),     
     );
 }
-add_action( 'init', 'page_header_block_template' );
+add_action( 'init', 'atlas_page_header_block_template' );

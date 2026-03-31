@@ -4,7 +4,7 @@
  * 
  * Header Masthead
  * 
- * @package mingo
+ * @package atlas
  */
 
 $popup_active	= get_field('site_popup_activate', 'option');
@@ -97,7 +97,7 @@ if($popup_active) { ?>
 							echo $pop_content;
 						}
 						if($pop_link) {
-							echo getButton($pop_link, 'btn__outline', '');
+							echo atlas_get_button($pop_link, 'btn__outline', '');
 						}
 						if($pop_form) {
 							echo do_shortcode('[gravityform id="'. $pop_form .'" title="false" description="false" ajax="true"]');

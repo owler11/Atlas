@@ -4,7 +4,7 @@
  * 
  * Header Masthead
  * 
- * @package mingo
+ * @package atlas
  */
 
 $hmb 			= get_field('hmb', 'option');

@@ -1,0 +1,104 @@
+/*
+Scss - Eight Point Grid System
+
+@package atlas
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Spacing Scale
+--------------------------------------------------------------*/
+
+// 1.0 - Spacing Scale — 8-Point Grid System
+// Usage:
+//   .element {
+//     padding: var(--space-3);        // 24px desktop → 16px mobile
+//     margin-bottom: var(--space-5);  // 40px desktop → 24px mobile
+//     gap: var(--space-2);            // 16px desktop → 8px mobile
+//   }
+
+// Scale reference (desktop → mobile):
+//   --space-0:   0px  →  0px
+//   --space-px:  1px  →  1px
+//   --space-0-5: 4px  →  4px   (half-step, fine adjustments)
+//   --space-1:   8px  →  8px
+//   --space-2:  16px  →  8px
+//   --space-3:  24px  → 16px
+//   --space-4:  32px  → 24px
+//   --space-5:  40px  → 24px
+//   --space-6:  48px  → 32px
+//   --space-7:  56px  → 32px
+//   --space-8:  64px  → 40px
+//   --space-9:  72px  → 48px
+//   --space-10: 80px  → 48px
+//   --space-12: 96px  → 56px
+//   --space-16: 128px → 64px
+
+// Semantic aliases:
+//   --space-section:   Section-level vertical padding
+//   --space-block:     Block-level spacing (between cards, groups)
+//   --space-element:   Element-level spacing (between items in a group)
+//   --space-inline:    Inline spacing (button padding, icon gaps)
+//   --space-gutter:    Grid/layout gutters
+
+
+// ---------------------------------------------------------------------------
+// Config — adjust these to taste
+// ---------------------------------------------------------------------------
+
+// Breakpoint where spacing scales down.
+// Match this to your global mobile breakpoint.
+$spacing-breakpoint: 768px !default;
+
+// ---------------------------------------------------------------------------
+// Scale definition
+// ---------------------------------------------------------------------------
+
+:root {
+  // Base scale (desktop / tablet-up)
+  --space-0: 0px;
+  --space-px: 1px;
+  --space-0-5: 4px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 56px;
+  --space-8: 64px;
+  --space-9: 72px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  // Semantic aliases — map these to whatever makes sense for your projects
+  --space-section: var(--space-8);    // 64px → 40px
+  --space-block: var(--space-5);      // 40px → 24px
+  --space-element: var(--space-3);    // 24px → 16px
+  --space-inline: var(--space-1);     //  8px →  8px
+  --space-gutter: var(--space-3);     // 24px → 16px
+}
+
+// ---------------------------------------------------------------------------
+// Mobile overrides
+// ---------------------------------------------------------------------------
+// The scale roughly drops ~1–2 steps on mobile.
+// Smallest values (0, px, 0.5, 1) stay fixed — they're already tight.
+
+@media (max-width: #{$spacing-breakpoint - 1}) {
+  :root {
+    // --space-0, --space-px, --space-0-5, --space-1: unchanged (already small)
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 32px;
+    --space-8: 40px;
+    --space-9: 48px;
+    --space-10: 48px;
+    --space-12: 56px;
+    --space-16: 64px;
+  }
+}

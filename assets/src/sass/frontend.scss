@@ -1,7 +1,7 @@
 /*
 Frontend Sass Files 
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -31,7 +31,6 @@ Frontend Sass Files
 @import "fontawesome-pro/solid";
 @import "fontawesome-pro/v4-shims";
 
-@import "theme/legacy";
 @import "theme/variables";
 @import "framework/functions";
 @import "theme/fonts";
@@ -40,6 +39,8 @@ Frontend Sass Files
 @import "theme/typography";
 @import "theme/headings";
 @import "framework/grid";
+
+// @import "framework/eight-point";
 
 // 3.0 - Plugins
 
@@ -60,6 +61,7 @@ Frontend Sass Files
 @import "pages/styleguide";
 
 // 7.0 - Other
+@import "components/theme-color";
 @import "components/blocks";
 @import "components/hero";
 

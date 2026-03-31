@@ -1,15 +1,25 @@
 <?php
 /**
  * Functions - Content - Menus
- * 
  *
- * ACF menu renderers. 
+ * ACF menu renderers.
  * Keys: menu_primary, menu_utility, menu_footer.
  * Primary class contract: primary-menu__list, primary-menu__item, primary-menu__link, primary-menu__trigger, primary-menu__submenu.
- * JS init: primaryMenuSubmenus(), mobileMenu(). 
+ * JS init: primaryMenuSubmenus(), mobileMenu().
  * Used by: header-primary, header-utility, footer.
  * Supports 3 levels: top-level items, children (2nd), grandchildren (3rd) via ACF nested repeaters.
+ *
+ * @package atlas
  */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Primary Menu
+2.0 - Utility Menu
+3.0 - Footer Menu
+    3.1 - Flat Menu Helper
+--------------------------------------------------------------*/
 
 // 1.0 - Primary
 function atlas_render_menu_primary() {
@@ -22,24 +32,22 @@ function atlas_render_menu_primary() {
 
 	foreach ($items as $item) {
 		// ACF fields
-		$link = $item['link'] ?? []; // Top-level link
-		$children = $item['children'] ?? []; // Children
-		$children = is_array($children) ? $children : []; // Ensure children is an array
-		$has_children = ! empty($children); // Make sure children exist
+		$link         = $item['link'] ?? []; // Top-level link
+		$children     = is_array( $item['children'] ?? null ) ? $item['children'] : []; // Children
+		$has_children = ! empty( $children );
 
 		// List item (li) classes
 		$item_classes = ['primary-menu__item'];
 		if ($has_children) $item_classes[] = 'primary-menu__item--has-dropdown';
 
-		// Submenu IDs and ARIA attributes
+		// Submenu ID (ARIA attributes belong on the <button>, not the <li>)
 		$sub_id = 'primary-menu-sub-' . (++$sub_index);
-		$li_attr = $has_children ? ' aria-haspopup="true" aria-expanded="false"' : '';
 
 		// Top-level link
-		echo '<li class="' . esc_attr(implode(' ', $item_classes)) . '"' . $li_attr . '>';
+		echo '<li class="' . esc_attr( implode( ' ', $item_classes ) ) . '">';
 
 		if (! empty($link['url'])) {
-			echo getNavLink($link, 'primary-menu__link');
+			echo atlas_get_nav_link($link, 'primary-menu__link');
 		}
 
 		// Submenu dropdown: trigger button + submenu list
@@ -69,11 +77,11 @@ function atlas_render_menu_primary() {
 				if ($has_grandchildren) {
 					// Generate a unique ID for the sub-submenu
 					$sub_sub_id = $sub_id . '-' . (++$sub_sub_index);
-					echo '<li class="primary-menu__item primary-menu__item--has-dropdown" role="none" aria-haspopup="true" aria-expanded="false">';
+					echo '<li class="primary-menu__item primary-menu__item--has-dropdown" role="none">';
 					
 					// Output the link
 					if (! empty($child_link['url'])) {
-						echo getNavLink($child_link, 'primary-menu__link');
+						echo atlas_get_nav_link($child_link, 'primary-menu__link');
 					}
 					
 					// Trigger button
@@ -87,14 +95,14 @@ function atlas_render_menu_primary() {
 					foreach ($grandchildren as $grandchild) {
 						$g_link = $grandchild['link'] ?? [];
 						if (empty($g_link['url'])) continue;
-						echo '<li class="primary-menu__item" role="none">' . getNavLink($g_link, 'primary-menu__link') . '</li>';
+						echo '<li class="primary-menu__item" role="none">' . atlas_get_nav_link($g_link, 'primary-menu__link') . '</li>';
 					}
 					
 					echo '</ul></li>';
 				} else {
 					// 2nd level: link only
 					if (empty($child_link['url'])) continue;
-					echo '<li class="primary-menu__item" role="none">' . getNavLink($child_link, 'primary-menu__link') . '</li>';
+					echo '<li class="primary-menu__item" role="none">' . atlas_get_nav_link($child_link, 'primary-menu__link') . '</li>';
 				}
 			}
 			echo '</ul>';
@@ -107,26 +115,26 @@ function atlas_render_menu_primary() {
 }
 
 /* Sample HTML output
- * 
+ *
  * BASIC STRUCTURE:
  *
 	<ul class="primary-menu__list">
 		<li class="primary-menu__item">
-		<a href="/#" class="primary-menu__link">Nav Item</a>
+			<a href="/" class="primary-menu__link">Nav Item</a>
 		</li>
 		...
 	</ul>
  *
  * ITEM WITH CHILDREN:
- * 
-	<li class="primary-menu__item primary-menu__item--has-dropdown" aria-haspopup="true" aria-expanded="false">
-		<a href="/#" class="primary-menu__link" target="">Nav Item</a>
+ *
+	<li class="primary-menu__item primary-menu__item--has-dropdown">
+		<a href="/" class="primary-menu__link">Nav Item</a>
 		<button type="button" class="primary-menu__trigger js-accordion-trigger" aria-expanded="false" aria-controls="primary-menu-sub-1" aria-label="Toggle submenu">
 			<i class="fa-solid fa-angle-down" aria-hidden="true"></i>
 		</button>
 		<ul class="primary-menu__submenu" id="primary-menu-sub-1" role="menu" aria-label="Submenu">
 			<li class="primary-menu__item" role="none">
-				<a href="/#" class="primary-menu__link" target="" tabindex="-1">Sub Item</a>
+				<a href="/" class="primary-menu__link">Sub Item</a>
 			</li>
 		</ul>
 	</li>
@@ -136,30 +144,29 @@ function atlas_render_menu_primary() {
 
 // 2.0 - Utility
 function atlas_render_menu_utility() {
-	$items = get_field('menu_utility', 'option');
-	if (empty($items) || ! is_array($items)) return;
-
-	echo '<ul class="utility-menu__list">';
-	foreach ($items as $item) {
-		$link = $item['link'] ?? [];
-		if (empty($link['url'])) continue;
-
-		echo '<li class="utility-menu__item">' . getNavLink($link, 'utility-menu__link') . '</li>';
-	}
-	echo '</ul>';
+	atlas_render_menu_flat( 'menu_utility', 'utility-menu' );
 }
 
 // 3.0 - Footer
 function atlas_render_menu_footer() {
-	$items = get_field('menu_footer', 'option');
-	if (empty($items) || ! is_array($items)) return;
+	atlas_render_menu_flat( 'menu_footer', 'footer-menu' );
+}
 
-	echo '<ul class="footer-menu__list">';
-	foreach ($items as $item) {
+// 3.1 - Flat Menu Helper
+// Shared renderer for single-level menus (utility, footer).
+// $acf_key:    ACF option field key (e.g. 'menu_utility')
+// $css_prefix: BEM block prefix (e.g. 'utility-menu') — outputs __list, __item, __link classes
+function atlas_render_menu_flat( $acf_key, $css_prefix ) {
+	$items = get_field( $acf_key, 'option' );
+	if ( empty( $items ) || ! is_array( $items ) ) return;
+
+	echo '<ul class="' . esc_attr( $css_prefix ) . '__list">';
+	foreach ( $items as $item ) {
 		$link = $item['link'] ?? [];
-		if (empty($link['url'])) continue;
-
-		echo '<li class="footer-menu__item">' . getNavLink($link, 'footer-menu__link') . '</li>';
+		if ( empty( $link['url'] ) ) continue;
+		echo '<li class="' . esc_attr( $css_prefix ) . '__item">'
+			. atlas_get_nav_link( $link, $css_prefix . '__link' )
+			. '</li>';
 	}
 	echo '</ul>';
 }

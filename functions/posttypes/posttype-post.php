@@ -2,7 +2,7 @@
 /**
  * Post Type - Post (News)
  * 
- * @package mingo
+ * @package atlas
  */
 
 /*--------------------------------------------------------------
@@ -18,8 +18,7 @@ TABLE OF CONTENTS:
 
 
 //1.0 - Change Name
-// add_action( 'init', 'cp_change_post_object' );
-function cp_change_post_object() {
+function atlas_change_post_object() {
     $get_post_type = get_post_type_object('post');
     $labels = $get_post_type->labels;
         $labels->name               = 'News';
@@ -39,8 +38,8 @@ function cp_change_post_object() {
 
 
 // 2.0 - Disable Default Features
-add_filter('admin_init', 'disable_default_features');
-function disable_default_features() {
+add_filter('admin_init', 'atlas_disable_default_features');
+function atlas_disable_default_features() {
     remove_post_type_support( 'post', 'thumbnail' );
     remove_post_type_support( 'post', 'comments' );
     remove_post_type_support( 'post', 'trackbacks' );

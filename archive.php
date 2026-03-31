@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package mingo
+ * @package atlas
  */
 
 $pp_title 				= '';

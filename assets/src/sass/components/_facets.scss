@@ -3,7 +3,7 @@ Facets Sass Files
 
 Facets Global Styles
 
-@package mingo
+@package atlas
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -59,7 +59,7 @@ Facets Global Styles
 				width: rem(18px);
 				height: rem(18px);
 				border-radius: 50%;
-				background-color: $navy-4;
+				background-color: $black-4;
 				transform: translate(-50%, -50%);
 			}
 		}
@@ -96,12 +96,12 @@ Facets Global Styles
 
 #page .facetwp-checkbox {
 	margin: 0;
-	padding: $button-padding;
+	padding: rem(10px) rem(28px);
 	border: 2px solid $color-primary;
-	border-radius: $button-border-radius;
+	border-radius: rem(12px);
 	background: none;
 	transition: all 0.2s;
-	font-weight: $button-font-weight;
+	font-weight: 400;
 
 	&.checked {
 		background-color: $color-primary;
@@ -119,12 +119,12 @@ Facets Global Styles
 
 #page .facetwp-radio {
 	margin: 0;
-	padding: $button-padding;
+	padding: rem(10px) rem(28px);
 	border: 2px solid $color-primary;
-	border-radius: $button-border-radius;
+	border-radius: rem(12px);
 	background: none;
 	transition: all 0.2s;
-	font-weight: $button-font-weight;
+	font-weight: 400;
 
 	&.checked {
 		background-color: $color-primary;

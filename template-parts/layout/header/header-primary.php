@@ -27,13 +27,22 @@ $has_primary = ! empty(get_field('menu_primary', 'option')); // Check if primary
 			</nav>
 		<?php endif; ?>
 
-		<a href="<?php echo esc_url(home_url('/?s=')); ?>" class="header-search-icon" aria-label="<?php esc_attr_e('Search', 'atlas'); ?>"><i class="fa-solid fa-magnifying-glass"></i></a>
+		<button type="button" class="header-search-icon" data-js="search-toggle" aria-label="<?php esc_attr_e('Search', 'atlas'); ?>"><i class="fa-solid fa-magnifying-glass"></i></button>
 
 		<?php if ($has_primary) : ?>
 			<button class="menu-toggle js-menu-toggle" type="button" aria-expanded="false" aria-label="<?php esc_attr_e('Open menu', 'atlas'); ?>">
 				<span class="menu-toggle__icon" aria-hidden="true"></span>
 			</button>
 		<?php endif; ?>
+	</div>
+
+	<div class="site-header__search">
+		<div class="container site-header__search-container">
+			<form class="site-header__search-form" action="<?php echo esc_url(home_url('/')); ?>" method="get">
+				<input class="site-header__search-input" type="search" placeholder="<?php esc_attr_e('Search', 'atlas'); ?>" aria-label="<?php esc_attr_e('Search', 'atlas'); ?>">
+				<button class="site-header__search-button" type="submit"><?php esc_html_e('Search', 'atlas'); ?></button>
+			</form>
+		</div>
 	</div>
 </header><!-- #site-header -->
 

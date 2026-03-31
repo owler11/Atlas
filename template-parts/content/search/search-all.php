@@ -2,7 +2,7 @@
 /**
  * Template Parts - Search - Search All
  * 
- * @package mingo
+ * @package atlas
  */
 
 $search_term = $_GET['s'];

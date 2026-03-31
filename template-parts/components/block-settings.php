@@ -2,7 +2,7 @@
 /**
  * Template Parts - Block - Settings
  * 
- * @package mingo
+ * @package atlas
  * 
  * info: Handles Class & ID names
  */
